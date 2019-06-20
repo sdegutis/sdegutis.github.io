@@ -1,0 +1,8 @@
+permalink: /:year-:month-:day-:title
+exclude:
+  - _config.yml
+  - .gitignore
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
