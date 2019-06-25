@@ -3,6 +3,13 @@ html {
   font-size: 14pt;
 }
 
-body {
-  max-width: 40em;
+#container {
+  max-width: 36em;
+  margin: 1em auto;
 }
+
+h1 { color: #36688d }
+h2 { color: #c35d05 }
+h3 { color: #f18904 }
+h4 { color: #f49f05 }
+h5 { color: #f3cd05 }
