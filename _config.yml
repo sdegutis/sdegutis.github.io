@@ -2,7 +2,7 @@ permalink: /:year-:month-:day-:title
 exclude:
   - _config.yml
   - .gitignore
-  - CNAME
   - Gemfile
   - Gemfile.lock
   - LICENSE
+title: Useful links for Life
