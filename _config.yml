@@ -1,3 +1,4 @@
+title: Useful links for Life
 permalink: /:year-:month-:day-:title
 exclude:
   - _config.yml
@@ -5,4 +6,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
-title: Useful links for Life
