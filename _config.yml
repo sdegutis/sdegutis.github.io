@@ -6,5 +6,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
-github:
-  private: true
