@@ -1,4 +1,5 @@
 * [Venerable Fulton Sheen - (YouTube) The Fourth Great Crisis in the Church](https://www.youtube.com/watch?v=qHaizmIj3ck)
+* [Venerable Fulton Sheen - (YouTube) The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8)
 * [Venerable Fulton Sheen - (YouTube) 12 "Family Retreat" Sermons](https://www.youtube.com/playlist?list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3)
 * [Venerable Fulton Sheen - (YouTube) Why make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg)
 * [Venerable Fulton Sheen - (YouTube) St. Therese of Lisieux](https://www.youtube.com/watch?v=TVgbzn_br6M)
