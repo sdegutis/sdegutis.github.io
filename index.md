@@ -8,8 +8,6 @@
 * [St. John Bosco - (PDF) The Salesian Preventive System](The Salesian Preventive System.pdf)
 * For Catholic eBooks scanned from books published from 1700-1920, email [Steven Degutis](mailto:sbdegutis@gmail.com)
 
-<div style="width:50%">
-
 ### [Violence as the solution](https://www.youtube.com/watch?v=qHaizmIj3ck&t=1984)
 
 > There will always be those, for example, who will not even want to hear, lest they be called upon to change.
@@ -101,5 +99,3 @@
 > That's what we hear today. On retreats: "Tell us about liturgy! Tell us about the social order! Tell us about injustices! Talk politics!! ANYTHING, we'll believe anything you say! Only DON'T TALK THE CROSS! STOP IT! Come down and we'll believe!"
 > 
 > But he did not come down! Why? Because it's human to come down! Because if he came down, he never would have saved us. It's Divine to hang there!
-
-</div>
