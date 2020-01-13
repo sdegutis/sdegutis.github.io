@@ -28,6 +28,10 @@ They are all public domain so far as I can tell. The books are all in PDF form. 
 * [St. John Bosco - (PDF) The Salesian Preventive System](./books/The Salesian Preventive System.pdf)
 * [The Christian Mother (PDF)](./books/The Christian Mother.pdf)
 
+## Clearing doubts about Catholicism
+
+* [The Catholic Controversy (PDF)](./books/The Catholic Controversy.pdf)
+
 ## Becoming devout
 
 * [An Introduction to the Devout Life (PDF)](./books/An Introduction to the Devout Life.pdf)
@@ -73,6 +77,5 @@ They are all public domain so far as I can tell. The books are all in PDF form. 
 
 ## Supplementary
 
-* [The Catholic Controversy (PDF)](./books/The Catholic Controversy.pdf)
 * [Treatise On Purgatory (PDF)](./books/Treatise On Purgatory.pdf)
 * [Bible History (PDF)](./books/Bible History.pdf)
