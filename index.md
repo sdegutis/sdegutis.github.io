@@ -31,6 +31,7 @@ They are all public domain so far as I can tell. The books are all in PDF form. 
 ## Clearing doubts about Catholicism
 
 * [The Catholic Controversy (PDF)](./books/The Catholic Controversy.pdf)
+* [Catholic Dictionary (PDF)](./books/Catholic Dictionary.pdf)
 
 ## Becoming devout
 
@@ -38,6 +39,7 @@ They are all public domain so far as I can tell. The books are all in PDF form. 
 * [The Sinner's Guide (PDF)](./books/The Sinner's Guide.pdf)
 * [The Spiritual Combat (Dornin edition) (PDF)](./books/The Spiritual Combat (Dornin edition).pdf)
 * [The Spiritual Combat (Haydock edition) (PDF)](./books/The Spiritual Combat (Haydock edition).pdf)
+* [Letters to Persons in the World (PDF)](./books/Letters to Persons in the World.pdf)
 * [Catholic Girls Guide (PDF)](./books/Catholic Girls Guide.pdf)
 * [Young Man's Guide (PDF)](./books/Young Man's Guide.pdf)
 * [Light and Peace (PDF)](./books/Light and Peace.pdf)
