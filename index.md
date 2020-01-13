@@ -12,8 +12,8 @@
 
 # About raising children
 
-* [St. John Bosco - (PDF) How a Saint Corrected Children](How a Saint Corrected Children.pdf)
-* [St. John Bosco - (PDF) The Salesian Preventive System](The Salesian Preventive System.pdf)
+* [St. John Bosco - (PDF) How a Saint Corrected Children](./books/How a Saint Corrected Children.pdf)
+* [St. John Bosco - (PDF) The Salesian Preventive System](./books/The Salesian Preventive System.pdf)
 
 # Becoming devout
 
