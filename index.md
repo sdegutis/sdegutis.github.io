@@ -1,10 +1,22 @@
-## About our times
+Religion is like gravity: it affects you whether or not you believe in it. Acrobats who have mastered the laws of gravity can do amazing feats. But if one chooses not to believe gravity exists and acts accordingly, they will find that something invisible is constantly causing them to literally fall.
+
+Or again, religion is like pi: to have more perfect circular objects, we must have more accuracy of the digits of pi. But to deny that pi even starts with 3 is to end up with spheres somehow having 15 corners and 27 sides.
+
+The purpose of religion is to give us a means by which to have a good and happy life. And this can only be done by hearing and accepting the truth, and acting on it. For truth is reality, and every moral fault comes from a rejection of reality to some degree.
+
+This Truth was revealed by God, and in fact *is God*. He has entrusted this Truth, namely Himself, to what has come to be known as the Roman Catholic Church, especially in the Blessed Sacrament of the Eucharist. These facts are all but proven by history, logic, philosophy, life experience, and a multitude of miracles, especially the historical fact that Jesus Christ was crucified, died, was buried, and rose again from the dead on the third day, appearing before many credible witnesses, including over 500 people all at once.
+
+This page contains a curated list of books (and a few videos by Venerable Fulton Sheen) that I have collected for myself, which explain and expand on these truths, so that by them I may learn how to be good and have a good life. Most of them have directly helped and benefited me, and a few seem like they will from a quick glance.
+
+They are all public domain so far as I can tell. The books are all in PDF form. If you have an iPhone, when you download them, add them to the Books app and they will appear under the Library tab. On Android, they might be in the Documents app or something.
+
+## About our times (videos)
 
 * [Venerable Fulton Sheen - (YouTube) The Fourth Great Crisis in the Church](https://www.youtube.com/watch?v=qHaizmIj3ck)
 * [Venerable Fulton Sheen - (YouTube) The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8)
 * [Venerable Fulton Sheen - (YouTube) Why make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg)
 
-## About our religion
+## About our religion (videos)
 
 * [Venerable Fulton Sheen - (YouTube) 12 "Family Retreat" Sermons](https://www.youtube.com/playlist?list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3)
 * [Venerable Fulton Sheen - (YouTube) St. Therese of Lisieux](https://www.youtube.com/watch?v=TVgbzn_br6M)
@@ -14,6 +26,7 @@
 
 * [St. John Bosco - (PDF) How a Saint Corrected Children](./books/How a Saint Corrected Children.pdf)
 * [St. John Bosco - (PDF) The Salesian Preventive System](./books/The Salesian Preventive System.pdf)
+* [The Christian Mother (PDF)](./books/The Christian Mother.pdf)
 
 ## Becoming devout
 
@@ -21,7 +34,6 @@
 * [The Sinner's Guide (PDF)](./books/The Sinner's Guide.pdf)
 * [The Spiritual Combat (Dornin edition) (PDF)](./books/The Spiritual Combat (Dornin edition).pdf)
 * [The Spiritual Combat (Haydock edition) (PDF)](./books/The Spiritual Combat (Haydock edition).pdf)
-* [The Christian Mother (PDF)](./books/The Christian Mother.pdf)
 * [Catholic Girls Guide (PDF)](./books/Catholic Girls Guide.pdf)
 * [Young Man's Guide (PDF)](./books/Young Man's Guide.pdf)
 * [Light and Peace (PDF)](./books/Light and Peace.pdf)
