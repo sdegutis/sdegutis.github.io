@@ -14,8 +14,6 @@
 
 <p>This page contains a curated list of books (and a few videos by Venerable Fulton Sheen) that I have collected for myself, which explain and expand on these truths, so that by them I may learn how to be good and have a good life. Most of them have directly helped and benefited me, and a few seem like they will from a quick glance or by reputation.</p>
 
-<p>They are all public domain so far as I can tell. The books are all in PDF form. If you have an iPhone, when you download them, add them to the Books app and they will appear under the Library tab. On Android, they might be in the Documents app or something.</p>
-
 </blockquote>
 
 </details>
