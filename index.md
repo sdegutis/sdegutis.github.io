@@ -6,11 +6,22 @@ The PDF books can be opened on an iPhone in the Books app. Click the Share butto
 
 * [Ven. Fulton Sheen - (YouTube) The Fourth Great Crisis in the Church](https://www.youtube.com/watch?v=qHaizmIj3ck)
 * [Ven. Fulton Sheen - (YouTube) The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8)
-* [Ven. Fulton Sheen - (YouTube) Why make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg)
+* [Ven. Fulton Sheen - (YouTube) Why Make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg)
 
 ## About our religion (videos)
 
-* [Ven. Fulton Sheen - (YouTube) 12 "Family Retreat" Sermons](https://www.youtube.com/playlist?list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Choice](https://www.youtube.com/watch?v=RBJQzWcDiKw&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=1)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Our Father](https://www.youtube.com/watch?v=B8TLM6ZHoVA&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=2)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Old Pots](https://www.youtube.com/watch?v=0AsEB1-AT4o&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=3)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Youth and Sex](https://www.youtube.com/watch?v=coM_ZIc-N4M&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=4)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - The Devil](https://www.youtube.com/watch?v=FuCw8UT5y6c&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=5)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Our Cross](https://www.youtube.com/watch?v=vkEBsVZBijg&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=6)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Kenosis](https://www.youtube.com/watch?v=DKjDZXxCRug&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=7)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Confession](https://www.youtube.com/watch?v=YRZJeHl8aiw&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=8)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Three Kinds of Love](https://www.youtube.com/watch?v=L-vrnkIa2T8&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=9)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - The Meaning of the Mass](https://www.youtube.com/watch?v=UqDMO5iAX64&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=10)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - Wasting Your Life](https://www.youtube.com/watch?v=5e5oPIHnHQs&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=11)
+* [Ven. Fulton Sheen - (YouTube) Family Retreat - The Woman I Love](https://www.youtube.com/watch?v=c8PRksy9mJE&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=12)
 * [Ven. Fulton Sheen - (YouTube) St. Therese of Lisieux](https://www.youtube.com/watch?v=TVgbzn_br6M)
 * [Ven. Fulton Sheen - (YouTube) 50 Catechisms from 1956](https://www.youtube.com/playlist?list=PLHr17i6CU5FgiHD3hI0k0PnCjrxdphNSG)
 
