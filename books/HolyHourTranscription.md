@@ -1,5 +1,4 @@
-
-_The following is a verbatim copy of a passionate retreat that Venerable Fulton Sheen gave, which is also available for free online at (https://www.youtube.com/watch?v=YT-vzobvYMg)[https://www.youtube.com/watch?v=YT-vzobvYMg]. Minor [corrections] were made, and asterisk* is used to indicate uncertainty of transcription._
+_The following is a verbatim copy of a passionate retreat that Venerable Fulton Sheen gave, which is also available for free online at [https://www.youtube.com/watch?v=YT-vzobvYMg](https://www.youtube.com/watch?v=YT-vzobvYMg). Minor [corrections] were made, and asterisk* is used to indicate uncertainty of transcription._
 
 Dear Lord and Savior Jesus Christ, there was only once that you ever asked your disciples to do something special for you. Grant that through The Spirit we may answer that question in the affirmative. We ask this through your Agony and Resurrection. In the Name of the Father and of the Son and of the Holy Spirit. Amen.
 
