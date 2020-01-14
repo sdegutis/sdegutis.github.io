@@ -206,4 +206,4 @@ About naming Peter? “Yes!”
 
 That’s what we hear today. On retreats, “Tell us about liturgy! Tell us about the social order! Tell us about injustices! Talk politics! _Anything,_ we’ll believe anything you say! Only _don’t talk the cross! Stop it! Come down and we’ll believe!”_
 
-_But He did not come down!_ Why? Because it’s _human_ to come down! Because if He came down, He never would have saved us! **_It’s Divine to hang there!**_
+_But He did not come down!_ Why? Because it’s _human_ to come down! Because if He came down, He never would have saved us! ***It’s Divine to hang there!***
