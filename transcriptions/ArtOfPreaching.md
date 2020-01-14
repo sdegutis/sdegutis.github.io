@@ -1,9 +1,10 @@
-
 # The Art of Preaching
 
 ### By Venerable Fulton Sheen
 
-_The following is a verbatim copy of a sermon by Venerable Fulton Sheen, which is available for free online at [https://www.youtube.com/watch?v=Zz0a3TSkHVU&amp;t=9](https://www.youtube.com/watch?v=Zz0a3TSkHVU&amp;t=9). The video appears to be edited, and various [cuts] are noted in this transcription. A longer uncut version cannot be found._
+_The following is a verbatim copy of a sermon by Venerable Fulton Sheen, which is available for free online at [https://www.youtube.com/watch?v=Zz0a3TSkHVU&amp;t=9](https://www.youtube.com/watch?v=Zz0a3TSkHVU&amp;t=9) (it's recommended to watch the video if you can, text does not do him justice). The video appears to be edited, and various [cuts] are noted in this transcription. A longer uncut version cannot be found._
+
+---
 
 It is vain to say that people are staying away from churches because they do not like our preaching. They are staying away not because we preach a bit of sacrifice, but because we are giving a kind of sociological drivel too often, instead of Christ and Him Crucified.
 

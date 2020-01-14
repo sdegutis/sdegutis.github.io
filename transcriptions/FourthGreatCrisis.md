@@ -1,6 +1,10 @@
 # The Fourth Great Crisis of the Church
 
+### By Venerable Fulton Sheen
+
 _The following is a verbatim copy of a passionate retreat that Venerable Fulton Sheen gave, which is also available for free online at [https://www.youtube.com/watch?v=qHaizmIj3ck](https://www.youtube.com/watch?v=qHaizmIj3ck) (which is highly recommended, as text does not do him justice). Minor [corrections] were made, and asterisk* is used to indicate uncertainty of transcription._
+
+---
 
 I must tell you of an embarrassing experience I had in the subway of New York not very long ago. A drunk came in and threw himself along side of me and picked up a newspaper and began to read it. Then he turned to me and said, “how does a man get diabetes?” “Oh,” I said, “by getting drunk and paying no attention to his wife and children.” And a minute later I felt sorry for that quick diagnosis, so I turned to him and I said, “I’m sorry, but why did you want to know how a man got diabetes?” “Oh,” he said, “I was just reading the Pope had diabetes.”
 
