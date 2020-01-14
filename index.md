@@ -1,6 +1,6 @@
 All these books are all public domain, as far as I can tell.
 
-The PDF books can be opened on an iPhone in the Books app. Click the Share button and click Open in Books or something to that effect. Android probably has something similar.
+The PDF books can be opened on an iPhone in the Books app. Open the PDF below in Safari, click the Share button, and click "Copy to Books". Android probably has something similar.
 
 ## About our times (videos)
 
