@@ -40,7 +40,7 @@ The PDF books can be opened on an iPhone in the Books app. Click the Share butto
 
 * [Abandonment to Divine Providence (PDF)](./books/Abandonment to Divine Providence.pdf)
 * [St. John of the Cross - The Ascent of Mount Carmel (PDF)](./books/The Ascent of Mount Carmel.pdf)
-* [Canticles, and Canonization of St. Francis de Sales (PDF)](./books/Canticles, and Canonization of St. Francis de Sales.pdf)
+* [St. Francis de Sales - Mystical Explanation of the Canticle of Canticles (PDF)](./books/Canticles, and Canonization of St. Francis de Sales.pdf)
 * [St. John of the Cross - The Dark Night of the Soul (PDF)](./books/The Dark Night of the Soul.pdf)
 * [The Four Last Things (PDF)](./books/The Four Last Things.pdf)
 * [St. Francis de Sales - Treatise on the Love of God (PDF)](./books/Treatise on the Love of God.pdf)
@@ -68,6 +68,7 @@ The PDF books can be opened on an iPhone in the Books app. Click the Share butto
 * [St. Joseph - His Life, His Virtues, His Privileges, His Power (PDF)](./books/St. Joseph - His Life, His Virtues, His Privileges, His Power.pdf)
 * [The Spirit of St. Francis de Sales (PDF)](./books/The Spirit of St. Francis de Sales.pdf)
 * [Virtues and Spiritual Doctrine of St. Vincent de Paul (PDF)](./books/Virtues and Spiritual Doctrine of St. Vincent de Paul.pdf)
+* [St. Jane Francis de Chantal - Canonization Deposition of St. Francis de Sales (PDF)](./books/Canticles, and Canonization of St. Francis de Sales.pdf)
 
 ## Supplementary
 
