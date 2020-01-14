@@ -67,7 +67,7 @@ The PDF books can be opened on an iPhone in the Books app. Click the Share butto
 
 * [St. Mary of Agreda - Mystical City of God (PDF)](./books/Mystical City of God.pdf)
 * [St. Alphonsus de Liguori - The Glories of Mary (PDF)](./books/The Glories of Mary.pdf)
-* [St. Louis de Montfort  A Treatise On the True Devotion to the Blessed Virgin (PDF)](./books/A Treatise On the True Devotion to the Blessed Virgin.pdf)
+* [St. Louis de Montfort - A Treatise On the True Devotion to the Blessed Virgin (PDF)](./books/A Treatise On the True Devotion to the Blessed Virgin.pdf)
 * [Devotion to the Blessed Virgin (PDF)](./books/Devotion to the Blessed Virgin.pdf)
 * [Illustrated Life of the Blessed Virgin (PDF)](./books/Illustrated Life of the Blessed Virgin.pdf)
 * [St. Louis de Montfort - The Secret of Mary (PDF)](./books/The Secret of Mary.pdf)
