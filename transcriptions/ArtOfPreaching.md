@@ -1,4 +1,7 @@
-# The Art of Preaching
+---
+title: "The Art of Preaching"
+layout: "transcription"
+---
 
 ### By Venerable Fulton Sheen
 

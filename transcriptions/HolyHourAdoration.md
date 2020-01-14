@@ -1,4 +1,7 @@
-# Holy Hour of Adoration
+---
+title: "Holy Hour of Adoration"
+layout: "transcription"
+---
 
 ### By Venerable Fulton Sheen
 

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <style>
+    body {
+      margin: 2em auto;
+      width: 90%;
+      max-width: 40em;
+    }
+
+    p {
+      text-indent: 20px;
+    }
+
+    blockquote {
+      margin-left: 40px;
+    }
+
+    blockquote>p {
+      font-style: italic;
+      /* text-indent: 0; */
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/">Useful Links for Life</a>
+  </nav>
+
+  <h1>{{ page.title }}</h1>
+  <section>
+    {{ content }}
+  </section>
+
+</body>
+
+</html>
