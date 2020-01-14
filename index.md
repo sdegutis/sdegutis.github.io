@@ -31,7 +31,7 @@ The PDF books can be opened on an iPhone in the Books app. Open the PDF below in
 * [Ven. Fulton Sheen - The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8) - ([transcription](./transcriptions/ArtOfPreaching.html))
 * [Ven. Fulton Sheen - Why Make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg) - ([transcription](./transcriptions/HolyHourAdoration.html))
 
-## About our religion (YouTubevideos)
+## About our religion (YouTube videos)
 
 * [Ven. Fulton Sheen (Family Retreat) - Choice](https://www.youtube.com/watch?v=RBJQzWcDiKw&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=1)
 * [Ven. Fulton Sheen (Family Retreat) - Our Father](https://www.youtube.com/watch?v=B8TLM6ZHoVA&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=2)
