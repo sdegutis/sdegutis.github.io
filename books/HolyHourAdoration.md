@@ -1,3 +1,5 @@
+# Holy Hour of Adoration
+
 _The following is a verbatim copy of a passionate retreat that Venerable Fulton Sheen gave, which is also available for free online at [https://www.youtube.com/watch?v=YT-vzobvYMg](https://www.youtube.com/watch?v=YT-vzobvYMg). Minor [corrections] were made, and asterisk* is used to indicate uncertainty of transcription._
 
 Dear Lord and Savior Jesus Christ, there was only once that you ever asked your disciples to do something special for you. Grant that through The Spirit we may answer that question in the affirmative. We ask this through your Agony and Resurrection. In the Name of the Father and of the Son and of the Holy Spirit. Amen.
@@ -42,7 +44,7 @@ Now let me give you the reason why it takes time. I think that prayer is very mu
 
 Here were the disciples leaving Jerusalem, Easter Sunday afternoon. What do you find? Talk talk talk talk talk! Discussion discussion discussion! When we're not interior, we engage in a lot of _talk_. Poor talkative Christianity. “As they talked and discussed with one another, Jesus himself came up and walked along with them. But something kept them from seeing who it was. And he asked them, ‘what is it you're debating about on the way?’” It's the third time in two sentences that the word talk and discussion appears.
 
-“And they halted, their faces full of gloom.” I wonder if that's the way we appear to the good Lord? And incidentally, we are not as happy a body of priests now as we used to be 20 or 30 years [ago]. There's _gloom_ setting into us. We used to have priests portrayed by Barry Fitzgerald, Bing Crosby, Pat O'Brien. Now what do we have? “_The married priest.”_ We're beginning to be gloomy. And that's the way the disciples appeared to the Blessed Lord, their faces full of gloom.
+“And they halted, their faces full of gloom.” I wonder if that's the way we appear to the good Lord? And incidentally, we are not as happy a body of priests now as we used to be 20 or 30 years [ago]. There's _gloom_ setting into us. We used to have priests portrayed by Barry Fitzgerald, Bing Crosby, Pat O'Brien. Now what do we have? “_The married priest.”_* We're beginning to be gloomy. And that's the way the disciples appeared to the Blessed Lord, their faces full of gloom.
 
 And one called Cleopas answered (he got kind of nasty with this stranger), he said, "are you the only one in Jerusalem who who has not heard what has happened these days?” Haven't you been listening to the radio? Television? Haven't been reading the press? See, the world, it gets hold of us. News, news, news, on the hour. We can do nothing about it. As a matter of fact we very often create a tremendous amount of inability to react to news that we can do something about.
 
@@ -140,7 +142,7 @@ He's not a Catholic. I find among ourselves a reluctance to read great literatur
 
 You need not use Barclay. You can read anyone who knows Scripture well, and who is not interested in just... whether or not there's a proto- or deutero-Isaiah, and then in the end they don't know there's an Isaiah! I picked up a 2 volume study on the Gospel of John, and there would be 40 references to books at the end of each text — meter, no poetry! It's very much like modern sex, it's all technology, 'how to'. And, there isn't any spirit in it! Christ isn't there! You cut the pages of many of our theological text books today and ink runs out - not blood!
 
-So it may not be Barclay but let it be someone, and you have to have that. You it because we're busy men, and we need someone who will interpret Scripture for us. And believe me Barclay is the best preparation in the world. And when you good lay people hear good sermons in your churches from now on — Barclay... Barclay! So you can say “oh Barclay gave him that idea!” And that's alright, you drink in Barclay.
+So it may not be Barclay but let it be someone *[editor's note: Fulton Sheen wrote such a book himself, called [Life of Christ](https://www.amazon.com/Life-Christ-Fulton-J-Sheen/dp/0385132204), which is still available for sale today]*, and you have to have that. You it because we're busy men, and we need someone who will interpret Scripture for us. And believe me Barclay is the best preparation in the world. And when you good lay people hear good sermons in your churches from now on — Barclay... Barclay! So you can say “oh Barclay gave him that idea!” And that's alright, you drink in Barclay.
 
 And then later on, if you want, write to me and I'll give you the names of other treatises. But there are great classics. And many are writing about the Good Lord who understand him, his Priesthood and his Victimhood. And they can give us great inspiration.
 
