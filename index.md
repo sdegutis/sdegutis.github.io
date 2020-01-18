@@ -27,9 +27,9 @@ The PDF books can be opened on an iPhone in the Books app. Open the PDF below in
 
 ## About our times (YouTube videos)
 
-* [Ven. Fulton Sheen - The Fourth Great Crisis in the Church](https://www.youtube.com/watch?v=qHaizmIj3ck) - ([transcription](./transcriptions/FourthGreatCrisis.html))
-* [Ven. Fulton Sheen - The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8) - ([transcription](./transcriptions/ArtOfPreaching.html))
-* [Ven. Fulton Sheen - Why Make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg) - ([transcription](./transcriptions/HolyHourAdoration.html))
+* ([transcription](./transcriptions/FourthGreatCrisis.html)) [Ven. Fulton Sheen - The Fourth Great Crisis in the Church](https://www.youtube.com/watch?v=qHaizmIj3ck)
+* ([transcription](./transcriptions/ArtOfPreaching.html)) [Ven. Fulton Sheen - The Art of Preaching](https://www.youtube.com/watch?v=Zz0a3TSkHVU&t=8)
+* ([transcription](./transcriptions/HolyHourAdoration.html)) [Ven. Fulton Sheen - Why Make a Holy Hour](https://www.youtube.com/watch?v=YT-vzobvYMg)
 
 ## About our religion (YouTube videos)
 
