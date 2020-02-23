@@ -5,7 +5,7 @@ layout: "transcription"
 
 ### By Venerable Fulton Sheen
 
-_The following is a transcript of one of the last sermons of Venerable Fulton Sheen, a powerful sermon on the topic of Our Blessed Lord's Passion and Death. It is freely available online at https://www.youtube.com/watch?v=9Th2VrBvI5c and I strongly recommend watching it, since text alone does not do him justice._
+_The following is a transcript of one of the last sermons of Venerable Fulton Sheen, a powerful sermon on the topic of Our Blessed Lord's Passion and Death. It is freely available online at https://www.youtube.com/watch?v=9Th2VrBvI5c and I **strongly recommend** watching it, even though the text is right here._
 
 ---
 
