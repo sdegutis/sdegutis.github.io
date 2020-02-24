@@ -33,6 +33,7 @@ The PDF books can be opened on an iPhone in the Books app. Open the PDF below in
 
 ## About our religion (YouTube videos)
 
+* ([transcription](./transcriptions/SpectatorsCross.html)) [Ven. Fulton Sheen - Spectators On and About The Cross](https://www.youtube.com/watch?v=9Th2VrBvI5c)
 * [Ven. Fulton Sheen (Family Retreat) - Choice](https://www.youtube.com/watch?v=RBJQzWcDiKw&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=1)
 * [Ven. Fulton Sheen (Family Retreat) - Our Father](https://www.youtube.com/watch?v=B8TLM6ZHoVA&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=2)
 * [Ven. Fulton Sheen (Family Retreat) - Old Pots](https://www.youtube.com/watch?v=0AsEB1-AT4o&list=PL6znY3VjqN25fNvGKVRLU0tLZ-TC8aM_3&index=3)
