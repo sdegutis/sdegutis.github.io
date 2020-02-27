@@ -5,7 +5,7 @@ layout: "transcription"
 
 ### By Venerable Fulton Sheen
 
-_The following is a transcript of one of the last sermons of Venerable Fulton Sheen, a powerful sermon on the topic of Our Blessed Lord's Passion and Death. It is freely available online at https://www.youtube.com/watch?v=9Th2VrBvI5c and I **strongly recommend** watching it, even though the text is right here._
+_The following is a transcript of one of the last sermons of Venerable Fulton Sheen, a powerful sermon on the topic of Our Blessed Lord's Passion and Death. It is freely available online at [https://www.youtube.com/watch?v=9Th2VrBvI5c](https://www.youtube.com/watch?v=9Th2VrBvI5c) and I **strongly recommend** watching it, even though the text is right here._
 
 ---
 
@@ -31,22 +31,31 @@ So much for the first spectators. They were the indifferent. Remember that famou
 
 > When Jesus came to Golgotha,
 >   They nailed Him on a tree.
+>
 > They crowned Him with a Crown of Thorns,
 >   Red were His wounds and deep.
+>
 > For those were crude and cruel days,
 >   When human flesh was cheap.
+>
 > When Jesus came to Birmingham,
 >   They only passed Him by.
+>
 > They would not hurt a hair of Him,
 >   They only let Him die.
+>
 > For men had grown more tender,
 >   They would not give Him pain.
+>
 > They only just walked down the street,
 >   And left Him in the rain.
+>
 > And so it rained the winter rain
 >   That drenched Him through and through
+>
 > And when all the crowds had left the street,
 >   Without a soul to see,
+>
 > Then Jesus crouched against a wall,
 >   And *sighed* for Calvary.
 
@@ -126,36 +135,27 @@ And this Lord, whom he saw on the Cross, and whom he witnessed as spectators, wi
 
 And when He comes, He will have not wounds, but *scars*. Scars on hands and feet and side. And *that* is the way He will judge us. "Show Me your hands. Have you a scar from giving? A scar of sacrificing yourself for another? Show Me your feet. Have you gone about doing good? Were you wounded in service? Show Me your heart. Have you left a place for Divine Love?" And that's the way He will know His own.
 
-As the poet Shileto put it:
+As the poet Shillito put it:
 
-> If I had never sought Thee,
->   I seek Thee now.
-> Thine eyes burn through the dark:
->   Our only stars.
+> If I had never sought Thee, I seek Thee now.
+> Thine eyes burn through the dark, our only stars.
 > We must have sight of thorn pricks on Thy brow,
->   We must have Thee, O Jesus of the Scars.
-> The Heavens frighten us,
->   They are too calm.
-> In all the universe,
->   We have no place.
-> Our wounds are hurting us,
->   Where is Thy balm?
-> Lord Jesus, by Thy Scars,
->   We claim Thy Grace.
-> If then when the doors are shut,
->   Thou draw us near,
-> Only reveal those Hands,
->   That Side of Thine.
-> We know today what wounds are,
->   Have no fear; show us thy scars.
-> We know the countersign,
->   the other gods were strong.
-> But thou wast weak;
->   They rode, but Thou didst stumble to a Throne!
-> But to our wounds,
->   Only God's wounds can speak.
-> And no God has wounds
->   But ours alone.
+> We must have Thee, O Jesus of the Scars.
+>
+> The Heavens frighten us; they are too calm.
+> In all the universe, we have no place.
+> Our wounds are hurting us, where is Thy balm?
+> Lord Jesus, by Thy Scars, we claim Thy Grace.
+>
+> If then when the doors are shut, Thou draw us near,
+> Only reveal those Hands, that Side of Thine.
+> We know today what wounds are, have no fear;
+> Show us thy scars, we know the countersign.
+>
+> The other gods were strong, but thou wast weak;
+> They rode, but Thou didst stumble to a Throne!
+> But to our wounds, only God's wounds can speak.
+> And no God has wounds but ours alone.
 
 As we say, kneeling, the Act of Contrition:
 
