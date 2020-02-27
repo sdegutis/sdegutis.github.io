@@ -107,52 +107,55 @@ So we can all thank God that we live in these days. And really, it’s _beautifu
 
 The great poet T. S. Eliot wrote a poem about anti-heroes, that’s, “why should men love the Church?” In which he very subtly suggests, maybe hard times are coming for the creative minority, and why we should love the Church in these days:
 
-> “It is hard for those who have never known persecution,<br>
-> And who have never known a Christian,<br>
-> To believe these tales of Christian persecution.”
+> “It is hard for those who have never known persecution,
+>   And who have never known a Christian,
+>   To believe these tales of Christian persecution.”
 
 And that is true. I have talked to audiences and told them about for example the sufferings of missionaries, and the sufferings of some Russian people that I know that suffered for their faith, and they would not believe! And Eliot goes on to say,
 
-> “It’s hard for those who live near a bank,<br>
-> to doubt the security of money.<br>
-
-> It is hard for those who live near a police station<br>
-> to believe in the triumph of violence.<br>
-
-> Do you think that faith has conquered the world?<br>
-> And that the lions no longer need keepers?<br>
-
-> Do you need to be told that whatever has been, can still be?<br>
-> Do you need to be told that even such modest attainment that you boast of in the way of polite society,<br>
-
-> will hardly survive the faith to which they hold their significance?<br>
-> Men! polish your teeth on rising and retiring;<br>
-
-> Women! polish your fingernails;<br>
-> You polish the tooth of the dog and the talon of the cat.”
+> “It’s hard for those who live near a bank,
+>   to doubt the security of money.
+>
+> It is hard for those who live near a police station
+>   to believe in the triumph of violence.
+>
+> Do you think that faith has conquered the world?
+>   And that the lions no longer need keepers?
+>
+> Do you need to be told that whatever has been, can still be?
+>   Do you need to be told that even such modest attainment that you boast of in the way of polite society,
+>
+> will hardly survive the faith to which they hold their significance?
+>   Men! polish your teeth on rising and retiring;
+>
+> Women! polish your fingernails;
+>   You polish the tooth of the dog and the talon of the cat.”
 
 In other words, there’s going to be opposition.
 
-> “Why should men love the Church? Why should they love her laws?<br>
-> She tells them of life and death and of all that they would forget.<br>
-> She is tender when they would be hard, and hard where they would like to be soft.<br>
-
-> She tells them of evil and sin and other unpleasant facts.<br>
-> They constantly try to escape<br>
-> from the darkness, outside and within,<br>
-
-> by dreaming of systems so perfect that no one needs to be good.<br>
-> But the man that is will shadow<br>
-> the man that pretends to be.<br>
-
-> And the Son of Man is crucified always.<br>
-> And there shall be Martyrs and Saints.<br>
-
-> And if the blood of Martyrs is to flow on the steps,<br>
-> we must first build the steps.<br>
-
-> And if the temple is to be cast down,<br>
-> we must first build the temple.”
+> “Why should men love the Church? Why should they love her laws?
+>   She tells them of life and death and of all that they would forget.
+>
+> She is tender when they would be hard, and hard where they would like to be soft.
+>   She tells them of evil and sin and other unpleasant facts.
+>
+> They constantly try to escape
+>   from the darkness, outside and within,
+>
+> by dreaming of systems so perfect
+>   that no one needs to be good.
+>
+> But the man that is will shadow
+>   the man that pretends to be.
+>
+> And the Son of Man is crucified always.
+>   And there shall be Martyrs and Saints.
+>
+> And if the blood of Martyrs is to flow on the steps,
+>   we must first build the steps.
+>
+> And if the temple is to be cast down,
+>   we must first build the temple.”
 
 It is not a gloomy picture, it is a picture of the Church in the midst of increasing opposition of the world. And therefore, live your lives in the full consciousness of this hour of testing. And rally close to the Heart of Christ.
 
