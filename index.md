@@ -83,10 +83,12 @@ The PDF books can be opened on an iPhone in the Books app: Open the PDF below in
 
 ## Hidden Life of Jesus, Mary, and Joseph
 
-* [Mary of Agreda - Mystical City of God - Conception (PDF)](./books/Mystical City of God - Conception.pdf)
-* [Mary of Agreda - Mystical City of God - Incarnation (PDF)](./books/Mystical City of God - Incarnation.pdf)
-* [Mary of Agreda - Mystical City of God - Transfixion (PDF)](./books/Mystical City of God - Transfixion.pdf)
-* [Mary of Agreda - Mystical City of God - Coronation (PDF)](./books/Mystical City of God - Coronation.pdf)
+This 4-book set by Venerable Mary of Agreda is about the hidden life of Jesus, Mary, and Joseph, given by private revelation. It was examined thoroughly by the Catholic Church, and has more approbations than anything else on this page, being recommended even by Popes.
+
+* [Mystical City of God - Conception (PDF)](./books/Mystical City of God - Conception.pdf)
+* [Mystical City of God - Incarnation (PDF)](./books/Mystical City of God - Incarnation.pdf)
+* [Mystical City of God - Transfixion (PDF)](./books/Mystical City of God - Transfixion.pdf)
+* [Mystical City of God - Coronation (PDF)](./books/Mystical City of God - Coronation.pdf)
 
 ## Devotion to the Blessed Virgin Mary
 
