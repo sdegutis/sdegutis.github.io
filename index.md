@@ -6,9 +6,9 @@ All the books here are public domain, being digital scans of physical books prin
 
 **Aren't these books outdated if they're so old?**
 
-These books are about truths which don't change; thus most of them are still in print today by major Catholic publishers. Mystical City of God alone goes for $90 and is published by TAN.
+These books are about truths which don't change, so most of them are still in print today by major Catholic publishers. Mystical City of God alone goes for $160, published and sold by TAN Books ([link](https://www.tanbooks.com/mystical-city-of-god.html)).
 
-**How do I copy a book to my phone?**
+**How do I copy one of these books to my phone?**
 
 The PDF books can be opened on an iPhone in the Books app: Open the PDF below in Safari, click the Share button, and click "Copy to Books". Android probably has something similar.
 
@@ -16,7 +16,7 @@ The PDF books can be opened on an iPhone in the Books app: Open the PDF below in
 
 <details>
 <summary>Click to view a sample page</summary>
-<img src="./sample.png">
+<img src="./sample.png" style="width:100%">
 </details>
 
 ## About our times (YouTube videos)
