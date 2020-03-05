@@ -87,9 +87,15 @@ The PDF books can be opened on an iPhone in the Books app. Open the PDF below in
 * [The Adoration of the Blessed Sacrament (PDF)](./books/The Adoration of the Blessed Sacrament.pdf)
 * [St. Alphonsus de Liguori - The Holy Mass (PDF)](./books/The Holy Mass.pdf)
 
+## Hidden Life of Jesus, Mary, and Joseph
+
+* [Mary of Agreda - Mystical City of God - Conception (PDF)](./books/Mystical City of God - Conception.pdf)
+* [Mary of Agreda - Mystical City of God - Incarnation (PDF)](./books/Mystical City of God - Incarnation.pdf)
+* [Mary of Agreda - Mystical City of God - Transfixion (PDF)](./books/Mystical City of God - Transfixion.pdf)
+* [Mary of Agreda - Mystical City of God - Coronation (PDF)](./books/Mystical City of God - Coronation.pdf)
+
 ## Devotion to the Blessed Virgin Mary
 
-* [St. Mary of Agreda - Mystical City of God (PDF)](./books/Mystical City of God.pdf)
 * [St. Alphonsus de Liguori - The Glories of Mary (PDF)](./books/The Glories of Mary.pdf)
 * [St. Louis de Montfort - A Treatise On the True Devotion to the Blessed Virgin (PDF)](./books/A Treatise On the True Devotion to the Blessed Virgin.pdf)
 * [Devotion to the Blessed Virgin (PDF)](./books/Devotion to the Blessed Virgin.pdf)
