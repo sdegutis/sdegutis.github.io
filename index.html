@@ -47,9 +47,12 @@
     }
 
     img {
-      width: 1in;
+      width: 1.3in;
       border-radius: 50%;
       box-shadow: 0px 1px 3px 1px #0001;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
 
     a {
@@ -57,9 +60,7 @@
     }
 
     header {
-      display: grid;
-      grid-template-columns: auto auto;
-      margin-bottom: 1em;
+      position: relative;
     }
 
     .employment-title {
@@ -127,15 +128,11 @@
   <main id="root">
 
     <header>
-      <div>
-        <h1>Steven Degutis</h1>
-        <h2 class="employment-title">Front-end Software Developer</h2>
-        <p><a href="mailto:sbdegutis@gmail.com">sbdegutis@gmail.com</a></p>
-        <p><a href="tel:815-245-1625">815-245-1625</a></p>
-      </div>
-      <div style="text-align: right;">
-        <img src="profile.jpg">
-      </div>
+      <img src="profile.jpg">
+      <h1>Steven Degutis</h1>
+      <h2 class="employment-title">Front-end Software Developer</h2>
+      <p><a href="mailto:sbdegutis@gmail.com">sbdegutis@gmail.com</a></p>
+      <p><a href="tel:815-245-1625">815-245-1625</a></p>
     </header>
 
     <section id="profile" class="section">
