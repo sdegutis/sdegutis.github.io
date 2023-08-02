@@ -22,7 +22,7 @@ whenReady.push(() => {
 });
 
 export const blogIndexPage: Routeable = {
-  route: '/articles',
+  route: '/articles.html',
   handle: () => {
 
     return {

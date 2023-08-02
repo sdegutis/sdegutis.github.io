@@ -11,7 +11,7 @@ import { staticRouteFor } from "../../util/static";
 import { resumePage } from "../resume/resume";
 
 export const portfolioPage: Routeable = {
-  route: '/portfolio',
+  route: '/portfolio.html',
   handle: () => {
     return {
       status: 200,

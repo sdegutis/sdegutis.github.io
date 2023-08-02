@@ -17,7 +17,7 @@ export class ViewBlogPage implements Routeable {
   route: string;
 
   constructor(private post: BlogPost) {
-    this.route = blogIndexPage.route + `/${this.post.slug}`;
+    this.route = blogIndexPage.route.slice(0, -5) + `/${this.post.slug}.html`;
     addRouteable(this);
   }
 
