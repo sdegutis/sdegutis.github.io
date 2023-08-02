@@ -1,8 +1,6 @@
 import { DateTime } from "luxon";
 import { Karla } from "../../fonts/karla";
 import { homePage } from "../../routes/home/home";
-import { paintPage } from "../../routes/paint/paint";
-import { storyPage } from "../../routes/story/story";
 import { staticRouteFor } from "../../util/static";
 import { Stylesheet } from "../util/stylesheet";
 
