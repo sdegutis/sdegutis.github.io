@@ -1,0 +1,22 @@
+#site-footer section {
+  display: grid;
+  gap: 0.5em;
+  justify-items: center;
+}
+
+#site-footer nav {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Karla', sans-serif;
+}
+
+#site-footer nav a {
+  color: inherit;
+}
+
+#site-footer p {
+  opacity: 0.4;
+  font-size: 80%;
+}
