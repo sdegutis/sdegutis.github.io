@@ -1,0 +1,17 @@
+---
+title: "On jQuery and JavaScript..."
+---
+
+A few days ago I decided to look into jQuery and JavaScript to see how they work, and maybe if I can use them to spruce up my website. Well, it turns out, they're really amazing!
+
+JavaScript, if you aren't familiar with it, is a very dynamic language that is prototype-based, not object-oriented (even though it does have objects). The objects in JavaScript are really no more than key/value pairs (much like an NSMutableDictionary), which makes them very powerful. In fact, this is one of the very aspects of the language that makes Cappuccino possible.
+
+Even more interesting about JavaScript is that it supports methods right off the bat. Basically, you can assign a function (including anonymous functions without names) to a variable, and you can access the function via whatever key you assigned it to. This essentially makes it possible for us to call a function of an object, based on a string, which is effectively the same as a method in Cocoa.
+
+jQuery is an addition to JavaScript which makes life significantly easier when doing most anything on a web page. First of all, it easily supports the MVC pattern (Model-View-Controller), as you can exclude any javascript from your website's (X)HTML, and put all of it inside an external file.
+
+How does that even work, you ask? Is this humanly possible, you ponder? Is the world coming to an abrupt end, you desperately inquire? Well, who knows. Basically, this works because in jQuery, you make heavy use of Selectors (very similar to CSS selectors). So if we wanted to select all elements of the type <a> then we do `$("a")` and now we can perform operations on every anchor element in the page. If we wanted to select every <div> element with the class "post" then we do `$("div.post")` very similarly to how you would in CSS. Then, operations are as simple as `$("div.post").text("Hello World");` which replaces the text-contents of every selected element with that text. Try it, it's fun! You can check out jQuery's [very well-organized documentation](http://docs.jquery.com/) at their website.
+
+So I've used my Hiring website as a testing-ground (or sandbox, as they're apparently called in the last 4 years) for jQuery and JavaScript, and I made some really cool changes. Come check it out, it's really neat looking. You'll notice I use a variation of the coda-tabs, popularized by Panic's website. But everything else on that page, I did myself, including protecting my email address from spambots using a clever jQuery trick.
+
+This web-design stuff is fun, I could really get used to it.

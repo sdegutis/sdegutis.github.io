@@ -1,0 +1,15 @@
+---
+title: "RESTful Cocoa Library"
+---
+
+Recently I wrote SDSocialNetworkManager, which has gone through several name changes. This is because it's purpose and capabilities were more and more generalized as the library evolved and grew, and now this library is very capable of interfacing with almost any RESTful API.
+
+Naming anything (from class names, to variables, to the project overall) is one of the most difficult steps for me when working on a project. It's one of those little things that you really shouldn't get hung up on, and I usually don't. If it's a variable or class name, I can always change it later.
+
+But when the project becomes public, then (in my opinion) it's really dumb to name it poorly in the beginning. You end up getting something like SDSocialNetworkManager, which has been refactored so much that it's not only more capable than just social networks, but the Manager isn't even the main class anymore. On the other hand, it's not always easy to predict the scale of the project that early on, either.
+
+So, now that this Cocoa library is a lot more advanced, I've been trying to come up with a better (and less generic) name than the temporary placeholder of "NetworkTasks" that you see on the github page and in the Readme file. Seeing as the classes work best with RESTful APIs, I would probably be best to use that in the name. That brings up another point, I _hate_ using all-caps acronyms (HTTP, URL, etc.) in variable names. It just feels _weird_.
+
+In the end, I'm still where I started: the current name for this library sucks, and I can't come up with one that doesn't such less. I'd love to hear your thoughts on what it should be called.
+
+By the way, if any of you are curious, I am still working on the library, it's just taking some time to work through Facebook's insanely tedious and complex authentication system.

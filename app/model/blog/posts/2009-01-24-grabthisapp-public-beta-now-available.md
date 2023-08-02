@@ -1,0 +1,25 @@
+---
+title: "Grabthis.app Public Beta - Now available!"
+---
+
+A week or two ago, I started to get fed up with all of the pains involved in using Transmit, Cyberduck, Flow, ftp, or whatever else, just to do a very simple file transfer, so I can share files, pictures, screenshots, code, or whatever, over IRC or twitter.
+
+In a few days time, I wrote an app to do this extremely quickly and conveniently, which I've decided to call "Grabthis" (as in, "here, grab this file from me real quick"). You can [get the public demo for it here](/static/old-blog-files/Grabthis-0.9.1.zip) (this zip file was shared using Grabthis, by the way).
+
+So what separates Grabthis from just settling for one of these file transfer applications? It's true that it just interacts with a remote file server via FTP or SFTP, (which users must provide for themselves). But Grabthis is so much more than just an FTP client.
+
+Here are just a few ways you can use Grabthis:
+
+* Go into the Preferences, set the Screenshot global hotkey to F19, close the Grabthis window, and whenever you want to show a screenshot, just hit F19, drag the rectangle around the part of the screen you want to share, type in a name for this screenshot when the window comes up (extensions are added for you), and sit back and relax while it uploads to your server.
+* Drag a file to the Dock icon or inside the file list of the Grabthis window, and watch it start uploading instantly
+* Go into the Preferences and check both "Copy URL(s) after uploads complete" and "Notify (via Growl) when uploads complete." This works especially well when you use the global hotkey shortcuts, because after the window closes, you will know exactly when the URL(s) of your uploaded data or files is done, and just need to press paste.
+* Paste into twitter or IRC, or email for larger files or when sharing the same file with multiple email recipients.
+* Take a photo with your iSight or other video device, name it, and watch it upload nearly instantly.
+* Use Quick Look to preview the selected files in the file list, by clicking the Preview button or by pressing the spacebar.
+* Copy the URL(s) of any selected files with the Copy button, menu item, or Cmd+C
+* Paste any kind of text, image, or any other data that can be used with the pasteboard, name it, and watch it upload
+* Filter files via the search field in the toolbar, to find any file matching your search phrase.
+
+Here is a [screenshot of Grabthis's main window](/static/old-blog-files/grabthis%5Fmain.png), and its [Preference panel](/static/old-blog-files/grabthis%5Fpreferences.png).
+
+The beta will last 30 days before it expires. Beta testers are welcome, and questions/comments/criticisms are encouraged.

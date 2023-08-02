@@ -1,0 +1,25 @@
+---
+title: "Simulating Recursion"
+---
+
+Last night, I spent a couple hours setting up nREPL support. The most flexible way to communicate with it is via TCP with "bencoded" messages. So I had to write an encoder/decoder in ObjC for this.
+
+If you're not familiar with bencoding, it only takes 3 minutes to learn. Here's[the entire spec](https://wiki.theory.org/BitTorrentSpecification#Bencoding), in just a few (mostly fluff) paragraphs.
+
+Writing an encoder is dead-simple. When you know what type you have, you just encode it and concat them together in order.
+
+But the decoder was tricky! Especially because the most painless way to do TCP in ObjC is using[CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket), which is purely asynchronous.
+
+AsyncSocket works like this: you have a single callback that takes a string and a user-defined tag, which gets called no matter what data you just asked for. And to ask for data, there are two methods: one takes a string-delimiter to read until, and one takes a length to read until. Both also take a tag.
+
+If I had the bencoded string right up front in its entirety, it would be easy to decode. You just use recursion, letting the call-stack map to the inner-most level of the nested structure that you're in. As you recurse back up the stack, your container variables capture whatever was decoded below, and you return the containers upwards. It's pretty simple.
+
+But how do you write a recursive algorithm when you have to wait for the data to come in via a callback? That was the hard part!
+
+My first attempt was to use libdispatch to make some kind of thread-safe queues that I could block while reading from. But that turned out to be uglier than I'm comfortable with.
+
+Then I figured it out! I can still use the stack and do recursion, just in an unconventional way! Instead of function calls, I would add anonymous-functions to an instance-variable array. These closures would hold a strong reference to whatever container they were adding to, and because they're stored in an array, I still get the stack-like behavior that the call-stack would have given me! Then when the end-delimiter is reached for a given type, it would pop the next closure off the stack and call it with this newly-formed object.
+
+This involved taking advantage of the tag-parameter of the ask/receive methods to know what I'm waiting for. But due to the linear nature of the format, it's safe and striaght-forward.
+
+I'm pretty happy with how this implementation turned out. The whole class's `@implementation` is about 115 lines of pretty readable code.

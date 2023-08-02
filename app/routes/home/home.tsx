@@ -1,14 +1,19 @@
+import { ActionButton } from "../../components/action-button/action-button";
 import { HeroImage } from "../../components/hero-image";
 import { NarrowContainer } from "../../components/narrow-container/container";
-import { SiteFooter } from "../../components/navbar/navbar";
-import { Head, Html } from "../../components/page/page";
+import { NavBar } from "../../components/navbar/navbar";
+import { colors, OfferServices } from "../../components/offer-services-section/offer-services";
+import { Head, Html, SiteFooter } from "../../components/page/page";
 import { Stylesheet } from "../../components/util/stylesheet";
+import { WideContainer } from "../../components/wide-container/wide-container";
 import { renderElement } from "../../core/jsx";
-import { Routeable, addRouteable } from "../../core/router";
+import { addRouteable, Routeable } from "../../core/router";
 import { staticRouteFor } from "../../util/static";
-import { resumePage } from "../resume/resume";
+import { AllArticles, blogIndexPage } from "../all-articles/all-articles";
+import { contactPage } from "../contact/contact";
+import { portfolioPage, PortfolioSection } from "../portfolio/portfolio";
 
-export const homePage: Routeable = {
+export const landingPage: Routeable = {
   route: '/index.html',
   handle: () => {
     return {
@@ -17,14 +22,15 @@ export const homePage: Routeable = {
         'Content-Type': 'text/html',
       },
       body: renderElement(<>
+        {'<!DOCTYPE html>'}
         <Html>
 
-          <Head title="Heavily discounted software expert" />
+          <Head />
           <Stylesheet src={staticRouteFor(__dir.filesByName['home.css']!)} />
 
           <body>
 
-            {/* <NavBar /> */}
+            <NavBar />
 
             <HeroImage image={__dir.filesByName['home.png']!}>
               <h1>The Software Philosopher</h1>
@@ -35,16 +41,63 @@ export const homePage: Routeable = {
 
               <section>
                 <NarrowContainer>
-                  <p>I'm Steven, a software developer with 15+ years professional experience.</p>
-                  <p>My portfolio includes anything from Express/React apps to keyboard firmware in C, scripted IDEs to custom Babel forks.</p>
-                  <p>I charge $30/hour. Show me a unique problem and I might be interested in helping you solve it.</p>
-                  <p><a href="mailto:stevenbradleyconsulting@gmail.com?subject=Consulting">Email</a></p>
-                  <p><a href="https://github.com/sdegutis/">GitHub</a></p>
-                  <p><a href={resumePage.route}>Resume</a></p>
-                  <p><a href='/samanimate/'>Samanimate</a></p>
-                  <p><a href='/pico8-games/'>Pico8 Games</a></p>
+                  <p>
+                    Steven Bradley is an <b>award winning</b> software developer with <b>15 years</b> of professional experience,
+                    having learned from the <b>industry gurus</b> and shipped products for <b>multiple platforms</b>.
+                  </p>
                 </NarrowContainer>
               </section>
+
+              <section class='alt-section'>
+
+                <div id="services-section">
+
+                  <div class="service" style={colors.red}>
+                    <div><span class="dot"></span></div>
+                    <header>Consulting</header>
+                    <p>Software freelancer skilled in <b>TypeScript</b>, <b>React</b> front-ends, and <b>Node.js</b> back-ends.</p>
+                    <div><ActionButton href={contactPage.route}>Get in touch</ActionButton></div>
+                  </div>
+
+                  <div class="service" style={colors.green}>
+                    <div><span class="dot"></span></div>
+                    <header>Mentoring</header>
+                    <p>One-on-one <b>Zoom</b> sessions guided by your goals, for <b>focused</b> knowledge sharing.</p>
+                    <div><ActionButton href={contactPage.route}>Pick a time</ActionButton></div>
+                  </div>
+
+                  <div class="service" style={colors.blue}>
+                    <div><span class="dot"></span></div>
+                    <header>Webinars</header>
+                    <p>Focused <b>group lessons</b> confer high quality knowledge with an <b>economic</b> edge.</p>
+                    <div><ActionButton href={contactPage.route}>Sign up</ActionButton></div>
+                  </div>
+
+                </div>
+
+              </section>
+
+              <PreviewBox page={blogIndexPage}>
+                <section>
+                  <WideContainer>
+                    <h1>Technical Articles</h1>
+                  </WideContainer>
+                </section>
+                <AllArticles />
+              </PreviewBox>
+
+              <OfferServices />
+
+              <PreviewBox page={portfolioPage}>
+                <section>
+                  <WideContainer>
+                    <h1>Portfolio</h1>
+                  </WideContainer>
+                </section>
+                <PortfolioSection />
+              </PreviewBox>
+
+              <OfferServices />
 
             </main>
 
@@ -58,4 +111,28 @@ export const homePage: Routeable = {
   }
 };
 
-addRouteable(homePage);
+addRouteable(landingPage);
+
+const previewStyle = `
+  position:absolute;
+  bottom:0;
+  width:100%;
+  left:0;
+  height:15vh;
+  background:linear-gradient(0deg, #fff 0%, #0000 100%);
+  display:grid;
+  justify-items:center;
+  align-items:center;
+`;
+
+export const PreviewBox: JSX.Component<{ page: Routeable }> = (attrs, children) => <>
+  <div style='max-height:40vh; overflow:hidden; position:relative'>
+    {...children}
+
+    <div style={previewStyle}>
+      <ActionButton href={attrs.page.route}>
+        Read more...
+      </ActionButton>
+    </div>
+  </div>
+</>;

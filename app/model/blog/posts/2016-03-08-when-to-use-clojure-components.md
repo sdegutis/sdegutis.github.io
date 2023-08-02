@@ -1,0 +1,18 @@
+---
+title: "When to use Components in Clojure"
+---
+
+Specifically, when to use [Stuart Sierra's Components](https://github.com/stuartsierra/component).
+
+In my experience, Components and/or Records should **only if**:
+
+1. The functionality **needs to be started/stopped**, such as a handle to a database connection, or an HTTP router.  
+In this case, you'd implement it via a single `Record` which conforms to `component/Lifecycle`, optionally carrying state with it, and setting up or tearing down that state via `assoc` with either the state it needs or `nil`. (Don't use `dissoc`! That turns a `Record` into a plain `map`!)
+2. The functionality **needs configuration** that should be given to it once at start-up, and carried with it through the lifetime of the system.  
+This is usually implemented via a single `Record` too, which takes the state as its initialization parameters, and just uses it as needed.
+3. The functionality inherently **has external affects**, such as a function that sends a live email, and it would be handy to have a "fake" version of that thing during development or testing.  
+Here, there would be a `Protocol` that handles the thing, a live`Record` and a fake (usually in-memory) `Record` which both implement the `Protocol`, which can be reasonably considered a stand-alone component in a system.
+
+Everything else should just be a plain Clojure function.
+
+(Of course, some of these might be combined. For example, an email service, which has external affects, might also need configuration and need to be started/stopped.)

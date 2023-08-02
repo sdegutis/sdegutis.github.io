@@ -1,0 +1,27 @@
+---
+title: "Currying in Ruby 1.9"
+---
+
+This morning I had an urge to implement currying in Ruby, despite the fact that it's already there, just to see if I could do it, and as a sort of mental exercise to test my understanding of proc objects in Ruby. Since `Proc#curry` already exists, I wrote a reverse-curry method instead. This is what I came up with:
+
+```ruby
+class Proc
+  def rcurry(arg)
+    Proc.new do |*args|
+      self.call(*args, arg)
+    end
+  end
+end
+
+def concat(*args)
+  args.join
+end
+
+meth = method(:concat).to_proc
+curried = meth.rcurry('1')
+puts curried.call('2', '3', '4', '5') # => 23451
+```
+
+It works because Proc objects in Ruby 1.9 have the same flexible argument system as methods do.
+
+(Obviously it's a very simplified version that does not work in the same manner as `Proc#curry`, but that's okay because this is just an exercise!)

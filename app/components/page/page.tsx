@@ -1,5 +1,9 @@
 import { baseUrl } from "../../core/http-server";
 import { Inter } from "../../fonts/inter";
+import { blogIndexPage } from "../../routes/all-articles/all-articles";
+import { contactPage } from "../../routes/contact/contact";
+import { landingPage } from "../../routes/home/home";
+import { portfolioPage } from "../../routes/portfolio/portfolio";
 import { staticRouteFor } from "../../util/static";
 import { Stylesheet } from "../util/stylesheet";
 import fixExternalLinks from './fix-external-links.js';
@@ -30,6 +34,22 @@ export const Head: JSX.Component<{ imagePath?: string, title?: string | undefine
 
     {children}
   </head>
+</>;
+
+export const SiteFooter: JSX.Component<{}> = (attrs, children) => <>
+  <Stylesheet src={staticRouteFor(__dir.filesByName['sitefooter.css']!)} />
+  <footer id="site-footer">
+    <section>
+      <nav>
+        <a href={landingPage.route}>TSP</a>
+        <a href={blogIndexPage.route}>Articles</a>
+        <a href={portfolioPage.route}>Portfolio</a>
+        <a href="https://github.com/sdegutis/">GitHub</a>
+        <a href={contactPage.route}>Contact</a>
+      </nav>
+      <p>Copyright 2022 ©️ All rights reserved</p>
+    </section>
+  </footer>
 </>;
 
 const OpenExternalsInNewTab: JSX.Component<{}> = (attrs, children) => <>

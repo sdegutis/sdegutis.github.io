@@ -1,0 +1,9 @@
+---
+title: "Gmail Addresses"
+---
+
+I've only recently run into this, and I'm probably pretty late to the game (as usual). But it turns out Google wrote GData.framework which lets you reeeally easily get useful information from your Google accounts.
+
+For example, just now I wrote (in \~25 lines of code) a way to get an array of every email address in a given user's contact list in their Gmail account. To me, that's just awesome.
+
+[Check it out.](http://code.google.com/apis/gdata/docs/directory.html "Check it out.")

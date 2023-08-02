@@ -1,0 +1,13 @@
+---
+title: "Pulling Back From Twitter"
+---
+
+Lately I've been kind of rude or mean or angry or complainy or whiny generally un-good, on twitter. (Not all the time, mind you.) This isn't me. I'm a happy, optimistic, nice guy.
+
+But I keep letting myself get sucked into Twitter beyond a point that I can handle. I do _not_ care what anyone else had for breakfast, or what most people think of the Mac App Store, or who is playing Dallas, or any of this crap. On a daily basis, I just want a lot less noise.
+
+In reality though, I'm the only one to blame for this. I started following everyone again. And I mean literally, everyone who looked even vaguely interesting. But on a daily basis, that's _way_ too much for me to handle.
+
+Don't get me wrong, though, I like to hear about new technology, best practices, etc.. you know, the kind of things you usually read about in books, but sometimes can't because the tech is so bleeding-edge, that kind of thing, among others. But that's a very small subset of my twitter stream, and I'm going to do what I can to filter it down to that.
+
+So I'm going to pull back from twitter, both in reading and in writing. (That just leaves 'rithmetic!) If I stop following you, don't be offended. You're probably really nice, really. And I'm sure we'll still be friends. Feel free to email me or occasionally chat with me on IM... or how about that new FaceTime app I have? :)

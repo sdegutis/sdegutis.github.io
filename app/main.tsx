@@ -6,6 +6,10 @@ import 'source-map-support/register';
 import { createPersistentServer, makeRequestHandler } from "./core/http-server";
 import { makeRouteHandler } from './core/route-handler';
 import { loadRoutes } from './core/router';
+import { loadModels } from './model/load';
+import { ready } from './ready';
+
+loadModels();
 
 for (const routeDir of __dir.dirsByName['routes']!.dirs) {
   const indexFile = routeDir.find(routeDir.name);
@@ -35,3 +39,5 @@ async function generateSite() {
 
   console.log('Done generating site.');
 };
+
+ready();

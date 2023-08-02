@@ -1,0 +1,17 @@
+---
+title: "2d Collision Calculations"
+---
+
+I first attempted to write Bomberman when I was about 14 years old, using QBasic. I regrettably lost the disk it was on over the years.
+
+But I remember that the code was pretty horrible. It was so fragile that I'm sure that if I tried to change or add just one more thing, all of it would break.
+
+The part I'm stuck at now is calculating whether you're _almost_ aligned with a path that you want to turn onto. Right now, it expects you to be pixel-perfectly aligned in order to go down a new path. But that's impossible for the user. So if you're _almost_ aligned with the path, and you try walking onto it, the game should line you up for you.
+
+But calculating whether you're almost on it is going to require a lot of duplication if I'm going to calculate it for all 4 directions. There's the axis (X or Y) and the direction (Forward or Backward), which is a grid of 4 possibilities.
+
+I really do not want to write nearly identical calculation code 4 times. I also don't want to write convoluted and confusing code that tries to turn the axis and direction into variables.
+
+So I've been thinking, what if I just rotate the game board for the sake of calculating it? If you're facing right, rotate 0 times; up, 1 time; left, 2 times; down, 3 times. Then, always do the calculation as if you're walking right.
+
+This is probably easiest using some kind of matrix Clojure library. I've never rotated a grid before in code, let alone in an immutable language.

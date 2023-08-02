@@ -1,0 +1,21 @@
+---
+title: "My new parsing error technique"
+---
+
+A few blog posts ago, I explained a technique I planned to use for catching parse errors.
+
+When my parser encounters an error, the easiest way to abandon ship is to just throw an exception. That plan works fine when you're using pure ObjC objects, since you can just autorelease the objects.
+
+The problem is that I'm not using ObjC objects to store my parsing data. I'm using plain C structs, which turns out to be hecka fast. It can parse an average-sized file a few thousand times per second.
+
+My old solution was to include a "dry-run" flag in the parser. It'll only allocate and return real objects when this value is set to true. Then I'd parse the document twice: one as a dry-run, and if no exceptions were thrown, a second time to create a real AST.
+
+The that solution was error-prone. You could easily forget to add an if-statement when creating something. Plus it's noisy to see `if (!dry_run)` all over the place. So I ditched that solution pretty quickly, and just let it throw errors until I could think of a better one.
+
+This morning I thought of one. The real problem was that I would lose access to all the little `malloc`'d objects that happen inside the parser. So I figured, why not just `malloc` a giant chunk of memory at the top of the parser, and pass it through? Then whether it finished parsing or not, I could just free it at the end.
+
+I also thought it would be way faster to allocate all that memory up-front instead. But to my surprise, it was basically the same speed. I think it saw a bigger speed increase when I switched away from CFString functions to just operating on C-strings in my lexer, although that was pretty negligible too.
+
+So now my parser feels so much cleaner, and it doesn't leak memory anymore. Huge win!
+
+I'm also considering jumping out of the stack manually instead of abusing exceptions when I find a parse-error. I'd have to use an out-param to communicate the damage and the intention to wind back up the stack manually. That plan feels a bit fragile, since I'll still need to remember to jump out at call-sites that may have jumped out.

@@ -1,0 +1,13 @@
+---
+title: "Why I don't use ClojureScript"
+---
+
+My job is to maintain a Clojure web app. We have a relatively simple shopping cart app. There's very little JavaScript, the web app is mostly just made up of normal HTTP page requests. And I think it's great this way.
+
+Some websites really benefit from having front-ends that are almost entirely done in JavaScript, like Facebook or Twitter.
+
+But when Github switched over to JavaScript in order to add lots of features and to reduce page load time, their website got noticably less pleasant for me to use.
+
+I noticed that when you start to implement some things in JavaScript, there's a chain-reaction effect, where it breaks other things which you then have to also implement in JavaScript, until your entire site is basically implemented in JS, from navigation to page scrolling to clicking every little link.
+
+But there's already an app that implements those features just fine: browsers. For the most part, most websites that use JS, I would much rather use them if they didn't rely so heavily on JS. Though a little jQuery sprinkled here and there can be helpful.

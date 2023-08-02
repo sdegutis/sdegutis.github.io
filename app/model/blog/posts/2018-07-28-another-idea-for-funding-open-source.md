@@ -1,0 +1,17 @@
+---
+title: "A new idea for funding open source!"
+---
+
+In the past few weeks, I came across at least a dozen open source projects on Github that would be useful to my work, but the top of the readme says something like: “I don’t have time to work on $project anymore, please fund me so I can keep working on it.” How sad is that! Especially when the project looks high quality and innovative, and you know the person spent dozens of hours of their own free time making it, and could do _even better_ if they just had the time.
+
+Up until now, there’s only been two main ways open source projects were able to be worked on full time. Either they were heavily backed by corporations, or they sold premium versions of the software to enterprise customers. But those aren’t feasible for many small but invaluable utilities that we all depend on.
+
+Using Patreon has been gaining traction, but it has a big flaw: it lacks discoverability!
+
+Think about it. With many NPM projects having 25,000 downloads every single week (or 100,000 every month), if only a fraction of these users donated $1 / month to a few projects they heavily depend on, the authors could work on them full time and make them even higher quality! The only problem is that you don’t know which ones are open to donations and which ones need it the most! If you saw that the author of $LIBRARY, which you use every day, only made $92/month from user donations, and it was made _extremely easy_ for you to add $1 to that, you would, wouldn’t you? And if only 5,000 people (out of $LIBRARY’s _100k users_) felt the same way, they would have $5,000 / month, allowing them to focus _solely_ on improving $LIBRARY!
+
+So how do we make it easy for people? I propose we make a new platform that integrates with both Patreon and Github (and has IDE plugins!) that scans your dependency trees, looks for ones which support Patreon donations, and allows you to simply click a button to support projects you love! Maybe this is also presented to you a week after you first install and use the project, to give you time to evaluate it and see whether it’s something you really find valuable and want to support.
+
+This would encourage people to support the projects they love and find invaluable, and would encourage people to contribute to open source with innovative, fresh ideas!
+
+I think this is a great idea and I volunteer to get started on it right away. Anyone want to fund me working on it? ;)

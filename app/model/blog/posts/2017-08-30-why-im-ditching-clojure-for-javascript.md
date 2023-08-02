@@ -1,0 +1,17 @@
+---
+title: "Why I'm ditching Clojure for JavaScript"
+---
+
+For the past 5 years I've worked full time on writing [CleanCoders.com](http://CleanCoders.com), a Clojure web app I wrote from scratch. For a while I agreed with Bob that the language of the future is probably going to be something like Clojure: a lisp with immutability, homoiconicity, macros, pure(ish) functions, and an interactive environment.
+
+Our jump to Clojure began as kind of as a knee-jerk reaction to using Rails for a few years. Clojure was a simpler language than Ruby, it discouraged magic, encouraged transparency and immutability. It was fast, it was simple, everything was data, everything was inspectable, it encouraged functional programming. All in all it was a pleasure to work with compared to Rails.
+
+But honestly I wouldn't say it was much different of an experience than using Sinatra or Express.js. We had to plug a lot of things together, which was kind of a main benefit over Rails, but it also came with its own cost: namely that you have to plug lots of things together, even if they don't fit well together. And half the time you just had to write some things yourself that you would have gotten for free in Rails.
+
+These days I prefer writing in modern JavaScript (ES2015 and better). With destructuring, lambda syntax, extended object literals, spread syntax, and just the general language overhaul, it's basically a tie with Clojure's terse syntax. 99% of the time, I don't miss macros, and in fact I leaned more and more away from macros even while I wrote Clojure. And while JavaScript doesn't inherently share Clojure's immutability, I haven't really encountered anything mutating anything else yet in any NPM package I've used.
+
+With how many libs I've been able to find on NPM, I don't miss the libraries of the JVM really, either. Most (if not all) of them have been rewritten by now. And the speed and concurrency of the JVM itself is great when you want to scale vertically, but there are plenty of decent ways these days to scale horizontally instead.
+
+The only thing I kind of miss is REPL-driven development. But for the most part that's only really a crutch for Clojure's slow launch-time, and it's just as easy in Node to write some experimental code at the top of your main file with an early exit, auto-reloading it using `nodemon`, and outputting whatever you're trying to see. You lose the ability to have live objects, but so far that's been a non-issue for me.
+
+I'm not going to miss Clojure for back-end apps. JavaScript has matured quite a bit in syntax and semantics, and right now Node.js is good enough for the things I need to do.

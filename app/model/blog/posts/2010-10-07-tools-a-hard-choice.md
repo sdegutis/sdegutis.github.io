@@ -1,0 +1,9 @@
+---
+title: "Tools, a hard choice"
+---
+
+Lately I've been thinking of what tools I want to use to write my new blog engine.. (I say thinking because that's all I ever have time for lately.)
+
+It's a hard choice. Should it be Rails 3? Rails 2 Ramaze? Sinatra? My own home-grown framework on top of Rack? (I _do_ like writing frameworks after all...) And then, what templating engine should it use? ERb? Haml? Erubis? What about CSS, should it be Sass, Less, or just plain CSS? And how about the model? Should I use the latest ActiveRecord, DataMapper, or Sequel, or some more primitive Ruby libs (it is just a blog after all)?
+
+Honestly all of these choices drive me to inevitable indecision, sadly.

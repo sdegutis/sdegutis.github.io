@@ -1,0 +1,27 @@
+---
+title: "React doesn’t have to be scary!"
+---
+
+React has an amazing thriving ecosystem, full of complex and useful libraries, and many articles on how to use these libraries effectively. These are geared towards people already invested in React, but it makes React look scary and intimidating to those of us on the outside looking in.
+
+The only two new things React brings to the table are auto-rendering and a new syntax. Besides that, React “components” are just functions in disguise!
+
+![](https://miro.medium.com/max/300/1*u4cf-QFK4DTwX6RXekZhvQ.jpeg)
+
+1. These functions take named arguments called “props”. You pass them like `<MyComponent foo={123}/>` and access them inside it like `this.props.foo`.
+2. These functions have local variables, we just call it “state”. You read it like `this.state.foo` and change it like `this.setState({ foo: 'bar' })`.
+3. Your function takes props, _maybe_ sets state, and outputs views. That’s it!
+
+This JSX “language” is simple, and it has nothing to do with the auto-rendering either. It is just a syntax for calling functions:
+
+That’s it! If you understand this transformation, you understand JSX.
+
+The auto-rendering rules work like this:
+
+1. If you change your state with `setState`, your component re-renders itself.
+2. If any of the props you’re rendering end up being different because of #1, any descendants that now have different props will also change.
+3. Inversely, if any ancestor of yours changes its state and your component’s props become different now, it’s going to re-render now too!
+
+That could probably be simplified to two or even one rule if you want to write some really complex legalese-looking philosophical rule of thumb, but these three rules are how I think of it and it’s served me well.
+
+But you really can’t learn anything without trying it yourself. And the “hello world” of React is only a dozen lines of code. So give it a whirl: https://codesandbox.io/embed/6xpkx8ky7w

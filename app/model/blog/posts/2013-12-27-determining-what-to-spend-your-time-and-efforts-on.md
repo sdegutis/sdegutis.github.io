@@ -1,0 +1,23 @@
+---
+title: "Determining what to spend your time and efforts on"
+---
+
+I've been applying this philosophy for a few years:
+
+> If you make something programmers love, it will flourish.
+
+But, well, that's not entirely true. Programmers are known to love the wrong things, and to change their minds (often) about what they love. So I've changed it a bit:
+
+> If you make something you love, it will flourish.
+
+Okay, that's not entirely true either. What if you're too inexperienced to properly know what kind of tools to love? So I've made another revision:
+
+> Just make something you love.
+
+Actually no, that's not good enough either. You'll learn and grow, and will eventually realize why whatever you just made isn't good enough anymore. So:
+
+> Just do something you love.
+
+Let's face it, all software gets replaced eventually. Probably nothing you write today will last more than a few months. Years if you're lucky, _maybe_ decades for the rare few. But even then, it'll eventually be obsolete.
+
+In the end, all you'll have left is your experiences. So make them count!

@@ -1,0 +1,11 @@
+---
+title: "Metaphors"
+---
+
+Metaphors are super useful in writing software. They let you map your mental model of something in the real world to your functions, methods, and objects. This makes it very easy and quick to intuit what code does without having to look up each function's official documentation.
+
+But some projects take this too far. They name a project after some loose metaphor, and then name _every object and method_ closer to the metaphor than what they actually do. This is especially true in the Ruby community. This can (and often does) make it extremely hard to know what a given block of code is supposed to do.
+
+Naming is one of the hardest parts of programming. I know I've had my fair share of poorly named functions.
+
+But in these cases of metaphors taken too far, the problem isn't caused by trying to name something that's inherently difficult to express in human terms. It's just caused by someone trying to innovate where no innovation is necessary. And that makes it a completely avoidable problem.

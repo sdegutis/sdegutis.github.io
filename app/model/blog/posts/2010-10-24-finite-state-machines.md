@@ -1,0 +1,25 @@
+---
+title: "Finite state machines"
+---
+
+On Thursday, I did not write anything about that day in my apprenticeship because I was still learning about and trying to absorb the concepts of Finite State Machines (FSMs).
+
+On Friday, I did not write anything because I was pooped. So here I am tonight writing about both days.
+
+At first, the concept of a Finite State Machine was a little fuzzy. I sort of understood it, partially thanks to Eric's drawings on some glass which helped. The basics of it, so far as I understand it, is that there is an object which contains a single "state", a defined set of initial states and end states, events which trigger a transition from one state to another, and (optionally) actions to be performed at each transition.
+
+The reason it's called finite is because each state that could possibly arise in the state machine, and each transition between them, is entirely defined before the state machine is every run.
+
+So, for example, one of those "choose-your-own-adventure" games (like Zork!) could represent a finite state machine. At each "turn", you start at the initial state. Once you "take your turn", the turn represents the event, which triggers an action (you die, find a treasure chest, encounter a monster, etc), and afterwards are moved to another state (dead, rich, hyperarousal, etc).
+
+So that's the basics of a state machine. My intentions were to use it to create a "markdown-like-language" parser for the Ruby Wiki I'm writing as a project designated by Eric. The language is simple right now, consisting only of emphasis, strong, and paragraph controls. Originally it was implemented as regular expressions (which Skim helped me with, thanks Skim!) but that was a bit fragile, plus it evaded the whole learning-FSM thing, which will undoubtedly come in handy later.
+
+Initially I tried to implement the state machine as `case..when..end` Ruby statement, but that turned out to be kind of ugly, albeit it worked. Later on, I changed it to being an array of 4-element arrays (representing the initial-state, trigger-event, next-state, and optional-action). It then constituted a State Transition Table (STT), which is one implementation method for a FSM. One benefit of a STT is that the logic for enumerating the table and acting on the FSM's logic is then separated completely from the data of the STT itself.
+
+Another usage of FSMs, by the way, could be Graphical User Interfaces (GUIs) — I'm starting to think we just love giving everything a TLA so that we sound smarter — because if you really think about it, the GUI is always in a given state, and a user-based or internal-based event triggers it to transition into the next state. Sometimes this causes an action. For example, the initial state could be a blank window. A mouse click, key press, or asynchronous callback function may each be a trigger-event. This event would then redirect the FSM to the state of "having a minimized window". The action taken, then, would have to correlate to the event, and thus it might be `[window performMinimize]` (assuming Cocoa-like/ObjC).
+
+After I had transitioned my state machine from a `when` body to a STT two-dimensional table, I tried to make it look less ugly, but failed. So I created my very first DSL much like [Builder](http://builder.rubyforge.org/), which created the STT for me. It's used to define the body of my state transition table function. Now, it looks more readable and is probably more maintainable and flexible than the array-based version.
+
+Also, it's not entirely finished. As it only returns the two-dimensional array already built for you, it's not doing a very good job encapsulating the aspect of a Finite State Machine, it just masks one part of it. So, my plan is to move all of the FSM-related logic into a Builder-like object, so that my `ContentsLexer` class will only be required to define the logic and data for the state machine to work, and be able to output its `tokens` method — this is the sole purpose of the `ContentsLexer` class after all, it just takes in a raw string and tokenizes it for the upcoming `ContentsParser` state machine which will transform the tokens into an Abstract Syntax Tree. I could be wrong about how that part will function, though, as I only started my research into it on late Friday. But the idea I have in my head for it is that it will probably be a recursive hash containing an abstract representation of the final markdown syntax.. and when I imagine it, I see Lisp's s-expressions. But anyway I'm digressing, aren't I?
+
+According to Eric, FSMs can be used to represent practically everything, as it's almost a universal principle or rule, much like the Turing Machine, such that everything else more complex can be boiled down into a finite state machine. Given this is true, we can expect that [xkcd](http://www.xkcd.com/) will soon post a meta-comic about the world actually being a simulation of FSMs.

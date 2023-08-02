@@ -1,0 +1,45 @@
+---
+title: "Twitter is the wrong tool"
+---
+
+In the beginning, Twitter was the right tool for the job, when it came to updating your colleagues, family, and friends about what you're up to. This worked well for busy people, people who don't live close to their family, and plenty of others. It also worked well to share things people find on the net, kind of kind a minimalist "web log" (ie, blog).
+
+Over time, people started using twitter to meet new people, have conversations, and generally it's become a lot less static than it was originally written for. The developers have done a fantastic job writing new APIs to keep up with how users are using it, and they did this much quicker than any site I've ever seen before, in fact.
+
+But unless some major structural changes happen really soon, the general population's usage of twitter has changed significantly enough to merit needing a new tool for this job, whatever the job happens to be.
+
+### How we use twitter
+
+The way people are specifically using Twitter obviously varies, but I've done a little research and found that the majority of users use Twitter for a few basic things:
+
+* Networking to find new friends/associates/leads. Either for monetary gain, personal relationships, or whatever else, meeting new people is definitely one of the top reasons people tweet.
+* Coordinating plans falls near the top of this list, be they big plans (where are some fun parties at WWDC 2009?) and small plans (want to go out for burgers tonight?).
+* Share interesting tidbits/news/ideas that we find on the net or in real life is another big reason we tweet. Obviously there are entire twitter accounts for this purpose, like @CNN and @stejules, but as individuals, we also do this on a regular basis.
+* Getting answers on questions that even powerful search engines (like google, ask, or bing) can't figure out. These are [some](http://twitter.com/lgerbarg/status/2198708978) [quick](http://twitter.com/wrenandox/status/2198843231) [examples](http://twitter.com/bobrox/status/2198047300).
+* Marketing for our businesses is another popular reason. This ranges from large businesses (like the @oprah) to small businesses (ie, @atebits). Usually these accounts also provide support and answer questions about their software, also.
+
+### How we can't use twitter
+
+It may not be apparent just yet exactly how our use of Twitter is beyond the scope of simple updates (even with the awesome addition of -replies- mentions) and why a new tool is needed. Well, here are some things it's pretty difficult to do, even with powerful clients like TweetDeck or Tweetie:
+
+* Follow an _entire_ conversation, including tracking future additions to it.
+* Meet new people through conversations, rather than simple, context-ignorant replies.
+* Keep a conversation's original context intact and in plain sight to all its curious viewers, for more than a few replies.
+
+Essentially, conversations _suck_ in Twitter. You only see half the story, and you can only follow it backwards; there really is no way to keep a handle on a conversation so you can refresh later to view any of its new additions. In effect, most conversations die prematurely and are practically useless to anyone who isn't directly involved in them.
+
+### How this can be fixed
+
+The solution isn't exactly on the client end, and it isn't exactly on the server end. I think it lies in both, actually. The server should have capabilities that involve threading, very much like Facebook's or Jaiku's statuses and status-comments. The client would then wrap this into a package that is convenient, intuitive, and easy-to-use, thus greatly extending the capabilities of the server for a desktop or mobile user.
+
+Personally, creating this kind of server/website isn't really in my repertoire; all I can do is create a desktop (Mac) client for that extends the capabilities of an existing service and puts them into a nice package as described above. It would be really great to be able to work with a team of server-side developers to make a solution that's as effective as possible, but I don't really have that luxury, so it's kind of pointless to take this blog posting down that path.
+
+My idea of a solution is to find an existing website that meets some of these criteria, extend its capabilities by writing Mac and iPhone clients for it, and then let it take on a life of its own.
+
+### One minor problem
+
+There's one tiny problem with this solution. After the app is finished, when news of it spreads, people will cite "all my friends are on twitter, not XYZ" as the reason to not give it a fair try. However, once a few people do try, their friends won't be able to use that excuse as easily, and eventually more and more people will try it. Thus, solving this chicken/egg problem at an exponential rate.
+
+This app doesn't exist yet. I haven't written it, and I might not. I do have some ideas in my head, but as of late, I'm pretty swamped working on an existing app. My blog post is basically just in hopes that others will begin to recognize this problem, and perhaps we can put some collective efforts into fixing it together, whether it be someone writing this app by themselves or with a team, someone marketing the app on twitter or spreading the word to their friends, or even someone just giving the app a fair shot when it finally arrives.
+
+Let me know what you think, post some comments, I'd love to hear your thoughts on this.

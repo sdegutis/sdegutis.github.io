@@ -1,0 +1,17 @@
+---
+title: "Rails blog"
+---
+
+I've started the process of rewriting my blog in Rails. The difficult part is finding the time to do it.
+
+One of the major reasons for this is because Rails already handles a lot automatically for me. For example, just scaffolding the Entry, Tag, Category, and Model entries gives me all the CRUD I need in order to keep the blog's content correct and alter it as needed. Whereas, in Sinatra, this must all be done by hand, and that gets tedious, not to mention it's just more chances for errors to occur.
+
+Plus, Heroku works a lot more easily with Rails. In fact, most tools do. Rails has a lot more support than Sinatra does, in general. My original reason for choosing Sinatra was because I wanted to keep things simple, but in reality, Sinatra has nearly just as much implicit "magic" as Rails does, it's just.. smaller, and less. (If that makes any sense.) Point is, saying Sinatra is "simpler" is a superficial argument with no real basis.
+
+But part of the _problem_ with Rails is that it's so much more complicated underneath. This [answer to a question about editing the tags within a New Entry form](http://stackoverflow.com/questions/1847641/trying-to-use-accepts-nested-attributes-for-and-has-and-belongs-to-many-but-the-j) made my head spin, and I'd only gotten halfway through it! There's a lot to Rails, just like Cocoa, and to truly become a proficient expert at it is going to take time, determination, and a lot of red wine.
+
+All I have right now in my Rails version is the generic scaffolding for `Entry`, `Model`, `Comment`, and `Category` classes, along with the proper associative relationships between them in. Everything else has yet to be done.
+
+My plan is to create a `ListingController`. All four of the aforementioned controllers will require authorization (or authentication? I don't know which is which), so that they will remain my CRUD tools for modifying my journal's content at any given time. The new `ListingController` will be the public-facing controller, which would have actions for listing entries by date (default), by category or by tag, or entries based on a search, as well as showing an individual entry along with all of its comments.
+
+After that, the only 2 pages left are "About" and "Login" (which would simply contain a login form). I imagine those probably shouldn't be in the same controller, but I'm limited on time here and have to make certain compromises. So it is what it is.

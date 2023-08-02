@@ -1,0 +1,76 @@
+---
+title: "Snow Leopard allows instance-variables on any object!"
+---
+
+### Instance variables for everyone
+
+Back in March, I thought to myself "wouldn't it be awesome if every object allowed arbitrary key-value storage just like CALayer does?" and [blogged about it here](/blog/2009-02-03-free-ivars-6-cents-a-gross/). Well, it seems someone at Apple HQ agrees with me!
+
+So, let's give a warm welcome to the brand spanking new Snow-Leopard-only APIs:
+
+```objc
+void objc_setAssociatedObject(id object, void *key, id value, objc_AssociationPolicy policy);
+id objc_getAssociatedObject(id object, void *key);
+void objc_removeAssociatedObjects(id object);
+
+/* objc_setAssociatedObject() options */
+enum {
+    OBJC_ASSOCIATION_ASSIGN = 0,
+    OBJC_ASSOCIATION_RETAIN_NONATOMIC = 1,
+    OBJC_ASSOCIATION_COPY_NONATOMIC = 3,
+    OBJC_ASSOCIATION_RETAIN = 01401,
+    OBJC_ASSOCIATION_COPY = 01403
+};
+```
+
+It may not be obvious at first, but this essentially lets developers use any object as if it were a very flexible associative-array (dictionary) class.
+
+There are a few limitations, though. For one, you can only remove all keys at the same time using the last function listed above. (However, I presume that it might do the trick to pass a parameter of nil when associating an object, but the functions aren't documented fully, so only try it at your own risk).
+
+Also, this is a functional API, which means you can't actually do genuine Key-Value Coding with undefined keys here, unless you override the relevant methods in an NSObject category or something like that.
+
+### And Class variables, too!
+
+Objective-C doesn't quite have class-variables, so for most of the cases where that would matter, we've generally used static variables, which are similar to class variables but not quite the same.
+
+Well, this new API finally gives us the ability to genuinely assign class variables, which to me is pretty darn exciting! (Although, I'm not sure quite yet what I would do with them, but still it's exciting nonetheless!)
+
+### My fun usage
+
+Based on [Mike Ash's idea](http://www.mikeash.com/?page=pyblog/friday-qa-2009-08-14-practical-blocks.html), I've created a class that lets you run a block after a certain delay, using this principle as the storage mechanism (for no real practical reason other than fun) instead of an instance variable. Here's what the whole class looks like:
+
+```objc
+// SDDelayProxy.h
+
+@interface SDDelayProxy : NSObject
++ (void) performAfterDelay:(NSTimeInterval)delay block:(dispatch_block_t)someBlock;
+@end
+
+// SDDelayProxy.m
+
+#import "SDDelayProxy.h"
+#import <objc/runtime.h>
+
+#define SDDelayProxyBlockKey @"block"
+
+@implementation SDDelayProxy
+
++ (void) performAfterDelay:(NSTimeInterval)delay block:(dispatch_block_t)someBlock {
+    SDDelayProxy *proxy = [[SDDelayProxy alloc] init];
+    objc_setAssociatedObject(proxy, SDDelayProxyBlockKey, someBlock, OBJC_ASSOCIATION_COPY);
+    [proxy performSelector:@selector(runBlock)
+                withObject:nil
+                afterDelay:delay];
+}
+
+- (void) runBlock {
+    void (^block)() = objc_getAssociatedObject(self, SDDelayProxyBlockKey);
+    block();
+    objc_removeAssociatedObjects(self);
+    [self release];
+}
+
+@end
+```
+
+In conclusion, these are going to be useful in certain situations, but not many, I'll bet. So feel free to let me know in the comments how you're using them, I'm curious! :)

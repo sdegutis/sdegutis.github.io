@@ -1,0 +1,43 @@
+---
+title: "Starting from scratch"
+---
+
+I was reading a post written last year by Phil Hagelberg (technomancy)[about his switch from SLIME to nREPL](http://technomancy.us/163). And something really fantastic occurred to me. Bear with me as I explain.
+
+First he describes the problems with swank-clojure:
+
+> Nobody really understood the ins and outs of the project ... Part of this was because it was just a really old quirky codebase ... but part of it was because it was a fairly literal port of the Common Lisp server.
+
+Then he expresses his doubts about nREPL taking its place:
+
+> While I appreciated the idea, I thought that it would be a long time before Emacs support for it could catch up to the level of functionality in SLIME.
+
+This looks like it's only about nREPL, but there's a hidden assumption at work: "A replacement for \_\_\_ with the features I need will take too long."
+
+After a short while, nrepl.el begins to take form, and he describes his experience using it:
+
+> The main thing I've noticed about it is how accessible the codebase is; I've found it very easy to dive in and add features. So even though it's still missing a few things that SLIME boasts, it's on course to improve at a steady pace.
+
+That's it! Do you hear the surprise in his voice? His assumption was proven wonderfully wrong by the evidence.
+
+It was just the wrong solution, that was the real problem all along! We tried to take a solution that worked for Common Lisp, and jimmy-rig it to work for Clojure. But Clojure isn't Common Lisp. And 2012 isn't 2003.
+
+Our requirements are different now. Our code should be too.
+
+In other words, when we approach a problem, we need to strip away **assumed requirements** until all we have left is **actual requirements**. The actual requirements are usually[much smaller and simpler](/blog/2013-11-14-requirements)than we think. And often, the quickest and safest route to meeting them is to start from scratch.
+
+I've put this idea into practice. In 2013, I've written:
+
+* an intuitive window manager
+* a super-flexible window manager
+* a simple music player
+* a version of clojuredocs.org that's updated for Clojure 1.5
+* a Clojure-like programming language for embedding in ObjC apps
+* a Clojure IDE
+* a new window manager that's scripted in my own programming language.
+
+It's not that I'm a great programmer or anything. I'm pretty average actually. And it's not like I'm coding all day and night, either. It's just that I looked for the actual requirements in all these problems, and they turned out to be deceptively simple.
+
+I wonder what other tools we use that we can vastly improve if we get rid of assumed requirements?
+
+**Update:** I think Richard Stallman just helped [prove my point](https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html).

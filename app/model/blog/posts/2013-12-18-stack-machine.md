@@ -1,0 +1,66 @@
+---
+title: "Stack Machine"
+---
+
+They're easier to implement than register-based virtual machines. And as [Jeff Bezanson](https://github.com/JeffBezanson) (creator of [Femtolisp](https://github.com/JeffBezanson/femtolisp)) pointed out to me, since Lisp usually has fewer temporary assignments, the benefits of a register machine might not necessarily outweigh a stack machine.
+
+As wikipedia explains it to me, this:
+
+`(+ (+ (* y x) x) u)`
+
+would produce these instructions:
+
+```armasm
+push x
+push y
+push z
+multiply
+add
+push u
+add
+```
+
+Which makes sense. Although it's hard to imagine the translation when the instructions are in that order. I think it might be clearer like this:
+
+```armasm
+push y
+push z
+multiply
+push x
+add
+push u
+add
+```
+
+This way, it's easier to see that you push both the operands and then perform the operation, recursively, starting deepest-first and working outward. I haven't tried to imagine it with multiple arguments yet but I imagine it would be simple:
+
+`(+ (* x y) (+ x u))`
+
+becomes:
+
+```armasm
+push x
+push y
+multiply
+push x
+push u
+add
+add
+```
+
+It takes advantage of the stack in order to always use the same translation algorithm.
+
+The next question I haven't figured out is how to determine how many arguments to pass. These are always assuming an implied 2 arguments, but function calls vary. One idea is to give the number of arguments in the "call" instruction.
+
+`(average x y z)`
+
+might become:
+
+```armasm
+push x
+push y
+push z
+call average 3
+```
+
+This has 2 arguments though, and I'm not sure if that's doable.

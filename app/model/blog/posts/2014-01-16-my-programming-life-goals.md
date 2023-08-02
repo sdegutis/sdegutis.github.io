@@ -1,0 +1,30 @@
+---
+title: "My programming life-goals"
+---
+
+There are a few goals I want to accomplish at some point in my short life:
+
+* Write a programming language
+* Write an IDE
+* Write something with a plugin system
+* Write a 2D video game
+
+### The goals
+
+The goal of writing a programming language started 7 years ago, when I first became serious about learning programming. Since then I've made several unsuccessful attempts, but I keep learning more at every try. I'll probably consider this goal accomplished when I have the knowledge to write slow versions of Ruby and C.
+
+The goal of writing an IDE started a few years before that, when I was learning Visual Basic 5.0 on my old PC. I was inspired to write my own syntax-highlighting IDE. Since then, I tried my hand at this goal many times, and got really close with the Mac version of Leviathan. I'll probably be satisfied with this goal when I write something I can actually code in daily.
+
+The goal of writing a plugin system probably started when I was trying to write an app like MS Paint in ObjC + Cocoa with an extensible tool palette, which was about 7 years ago. This love grew when I discovered Emacs, and even though I think they did it wrong, I love the idea of a system that's tiny at its core and is only meant to be extended programmatically. I think I'll only consider this goal fulfilled after I make an IDE that has a tiny extensible core, probably in Clojure.
+
+The goal of writing a 2D video game started years before this, when I would play Super Bomberman, Super Metroid, and Super Mario World, all on SNES. This is what got me into programming in the first place. My dad was teaching me HTML at the time, and I asked how I could write a video game, and he handed me a book on Visual Basic. I soon found QBasic (much more suitable for this purpose) and actually wrote decent-looking Mario and Bomberman engines. Unfortunately they're both lost to the sands of time, but I've tried these goals again a few times since then. I imagine I'll be content once I write a game that my kids can play and enjoy.
+
+### The plan
+
+None of these were originally life-goals. But over time, I noticed that I keep starting new projects with these themes. So I decided to accept these passions as part of who I am, and hopefully formalize them a little for myself in this blog post.
+
+I don't have a formal goal, and I'm pretty sure I wouldn't be happy if I made one. I'm just hoping that writing this down will shed a little light on my interests and why I do what I do.
+
+I'll probably also never accept a job doing one of these things, because it would ruin the passion and fun of it for me. I like that I have no deadlines and no plans to finish any of them. I like that I can completely abandon a failed attempt at an IDE guilt-free and worry-free. I like that nobody's writing code in my programming languages, because it means it's just a no-pressure fun hobby.
+
+The point isn't to change the world, it's just to push my limits.

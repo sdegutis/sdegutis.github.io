@@ -1,0 +1,75 @@
+---
+title: "CocoaREST + Blocks"
+---
+
+Earlier today I was thinking to myself, "it's the weekend, Nikki's at work and the kids are finally napping. What can I do that only takes a couple hours?" So I took at look at Landon Fuller's [PLBlocks](http://code.google.com/p/plblocks/) and read [Mike Ash](http://www.mikeash.com/)'s awesome guide on [practically using blocks](http://www.mikeash.com/?page=pyblog/friday-qa-2009-08-14-practical-blocks.html) (mostly for the gotchas, as I have a fair amount of practical experience with them already from jQuery and the like). If you aren't yet aware, PLBlocks is Landon's awesome back-port of Blocks to Leopard, requiring a compiler update and embedded framework (both available on PLBlocks's google code above).
+
+So, more eager than hesitant to get using this new technology, I got working on porting CocoaREST to using PLBlocks instead of the traditional delegate/callback method it currently uses. The best part is that it works for Leopard with only 2 very slight modifications to your project!
+
+Here's a hint at what it's looking like with the new API in place. (You'll notice it doesn't use subclasses at the moment. More on that in another blog post.)
+
+```objc
+- (void) awakeFromNib {
+    manager = [[SDNetTaskManager manager] retain];
+    manager.baseURLString = @"http://twitter.com/statuses/show.json";
+
+    SDNetTask *task = [SDNetTask taskWithManager:manager];
+    task.parseFormat = SDParseFormatJSON;
+    [task.parameters setObject:[NSNumber numberWithInt:123] forKey:@"id"];
+
+    task.successBlock = ^() {
+        NSLog(@"%@", task.results);
+    };
+
+    task.errorBlock = ^() {
+        NSLog(@"error: %@", task.rawString); // for testing why things erred
+    };
+
+    [task run];
+}
+```
+
+Which outputs the following (as a valid NSDictionary):
+
+```objc
+2009-08-16 13:55:34.503 CocoaTest[79024:10b] {
+    "created_at" = "Thu Mar 23 00:03:19 +0000 2006";
+    favorited = 0;
+    id = 123;
+    "in_reply_to_screen_name" = <null>;
+    "in_reply_to_status_id" = <null>;
+    "in_reply_to_user_id" = <null>;
+    source = web;
+    text = "finished analyzing smam/ac success rates";
+    truncated = 0;
+    user =     {
+        "created_at" = "Tue Mar 21 21:01:35 +0000 2006";
+        description = "Founder of CrowdVine";
+        "favourites_count" = 24;
+        "followers_count" = 6901;
+        following = <null>;
+        "friends_count" = 195;
+        id = 17;
+        location = "S Knoll Rd & Shayan Ct, St";
+        name = "Tony Stubblebine";
+        notifications = <null>;
+        "profile_background_color" = 0D7CDA;
+        "profile_background_image_url" = "http://s3.amazonaws.com/twitter_production/profile_background_images/32/OTHER-Lista_1280x1024.jpg";
+        "profile_background_tile" = 0;
+        "profile_image_url" = "http://s3.amazonaws.com/twitter_production/profile_images/14019552/profile_normal.jpg";
+        "profile_link_color" = 0000ff;
+        "profile_sidebar_border_color" = 131411;
+        "profile_sidebar_fill_color" = 91FFE9;
+        "profile_text_color" = 000000;
+        protected = 0;
+        "screen_name" = tonystubblebine;
+        "statuses_count" = 1855;
+        "time_zone" = "Pacific Time (US & Canada)";
+        url = "http://www.stubbleblog.com/";
+        "utc_offset" = -28800;
+        verified = 0;
+    };
+}
+```
+
+Hope you enjoy this little preview on what CocoaREST has coming, stay tuned for more!

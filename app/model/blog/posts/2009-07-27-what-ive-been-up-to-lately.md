@@ -1,0 +1,11 @@
+---
+title: "What I've been up to lately"
+---
+
+Okay, I haven't posted here in a month or so, I admit. So, here's why...
+
+* Contracting work has consumed most of my time. While it's not a walk in the park, or even completely fun all the time (like people promised it would be!), it definitely beats working at McDonald's. So, priorities are priorities, and this has been the top one for a while now.
+* Selling [my own software](http://www.thoughtfultree.com/) beats contracting any day, but it isn't going to sell itself, so in my spare time (read: when not with family or doing contracting work) I've been updating all my apps and writing some new ones. I've been writing what I call the second generation of Thoughtful Tree apps, and will be releasing them soon. As you can imagine, there isn't a lot of spare time to take up, so it's slow-going.
+* In the process of selling my own software, I've rewritten my private library to be more secure, faster, and to use my own licensing scheme instead of eSellerate's. (Moving from eSellerate to PayPal was a tough decision, which I hope will be worth the money saved.) So I've been waiting for appcaster to be rewritten as [Shine](http://github.com/tylerhall/Shine/tree/master) because it's a fantastic tool. However, since I'm as impatient as the next guy, I decided to write the 3 components of it myself. The hardest part was actually writing a script (actually a Mac app) to generate Appcasts. This surprised me, because I honestly thought the PayPal/licensing script would be more difficult, but that turned out quite effortless thanks to using the [PayPal PHP class](http://github.com/tylerhall/Shine/blob/master/includes/class.paypal.php) that Shine uses.
+
+Obviously, this hasn't left me a lot of time to contribute to my other commitments, such as CocoaREST. I do have some additions and changes I've made to it that I'd like to push to the public hub, but they need to be tidied and cleaned up more before they're ready for the general public (ie, you). So stay tuned, as at least some of my top priorities should be finishing up soon! (maybe)

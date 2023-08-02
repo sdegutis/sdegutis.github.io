@@ -1,0 +1,34 @@
+---
+title: "Clojure web app parameter coercers"
+---
+
+Compojure allows you to specify functions that coerce your parameters into whatever format or type you need them to be.
+
+I ended up making a few helpful ones for myself at work. They all start with `maybe-` and return either the thing, or nil if it doesn't parse as that thing. Here's the basic ones:
+
+* `maybe-string` returns a `String` (if it's not `str/blank?`)
+* `maybe-int` returns a `Long`
+* `maybe-float` returns a `Double`
+* `maybe-uuid` returns a `java.util.UUID`
+
+There are only three that are more complex than this:
+
+* `maybe-email` returns a `String` if it passes a super-basic regex test
+* `maybe-dollar-amount-as-pennies` returns a number of pennies interpreted by strings like `"$20"`, `"4.30"`, (etc.) and it's pretty forgiving.
+
+And my favorite:
+
+```clojure
+(defn maybe-one-of [& keywords]
+  (let [options (set keywords)]
+    (fn [param]
+      (get options (keyword param)))))
+
+((maybe-one-of :foo :bar) "foo")  ;; => :foo
+((maybe-one-of :foo :bar) "bar")  ;; => :bar
+((maybe-one-of :foo :bar) "quux") ;; => nil
+((maybe-one-of :foo :bar) "")     ;; => nil
+((maybe-one-of :foo :bar) nil)    ;; => nil
+```
+
+That one is really useful for `<select>` inputs and stuff like that. I like it a lot because it makes me feel like I'm writing in Haskell in the sense that it gives me that safety of knowing that the thing can definitely only be one of a given list of options, plus it declares right in my parameter list what those options can be, and coerces them into a format that's convenient to use (keywords). Plus I like the simplicity of the implementation since it just uses `get` on a `set`.

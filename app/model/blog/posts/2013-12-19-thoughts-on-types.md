@@ -1,0 +1,19 @@
+---
+title: "Thoughts on Types"
+---
+
+I was reading about [why Julia was created](http://julialang.org/blog/2012/02/why-we-created-julia/), and this sentence struck me (in the face):
+
+> "we want to use generic programming to write an algorithm just once and apply it to an infinite lattice of types"
+
+I've been thinking a lot about types lately. I expressed part of it in my post on [Clojure and C](/blog/2013-11-25-clojure-and-c). And that's where I want to continue from.
+
+To me, Clojure and C both seem like very high-level languages. But most of my colleagues would say C is low-level! So I started wondering: Why do I think differently about this?
+
+I think it's because I look at _what_ the language is good at. Most of them would probably define a "high-level language" having something to do with "objects" and "dynamic typing" and "methods". But I don't think that's relevant to highness or lowness of a language.
+
+When I think of Clojure's type system, the first thing that stands out to me is how extremely good it is at dealing with collection types. Clojure functions don't usually care what type a collection is, they just know it's a "sequence" and that's all they care about. Naturally there are other types too, but the true power of Clojure seems to center around its collections.
+
+What's cool about C is that it really only has one type: numbers. That's really it. Using just the number type, along with direct access to memory, C gives you arrays, characters, strings (arrays of characters), pointers, and combinations thereof (structs). This is a pretty powerful set of abstractions which gets you extremely far, and all based on a simple turing machine.
+
+But I admit that C lacks a good polymorphism system. You can add one yourself, and that's how C++ began, but that's not the same as having one built in. Go's type system tries to solve this by letting you add methods to any type, but I feel like that's conflating types meant to be used as values with types meant to be used as receivers, and I don't think they belong in the same type system. On the other hand, Java separated them out, and I'm not sure that's working out too well either.

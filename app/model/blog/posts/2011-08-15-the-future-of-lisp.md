@@ -1,0 +1,57 @@
+---
+title: "The future of Lisp"
+---
+
+I’ve been thinking about existing Lisps a lot lately and where we’re headed. In particular, I’ve been considering the possibility of writing another Lisp dialect, and where it might fit.
+
+If you haven’t already heard about it, Lisp is a neat little family of languages; its extremely minimal syntax lets us think in nearly-pure algorithms, un-muddled by crufty syntax or obligatory boilerplate.
+
+### What’s on the market today?
+
+Traditionally, there’s Scheme, which is only useful for teaching in universities because of it’s intentional lack of libraries, and there’s Common Lisp, which is just a horrible, horrible mess (think C++ but with more parentheses than you can shake a stick at).
+
+Clojure is obviously the most popular Lisp today. Some people would even consider it the only Lisp that’s actually practical anymore. It added syntactic sugar for more datatypes, seamless integration with the `JVM`, and it ditches all the old legacy junk of traditinoal lisps.
+
+There are a few others, such as Nu, which is super cool when you want to build an iOS or Mac app but don’t like pointers. (Hey, just like MacRuby!)
+
+But why didn’t Nu take off? And why did `CL` and Scheme die? Why is Clojure the only one gaining traction? Can another Lisp be implemented and have Clojure-like success?
+
+### A curse ... and a blessing
+
+Obviously there’s the syntax. Lisp’s s-expressions make it enormously simple and give it the powerhouse feature we call macros, but all those parentheses are hideous and nobody can edit them in any editor other than emacs+paredit and expect to survive. Its biggest strength is probably its biggest weakness.
+
+But there’s also a sense of platform, and portability needed. Nobody is going to write an entire application in Scheme because it has no standard libraries. Clojure arrived on the `JVM`, which is portable and is already jam-packed with all sorts of built-in helpful classes and third-party libraries. Thanks to Java, the `JVM` is already an established platform.
+
+### But what’s a platform?
+
+Nu is an interesting Lisp. It was written to make iOS/Mac development easier and more fun. It brings Lisp macros to the table, and it comes with a goodie-bag of useful tools to help you get your feet wet.
+
+But Cocoa is an `SDK`, not a platform. Anyone who tells you otherwise is trying to sell you something (probably Xcode). In a Mac/iOS app, your ins and outs are `GUI`, and each component you’ll need at every step of the way is provided for you (tightly-coupled to one another, I might add) by the frameworks. Little is left to the imagination.
+
+### So what’s wrong with that?
+
+When writing an app in Cocoa, you are given the model layer, the controller layers, the view layers, and are told to glue them together with a little Objective-C. So there’s no room for any of the features Lisp would offer you. Nearly every line of Nu code you would write (I’m going to guess about 95%) would be making a bridged Objective-C call out of necessity, which defeats the point of using Lisp in the first place.
+
+Besides, most of Apple’s libraries just don’t make any sense outside of an imperative-driven context. So there’s not much that can be done to make good use of functional-style programming, and you have to ditch many of the complex C-level features Apple provides that just can’t be made compatible with Lisp.
+
+There’s simply no good reason to leave Apple’s built-in superglue for our own home-grown glue, it’s just not worth it. This is inherently the problem with any `SDK`, not just Cocoa but Android and others too.
+
+The `JVM` is open-ended. Your persistence layer is completely up to you. Your model layer is up to you. Your view layer is dictated by what type of app it is (server, `GUI`, command-line utility, etc). You’ve got complete freedom from beginning to end.
+
+### Finding the right platform
+
+But that’s not unique to the `JVM`. You’ve also got that same property with C and C++ and Ruby and Python, right? Let’s face it, a Lisp implemented in Ruby or Python is redundant: you already have 90% of the features you would want anyway, so there’s no motivation to go the extra mile just for macros, plus it would be much too slow.
+
+And there’s no sane interoperability from an algorithmic language like Lisp to a processor-driven language like C or a spaghetti-driven language like C++. Who frees what memory when, and where did my chicken go? Suddenly everything’s a confusing mess.
+
+### Other potential niches
+
+For a second, it seems like there’s another option: to go the route of Ruby and Python, by writing an interpreted Lisp dialect with its own set of standard libraries. After all, those two languages are pretty successful, right?
+
+But that dream dies quickly with the realization that those languages each provided an emacs-free `REPL` which anyone could quickly leverage to become an expert in the language in weeks flat. The s-expressions inherent in Lisp simply won’t allow for that.
+
+Or a new Lisp dialect could take the Go approach and become a static language with super-fast compile times and execution times. But I don’t think that’s what people mostly care about. You can’t get faster compile-times than 0, which is where Ruby and Python are at. And you can’t get much faster execution times than the `JVM`, theoretically, under particular circumstances (when certain stars are aligned and you hop on one foot 3 times).
+
+### To the foreseeable future!
+
+The fact is, no other platform out there right now can provide the standard libraries, third-party support, extensibility, well-rounded feature-set, community support, and portability like the `JVM` can. Clojure is currently the best incarnation of Lisp we have, and will remain for the foreseeable future.

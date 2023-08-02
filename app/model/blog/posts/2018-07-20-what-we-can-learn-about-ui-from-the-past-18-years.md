@@ -1,0 +1,77 @@
+---
+title: "What we can learn about UI from the past 18 years."
+---
+
+Everyone I know says “you should use macOS” or Mac OS X” or “OS X” or whatever they call it today. This kind of cult following is impressive, and since a big feature they keep touting is Apple’s UI design sense, I wanted to take a lunch break to examine that and walk through their OS design’s evolution over the past 18 years. Join me, won’t you!
+
+Disclaimer: I wasn’t around during most of this stuff, and I’m not a very experienced designer, so take everything here with a pinch of salt.
+
+![](https://miro.medium.com/max/365/1*jWhzvR5oYQbRD5GmhbzscQ.png)
+
+I’m just going to throw screenshots of each OS in here from wikipedia if everyone’s cool with that.
+
+Look at this. I’ve never used this OS. This is Mac OS X Public Beta. Isn’t it marvelous? The remote looked kind of like a real remote! The trash can was a literal trash can! There’s a little Sherlock Holmes hat and magnifying glass, whatever that’s for! This is so foreign to me that I have no idea what I’m looking at in half the screen shot.
+
+Okay, so breaking this down, we see a lot of whitespace, a lot of large buttons and large colorful icons, and a general candy-like theme. I could see people thinking this looks beautiful and new and fresh compared to Windows XP! The wikipedia article states that it crashed all the time and crawled like a turtle, but it sure is pretty! But let’s give it a break, that was a beta version. Also interesting is that the Apple menu icon is in the center of the menu bar!
+
+![](https://miro.medium.com/max/365/1*12VqbGSZqzd3lIrfrjmjDQ.png)
+
+Notice the see-thru menus. How fancy-pants!
+
+Here we have Mac OS X 10.0, the first public release of Mac OS X. I already see a few changes! I guess the beta testers didn’t like how much room the buttons on the toolbar were taking up, because they’re slightly smaller now and don’t have a bevel. I guess they must have said this update was “sleek” for having removed stuff. We also notice the menu was translucent! What a neat effect! And they put the menu on the left. Who’s bright idea was it to have it centered? Having longer menus would just push its location, confusing users.
+
+Borders are thin, icons are big and colorful, buttons stand out, and every single control seems to have a blue-candy look to it.
+
+![](https://miro.medium.com/max/365/1*SlF0-2binUy0tUW6TbqmGA.png)
+
+There’s literally no visual changes here.
+
+Enter Mac OS X 10.1. Nothing changed at all. I’m guessing they claimed this was a “performance and stability release”. But don’t they know how much users love visual change? Visual change indicates _newness!_
+
+![](https://miro.medium.com/max/700/1*hCEK9gqd3O-xzDPWwEyPhw.png)
+
+Whoa! Stripes, stripes everywhere!
+
+I guess they over-compensated, because Mac OS X 10.2 is full of huge changes! The menu icons are further spaced away from each other (maybe monitors got bigger around this time), but most notably there are stripes on every single window! I bet this was touted as a major usability improvement, something like “our new stripes assist users in locating the most important information and content in a window at a quick glance, and give users a visual cue that they can ignore the, well, the stripes.” I mean it’s even in the menu bar and every single titlebar guys. It’s everywhere.
+
+![](https://miro.medium.com/max/700/1*r5N2dvsyog70S5Yl6mJkrQ.png)
+
+Wait! Where’d my beautiful stripes go? They’re all gone!!
+
+Now we have Mac OS X 10.3, with the stripes all replaced with this weird, sanded-metal look! I guess it was appealing to 1980s car stereos because that’s all I can see when I look at it. The rule of thumb in design is: if you’re targeting adults, make stuff look like it’s other stuff from 30 years ago.
+
+Well it’s not all gone, the menu still has subtle stripes. I guess they didn’t want to reveal that they truly thought the stripes were a bad idea, and removing them completely would look like backpedalling. I’m assuming all Apple fans praised this metallic look and just ignored the previous OS’s stripes.
+
+![](https://miro.medium.com/max/600/1*skH9GN2A7yCtPJefZji8Kw.png)
+
+The Finder face looks ever so slightly less cartoonish.
+
+And here is Mac OS X 10.4, looking almost identical to 10.3, except some icons are different in the dock, and there’s a new button in the top right corner of the screen (Spotlight!) that kind of balances the Apple menu icon on the left, but still stands out and looks a bit weird.
+
+![](https://miro.medium.com/max/700/1*y-appocNz65Er2RKweekJg.png)
+
+Outer space time!
+
+Now for Mac OS X 10.5, where they introduced Time Machine! Obviously you have to make your default background look space-themed if you have an app called time machine, since time and space are both science fiction words.
+
+But wait, everything is even _more_ sleek than before! All the “negative space” is now matte and flat, with a slight gradient to keep the impression of depth, and the buttons look like fancy spaceship buttons instead of 80s car stereo buttons. This still keeps with the 30-year rule since 30 years before this OS release would be the late 80s, when Aliens was released.
+
+But we’re _finally_ seeing more interesting UI changes. The borders in the center of windows and on their left and right edges are now ultra thin! The side bar on the left is now slightly blue! The blue colors are less #0000FF and a little more muted. The Apple menu icon is finally black instead of bright blue! The Dock literally looks like a glass platform that you can stand on the edge of to get a close up look at the ending of 2001 Space Odyssey, complete with reflection and all. Any change really ticks people off, and I imagine this release made a ton of old users really, irrationally angry. I bet you a dime there’s dozens of blog posts out there about just how awful these updates are.
+
+![](https://miro.medium.com/max/421/1*yBQfaKJEj1elzlzeZrHcCA.png)
+
+Nothing to see here, move along.
+
+“With Mac OS X 10.6 we are pleased to announce that we added 0 new features and changed nothing, but we did reverse a lot of the slowness you all started to see over the past few versions.”
+
+![](https://miro.medium.com/max/399/1*a4x3bOzNn1hHBBtYvunnVA.png)
+
+Mac OS X 10.7: Different space background.
+
+![](https://miro.medium.com/max/421/1*GcDMNCGwysZPPuVxFdYk0w.jpeg)
+
+Mac OS X 10.8: More muted space background.
+
+I couldn’t find any good screenshots showing off the new visual changes in these two OSes, but the wikipedia articles say they basically imported a lot of iPad UI into several of their built in apps.
+
+Well my lunch break is over, I guess this is going to be a two-parter!

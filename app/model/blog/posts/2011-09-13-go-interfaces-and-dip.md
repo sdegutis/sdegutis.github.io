@@ -1,0 +1,76 @@
+---
+title: "Go interfaces and DIP"
+---
+
+The new language Go by Google brings a few orthogonal features to the table which work powerfully together. A heavy hitter in its arsenal is the Go interface.
+
+Let's look at how Java interfaces work:
+
+```java
+public interface Predator {
+  boolean chasePrey(Prey p);
+  void eatPrey(Prey p);
+}
+
+public class Lion implements Predator {
+
+  public boolean chasePrey(Prey p) {
+    // ...
+  }
+
+  public void eatPrey (Prey p) {
+    // ...
+  }
+}
+```
+
+Now we can pass a Lion object into any function that takes a Predator parameter. This is one nice way that Java lets us make use of the Dependency Inversion Principle (the `D` in `SOLID`).
+
+Using interfaces in Go is conceptually almost identical:
+
+```go
+type Predator interface {
+  chasePrey(Prey) bool
+  eatPrey(Prey)
+}
+
+type Lion struct{}
+
+func (self Lion) chasePrey(p Prey) bool {
+  // ...
+}
+
+func (self Lion) eatPrey(p Prey) {
+  // ...
+}
+```
+
+Notice anything different?
+
+The Go version is missing something that the Java version requires; it doesn't have anything corresponding to `implements Predator`. This may look like a mere convenience, but it's cooler than that.
+
+Let's say the Lion class was written 5 years ago, and we're writing a brand new `API` with this interface:
+
+```go
+public interface PreyChaser {
+  boolean chasePrey(Prey p);
+}
+```
+
+We can't use Lion in any function that takes a PreyChaser! Why not? Shouldn't we be able to? After all, it already implements the `chasePrey` method!
+
+But alas, in Java, the class itself must know ahead of time all the names of the interfaces it wants to conform to. This is an unfortunate form of temporal coupling.
+
+Now consider this new Go interface:
+
+```go
+type PreyChaser interface {
+  chasePrey(Prey) bool
+}
+```
+
+Suddenly, we can use a Lion instance anywhere a Predator or PreyChaser is accepted! Go doesn't care that, 5 years ago, Lion never specified which interfaces it implements, it just cares that it has the methods this interface needs, and rightly so.
+
+Because of this, Go allows us to write code that can apply the Dependency Inversion Principle not only to future concrete types that we or someone else might dream up, but also to every concrete type that was written throughout all Go history!
+
+Keeping in mind best practices, including the `SOLID` principles, makes us more effective at our craft. But, when our language designers and tool authors also keep them in mind, all the better!

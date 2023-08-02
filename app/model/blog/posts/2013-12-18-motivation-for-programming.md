@@ -1,0 +1,17 @@
+---
+title: "Motivation for Programming"
+---
+
+I haven't quite nailed down motivation yet. Some days, I find that I can be amazingly productive, and other days I get almost nothing done.
+
+One factor is how interesting a problem is. When it's super interesting, I can often finish a working prototype in just a weekend, whereas it might take a few weeks for something more boring. This was a major motivation for writing Zephyros, after reading [Slate](https://github.com/jigish/slate)'s source code piqued my interest.
+
+Another factor is how much I need it. I'll work more on something that I would use every day, like Zephyros or Leviathan. Both of these also happened to be super interesting problems for me.
+
+But even when a problem is super interesting and solving it would help me, it has to be easy enough for me to do. So far I haven't gotten far with my programming language, my email client, or my Bomberman clone, because there's a knowledge gap that I need to fill before I'm qualified to do them. This is why Bahamut wasn't born until Apple released public high-level APIs for playing music files.
+
+And when I do get a problem that's just right, I can't work on it too long or I'll burn out and need a few days break. That's not pleasant. So I try to pace myself.
+
+Sometimes I fall into the trap of looking for external praise as a motivation. That's how some of my older projects came about, I wanted people to be appreciative of the work I've done for them. But I realized that first and foremost, this is a really manipulative and disrespectful way to act. And secondly, it yields very disappointing and inconsistent results. So I try to only work on projects that I would use. And even if I'm the only person to ever use it, that should still be good enough for me. So far, it's been working out pretty well.
+
+I also make sure all my side projects are low-pressure. Because high-pressure projects really drain me and take all the fun out of it. So I don't make promises to anyone about what will be done when, or make any claims about how important any project will be. And I also put my code in github, in case I decide to move on from it, because it's easier for someone else to take a project over that way.

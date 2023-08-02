@@ -1,0 +1,9 @@
+---
+title: "Optional method arguments in Ruby"
+---
+
+Over the weekend I was working on my first Ruby project, an IRC bot. One of the ways it handles IRC events is via a simple event callback registration system which uses Proc objects, pretty standard Ruby stuff. However, I decided to add a new way to handle events by just defining a method in the form `"handle_[eventname]"` within a plugin object. Thus, to handle join events, you would implement `handle_join`.
+
+The first argument to these methods is the event info (as a Hash). The second is the raw line itself. Obviously the latter is rarely needed in an event handler, so I wanted these methods to be able to have the option of omitting them. In Objective-C, you can do this just by passing all the arguments, and the runtime will just drop off the rest of the args if you don't implement them, so there's never an argument error. In Ruby, it requires a little more work, since passing the wrong number of args to a Proc object can raise an exception (depending on how the Proc was created), but it's still doable.
+
+Originally I was going to convert the Method object into a Proc using `Method#to_proc`, and then use `Proc#curry`, which would have been neat, but much too complex for this little problem. Instead I found a simpler solution. All you have to do is limit the full array of arguments to the number of arguments the method actually takes, using `Array#first` in conjunction with `Method#arity`, and splat the result when passing it to `Method#call`. Here's the code I ended up using to make it happen. Ruby is pretty amazing.

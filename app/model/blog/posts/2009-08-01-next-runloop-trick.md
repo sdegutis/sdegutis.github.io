@@ -1,0 +1,25 @@
+---
+title: "Next Runloop Trick"
+---
+
+Most of us Mac developers who've dealt with Cocoa's user interface elements (tables, text fields, that sort of thing) have come across the need to perform some action on the next runloop, in order for the action to appear more smoothly and less jerky. For instance, after reloading a table's data, changing the selection of said table is best done after the next runloop.
+
+Though not done very often, this trick has proven tedious... it involves writing a whole new method just to perform your trick, and calling that method after 0.0 delay with the `-[NSObject performSelector:withObject:afterDelay:]` method. Not only is this method ugly, but it's not flexible, allowing for only one argument to be passed. I decided it was time to get rid of this ugly little necessity and make it a lot more flexible, so I wrote a little class. Here's a quick little example:
+
+```objc
+- (void) awakeFromNib {
+    [[self nextRunloopProxy] printInt:42 withFloat:31.4 andString:@"this sentence is false"];
+}
+
+- (void) printInt:(int)someInt withFloat:(float)someFloat andString:(NSString*)someString {
+    NSLog(@"%d, %f, %@", someInt, someFloat, someString);
+}
+```
+
+What may not look obvious right away is that the method `-nextRunloopProxy` works on any object, since it's in a category on NSObject. Even better, it retains the arguments passed so that even autoreleased arguments will safely be passed to the method in question. The way I ended up using this method for the very first time was as such:
+
+```objc
+[[sourceListTableView nextRunloopProxy] selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+```
+
+Feel free to [download the source code to SDNextRunloopProxy](/static/old-blog-files/SDNextRunloopProxy.zip) under the BSD license (which I plan to maybe/possibly move to github soon, maybe). I hope someone else finds this useful besides me, and if you do, I've love to hear about it... Enjoy!

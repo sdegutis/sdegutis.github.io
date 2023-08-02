@@ -1,0 +1,13 @@
+---
+title: "Negotating with Bomberman Clients"
+---
+
+When writing a Bomberman clone, I want all of us in this house to be able to open a client, type their name, and click Join. Then one person will click "Start Game" (me!) and the game will start. The goal is to make starting a new game easy and convenient on us all.
+
+Somehow, the client who clicked "start" has to know about all existing clients before the game begins. This way he can set up each player in the game, and map them to other clients who will be sending input and expecting output.
+
+It's sufficient for the ad-hoc "server" to only have a list of the names of the players. It doesn't need their IPs, since it can map them by nickname. So if you type "bob" as your nick and I type "alice" as mine, then I'll create two in-game players named "bob" and "alice", and each client will send its nickname along with its input so I can know which in-game player to manipulate.
+
+The easiest way to do this is probably to have the client broadcast an "updating-roster" message when its "start" button is clicked. Every client (including itself) will listen for this message and respond to it with its nickname. This ad-hoc server will then have all the nicks it needs.
+
+The only race-condition with this is if there's any lag between sending the roster message and receiving all the replies. It has no way of knowing whether it has received all the replies, so it might have to wait a few seconds. But seeing as we're playing on an internal LAN, I assume they'll always respond nearly immediately, and just hope for the best.

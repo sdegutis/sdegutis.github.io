@@ -1,0 +1,15 @@
+---
+title: "Clojure Web Frameworks; namely, why you should never release them"
+---
+
+My job is to maintain a Clojure web app. Since I'm a fan of rapid development, I ended up writing a lot of helper functions and helper macros to make it less verbose or repetitive.
+
+Ultimately it ends up giving me a huge productivity boost, and I start thinking, "oh man! I should totally extract this into a web framework and put it on Github!"
+
+But then I realize that if I did that, I'd have to add all sorts of options and configurability for different use-cases and edge-cases that we don't have but other users of the framework might legitimately have. And that would make it so complex that I would dread touching any of its source code.
+
+That's the great thing about the current Clojure ecosystem, especially around Ring: it's all a bunch of small libraries that contain a few very simple functions centered around the dead simple Ring protocol.
+
+This means everyone can literally _write their own web framework_using these libraries. And they can make it perfect according to their own needs!
+
+That's why I haven't released a web framework and don't plan to. I'm happy with what I have, and it didn't take long to come up with. That said, I might share some of the ideas it uses some day on this blog, but even though they work great for our use-case, they might not be great for anyone else's.

@@ -1,0 +1,26 @@
+---
+title: "Accessing array elements in Scala"
+---
+
+This morning I had a little time off and was able to read a little about Scala. One cool thing I learned about it is that it has no syntax for accessing elements of a list/array; it just uses the function call syntax `a(i)`, which is mapped to the method call `a.apply(i)`
+
+At first I asked myself, "Wait! Hold on! How in the world do you access an array element without using a built-in indexing operator or built-in function??" So I decided this was a good reason to write my first Scala code, which does exactly that:
+
+```ruby
+class SimpleArray[T](li: List[T]) {
+  def apply(i: Int): T = {
+    if (i == 0)
+      li.head
+    else
+      new SimpleArray(li.tail)(i - 1)
+  }
+}
+
+val a = List("one", "two", "three", "four", "five")
+val i = 1
+val c = new SimpleArray(a)
+
+println("Object at index " + i + " is: " + c(i))
+```
+
+Diggin' it.

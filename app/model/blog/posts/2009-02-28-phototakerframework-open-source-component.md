@@ -1,0 +1,13 @@
+---
+title: "PhotoTaker.framework - Open Source Component"
+---
+
+Following my first piece of open-source components for Mac developers, I've decided to release another framework that I created, which I've found useful and have used in my Grabthis Mac app. This time, it's a Photo Taker panel, which developers can easily incorporate into any application. It's ridiculously simple to use:
+
+* Create an instance of the `SDPhotoTakerSheetController` class
+* Simply implement `- (void) capturePhotoSheetController: (SDPhotoTakerSheetController_)sheetController didAcceptPhoto:(NSImage_)image;`
+* Call this method on the `SDPhotoTakerSheetController`: `- (void) beginCaptureSheetWithWindow:(NSWindow*)mainWindow delegate:(id)<sdphotosheetdelegate>)newDelegate;` &emdash; then just sit back, and let the magic happen!
+
+It really is that easy. And it was designed to have a professional look and feel, and all of the controls inside the panel act as you would expect, very similarly to Photo Booth.
+
+You can find the source code to this software component over at github. It is released under the BSD license as well, so you have greater freedom to use this panel. Feel free to email me or comment in here if you use it in your project, or find it helpful in some way!

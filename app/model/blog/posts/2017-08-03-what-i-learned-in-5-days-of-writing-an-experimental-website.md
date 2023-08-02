@@ -1,0 +1,53 @@
+---
+title: "What I learned in 5 days of writing an experimental website"
+---
+
+On Sunday, July 30th, I wrote [an experimental website](http://hyperchat.editfight.com/) to learn modern JavaScript, Node.js, Websockets, to practice clean code, and to relax (programming is how I unwind and de-stress). My goal with writing the website was to make an interactive community-based website and add/change/remove features per everyone's request, which I've been doing even up until now.
+
+This experiment lead to some some interesting conclusions, some of which contrasted highly from my work at [CleanCoders.com](http://CleanCoders.com) and other "agile" workshops. This blog post is the lessons I learned from it.
+
+### You don't always "have it"
+
+In the past 5 years of having an employer, I've felt very guilty often about how some days I just can't focus on code well enough to make any real progress. In fact some days I code everything all wrong the whole day, and need to delete it all at the end.
+
+I've learned to not be anxious over how much I can get done or trying to hit goals. Instead, I've been practicing finding the right task to fit my state of mind at that moment. I've been much more productive this way, especially because getting smaller tasks done when my mind isn't able to focus on bigger tasks tends to motivate me more the next day.
+
+### Processes are mostly for shareholders
+
+Development processes are way more for shareholders to have confidence than for increasing productivity. They want confidence and assurance that things will keep moving towards their interests, and process gives them that. In my experience, processes used by employers are almost always riddled with glaring inefficiencies.
+
+For a while I tried to follow some of the processes I used when I was employed. But I found that it just made me anxious and worrying about artificial goals, rather than keeping me motivated or focused. Ironically, I've been more productive just winging it for the most part, only keeping a todo-list in a text file (or sometimes screenshots).
+
+### Sometimes clean code looks dirty
+
+Working with professional software developers is difficult because there's a lot of context going on. There's egos and there's selling the Right Way &tm; and there's a huge variance in personalities and skill levels, and all of these get mushed into the workplace.
+
+But the definition of clean code I've come to prefer over time is "code that doesn't slow you down". It's like a kitchen: keep it clean and you'll be able to go faster. There's no "correct" definition of clean though. There are design patterns and anti-patterns, sure. But I've actually seen these used wrongly and detrimentally about as often as they're used correctly.
+
+### Sometimes dirty code is better
+
+So many times I've tried to make code "clean" or "perfect" or "ideal" or whatever. And I'm not even talking about over-engineering. Just noticing potential flaws in the code or the design, and being uncomfortable with it. I've learned that you just have to push past that. If the code works, then it's the right code.
+
+There have been some times I've had to go and rip out code just to fix bugs. And that's a bit therapeutic, sure. But most of the time, my code isn't really dirty, even though many people I respect would probably say it has a lot of code smells. For example, the front-end kind of has a God-object or two, but that's okay. If the front-end grows to the point where that becomes a hindrance, I can deal with it then.
+
+### Bugs are not the end of the world
+
+I've always been very nervous about any kind of incorrectness in my code. But that's often prevented me from making progress, because I always have this lingering feeling that if I write the wrong code, it could be buggy, so I tend to just panic and freeze up at the keyboard.
+
+When I push past that feeling, accept the fact that there may or may not be bugs, and I may or may not encounter them, and just deploy code after manually testing it a bit, I actually make progress a lot faster. Because in practice, bugs don't happen that often, and when they do happen, they're usually easy to debug when you're at least semi-experienced with programming in general.
+
+### The right tool is the one that works
+
+I've often been paralized with needing to have the perfect setup, the perfect tool-chain, etc. and it led to stagnation and sometimes was so discouraging that I would just not move forward with an idea.
+
+For this project I started simple: everything was in a single HTML page on the front-end, the back-end was a single Node.js server with a single file. I spun up a single EC2 instance and didn't worry about load-balancing. I downloaded and used VS Code even though I have way more experience with Emacs. I even deploy with `scp`. All of these simplifications to my setup got me up and running fast.
+
+After a while experimented with TypeScript and adding some build-processes, but they proved too time-consuming to be worth it. If the project grew, or if I was making real money from it, then it'd probably be much more worthwhile to streamline things.
+
+### Balance is important
+
+Getting enough sleep is important, but so is taking breaks and not working for 12 hours straight several days in a row. It decreases productivity a lot and especially morale.
+
+### People can be great
+
+I've shown the website to people at Imgur and Hacker News, and several people have regularly come back every day since then. They've done little games and had little pretend wars and it's just amazing. I love how creative and collaborative people can be and that's the exact thing that inspired me to want to do this in the first place.

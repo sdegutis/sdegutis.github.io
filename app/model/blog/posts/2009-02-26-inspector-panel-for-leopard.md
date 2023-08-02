@@ -1,0 +1,19 @@
+---
+title: "Inspector Panel for Leopard"
+---
+
+With each new version of Mac OS X comes an arsenal of new widgets and styles. Unfortunately, Apple often neglects to release a lot of these widgets to the developers for use in our own apps, at least not right away. So, many developers have [taken](http://www.brandonwalkin.com/blog/2008/11/13/introducing-bwtoolkit/) [it](http://mattgemmell.com/2008/10/28/mgscopebar) [upon](http://www.binarymethod.com/content/bghudappkit.php) [themselves](http://www.positivespinmedia.com/dev/PSMTabBarControl.html) to develop these widgets in the new style, and give them away to the community.
+
+I'm proud to announce my first open-source contribution to the community, a modern-styled Inspector Panel. This kind of Panel often includes collapsible "panes," or sections where several options or information are grouped together. Inspector Panels are are quickly becoming the new, stylish way to present peripheral information and options to the user. Unfortunately, Apple doesn't provide us with any built-in Inspector Panels of their own, such as the one used heavily in Interface Builder, or in the Finder.
+
+I've written and designed this inspector from the ground up to incorporate intuitive features such as collapsing and resizing of the panes within. You can click below to see a demo of the Inspector panel in action.
+
+### For the developers
+
+You can pretty much just open up the XIB file and adjust/copy the contents as needed. In terms of which "pane" comes first at runtime, this is determined by the "z-order" of each SDCollapsibleSectionView. So, use the commands on the Layout menu of IB to change these around until you have found the order you want. It's pretty straightforward, just click "Move Forward" or "Move Backward" until it's in the proper position, and Build & Go to test.
+
+You may notice that the window resizes itself vertically according to the visible panes, but it does not do so horizontally. You are entirely in charge of the width of the window. On a related note, any extra space in-between each pane is removed at runtime, so don't worry about that when designing your interface in IB.
+
+The collapsing animations also make use of Core Animation (just try and hold Shift when collapsing them, go ahead, I'll wait here), so developers using this code will need to link against QuartzCore.framework in their projects.
+
+The Inspector's source code is released under the BSD license. Feel free to email me or comment in here if you use it in your project!

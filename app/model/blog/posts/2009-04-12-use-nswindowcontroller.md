@@ -1,0 +1,13 @@
+---
+title: "Use NSWindowController"
+---
+
+I've been noticing for a while now that many developers (including those of Things.app) do not use NSWindowController. How unfortunate! This class is very beneficial for a few reasons:
+
+Firstly, it has an automatic -window accessor and IBOutlet for us to use. That's not a huge thing but it's nice to get rid of ivars when we can. What's more important than this automatic outlet, but related, is the lazy loading this class brings to us at no cost. Until -window is called (also -showWindow:), the NIB will not actually be loaded into memory, thus reducing load times, and can really improve the load time of the entire application if a lot of windows/panels are used, since they will only be loaded on theur first-use.
+
+Secondly, the memory of all top-level objects need to be managed by File's Owner (which includes the NSWindow itself!) under all circumstances. Well, all circumstances except when our File's Owner is an NSWindowController. So we could be leaking if we're are not deallocating those top level objects ourselves, and switching to NSWindowController is a no-brainer solution to plug this leak.
+
+And last but not least, when we bind through our File's Owner (NSWindowController subclass) in Interface Builder, bindings are automatically unbound when the time comes, so we don't need to worry about this (there is a hidden AppKit class, something like NSAutoUnbinder, which takes care of this for us). Otherwise we will likely have tons of bindings issues when it comes to deallocating an NSWindowController with anything bound via IB.
+
+I urge those of you not using this class, please, use NSWindowController for your own sake. It's really as simple as changing the superclass of your window controller object and potentially _deleting_ code (getting rid of an ivar, and possibly some top-level-object or bindings clean-up code). And ultimately, it's safer when you bind through your File's Owner.

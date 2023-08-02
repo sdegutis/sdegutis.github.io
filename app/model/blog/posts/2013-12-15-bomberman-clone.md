@@ -1,0 +1,49 @@
+---
+title: "Bomberman Clone"
+---
+
+During my upcoming Christmas vacation, I was planning to either write a really basic and (hopefully) fast Lisp interpreter, or write a simple networked Bomberman clone.
+
+The bomberman clone would be called EMP Activist, where the players are robots who drive around on treads, and who plant EMPs and activate them (hence the title).
+
+### EMP Activist
+
+The EMPs would disable the battery in any player in its path until the next round, so it couldn't drive around. The map would be littered with opaque force fields which dissolve instantly when an EMP activates in its range, revealing useful items.
+
+One item would be a temporary battery, allowing a robot to sustain any amount of EMP blasts for 10-seconds without being disabled. Another would be hydraulic springs, allowing it to "bounce" across the map. Another would be extra treads, allowing it to go faster.
+
+### Game architecture
+
+The whole idea was to make a game that I could play against my brother and my kids, over our LAN on our various computers. To make things way simple, instead of graphics files it would just use colored shapes at first. Gameplay would ideally be as smooth as butter on a baby's face.
+
+In order to play over the network, I was researching server/client architectures. Here's the game plan I've come up with based on the most credible stuff I found:
+
+The server should be in charge of the entire game. The server sends each client everything they need to know in order to draw the entire game view. To have a smooth framerate, it sends this data 30 times per second. It's okay if packets are lost, since the next packets will overwrite the display completely anyway. We'll use UDP for this.
+
+In order to not have any fragmentation of datagrams, we'll send the entire game state in 508 octets or less (1 octet = 8 bits). For example: "there's a player at 0,3 pixels facing right", or "there's an EMP at 30,30 pixels". It doesn't need to send info about hidden items, for instance, since client's don't draw that. It could represent a player as "003" to save on bytes, as the coordinates followed by direction. Same with EMPs, items, blocks, etc. All coordinates will be pixel-based, since clients only care about drawing, not about game-logic details.
+
+Besides drawing this data, the only other responsibility clients will have is to receive keyboard events, interpret them, and send the resulting game-actions to the server. For example, pressing the "w" key means "start-walk-up" and releasing it means "stop-walk-up".
+
+I'm a bit nervous about the idea of sending a single message to start walking and a single message to stop, since the packet may be dropped, making things very confusing to the user. One option is to built TCP's reliability on top of UDP, and that sounds scary. Another option is to continuously send the "walk-up" action while the key is pressed, and stop sending it once it's released. This could also lead to user-confusion if packets are dropped, but probably not as severely.
+
+### Game logic
+
+I think this will be the easiest part, and it has the least unknowns, which is why I'm saving it for doing last. Each object on screen will be represented as a hash-map, containing its pixel-coordinates, animation-state if relevant (1 to N, then loops back to 1), and direction if relevant.
+
+When an EMP "activates", it will disappear from the game state, and an "EMP-activation" (explosion) object will be created with base-coordinates relative to the old EMP. This too will have its own animation-state. While it exists, if anything exists in its path, collision detection will kick in, and something else will change depending on what collided with it.
+
+### Remaining Known Unknowns
+
+Regarding animations and player-movements, what timer will they be based on? Will the FPS-timer (every 1/30 seconds) be responsible for changing these values? Or should there be another timer that does these things?
+
+I don't fully understand UDP and datagrams yet. I know that 508 octets is the sweet spot for avoiding fragmentation, but do I have to force my messages to take up 508 bytes and include filler at the end?
+
+Since I know I'm only going to be playing this over a LAN, I wonder if there are simplifications I can make to this design.
+
+### Source code
+
+I wanted my brother and kids to be able to play this with me. Between us, we have my work computer (Mac Pro), my laptop (rMBP), the family computer (linux), and my brother's computer (Windows 8). So I needed to write this in something cross-platform.
+
+Right now, it's written in Clojure. Mostly this is because a JVM app is pretty easy to get running on any OS. I wrote a simple GUI-based hello-world in Clojure in like 30 minutes the other night, and got it running on my brother's Windows 8 machine.
+
+But originally I wanted to write this in C, and I still do. The problem is, I couldn't figure out how to create a platform-independent executable and run it on all 3 operating systems as easily as the JVM does. If anyone knows of a way to do this, please let me know, because I'd really like to try this in C (all except the UDP stuff which really scares me).

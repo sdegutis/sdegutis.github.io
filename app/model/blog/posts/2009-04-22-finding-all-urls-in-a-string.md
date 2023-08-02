@@ -1,0 +1,32 @@
+---
+title: "Finding all URLs in a string"
+---
+
+If you've ever wanted to find all the URLs in any NSAttributedString or NSString, then this post is for you! It's quite simple, actually, just a few lines of code. So let's take a look:
+
+```objc
+NSString *string = @"hello world, this is cool www.google.com yeah!";
+NSAttributedString *as = [[[NSAttributedString alloc] initWithString:string] autorelease];
+
+NSRange range = NSMakeRange(0,0);
+while (NSMaxRange(range) < [as length]) {
+    NSURL *URL = [as URLAtIndex:NSMaxRange(range) effectiveRange:⦥];
+
+    if (URL) {
+        NSLog(@"%@", URL);
+        NSLog(@"%@", NSStringFromRange(range));
+    }
+}
+
+// output:
+// http://www.google.com
+// {26, 14}
+```
+
+It's really that simple! So what exactly is happening, you ask?
+
+This loop enumerates the entire string word by word using the magical method `URLAtIndex:effectiveRange:` which is a category on NSAttributedString. (Don't worry, if you only have an NSString, they can be converted quite easily as you can see in the above example!) Whether or not this method found a URL, it will still give us the range to begin the next search at, which is why we don't even need to use a `location` variable.
+
+If a URL is not found, the method will return `nil` into `URL`, making the `if()` condition very convenient for us (thank you Cocoa!) and if it is found, it's wrapped in a nice NSURL object already, full with path and scheme and everything (thank you again!).
+
+Of course, this convenience all comes with a price; this is Leopard+ only code, and won't work in versions of Mac OS X 10.4 or lower. (But who's still supporting Tiger anyway?) Enjoy!

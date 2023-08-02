@@ -1,0 +1,27 @@
+---
+title: "New Programming Language Niche"
+---
+
+I think I've stumbled onto a niche for a new language that will actually be useful to me.
+
+The syntax will be Lisp, for my own sanity. (Lately, any other programming language syntax looks much more inconsistent in comparison.)
+
+It will run a virtual machine that interprets a custom form of bytecode. This virtual machine will be fast using a combination of tricks I've been collecting. It'll trade memory for speed in most places, since we have tons of memory these days.
+
+The parser and compiler will be available at runtime, enabling `eval` and thus a REPL.
+
+All data types will be purely immutable. This assumption will enable several optimizations, as well as a simpler virtual machine.
+
+It will have linked-lists, vectors, hash-maps, strings, symbols, keywords, and 64-bit numbers. I'm not worried about floating point numbers for now.
+
+It will have macros that are executed before the final translation to bytecode. They're basically user customizable compiler optimizations that you write in the language itself. All the types will be available at macro-execution time. Macros will take an AST and transform it into a new AST that's then compiled into bytecode.
+
+The interpreter technique is very similar to Lua's, except it'll have a much nicer extension API than Lua's (at least I think so).
+
+The language will be "tiny" by default, much like Lua (but not nearly as tiny as Lua). It will have a small set of functions to accompany the built-in data types, very similar to `clojure.core`.
+
+People have argued that Ruby and Python are better for general programming than Lua because Lua comes with nothing built-in, but actually Ruby is moving in the same direction: they have a goal of turning most (if not all) of the Ruby standard library into gems. I'll follow suit by offering other "standard" library functions through some package manager, so users can pick and choose what they want to use.
+
+The main benefit of this approach is that this language could be embedded into another application very easily, with only the libraries the embedder chooses to bring with it.
+
+I'm not at the point where I can fully write something like this yet. Even though I could write much (maybe all) of the core language, I don't know how to do things like providing detailed backtraces or enabling a symbolic debugger.

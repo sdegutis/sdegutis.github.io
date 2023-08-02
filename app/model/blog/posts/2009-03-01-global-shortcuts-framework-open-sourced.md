@@ -1,0 +1,22 @@
+---
+title: "Global Shortcuts framework - open sourced!"
+---
+
+If you've ever wanted to make an application which allows users to set global shortcuts for some action, you've probably wandered into [ShortcutRecorder](http://wafflesoftware.net/shortcut/)'s corner of the web. This is a great control for setting shortcut keys, but it doesn't actually let you set them in a way that calls your object's method when it's pressed outside of your app. So, what do we do to get that functionality?
+
+Introducing, SDGlobalShortcuts.framework, the all-in-one package for allowing global hotkeys in your app!
+
+How does it work? Simple.
+
+1. Add a shortcut control to your interface in Interface Builder
+2. Link it (via an IBOutlet) to your controller class
+3. Get a handle on the singleton `[SDGlobalShortcutsController sharedShortcutsController]`
+4. Send it the message `- (void) addShortcutFromDefaultsKey:(NSString*)defaultsKey withControl:(SRRecorderControl*)recorderControl target:(id)target selector:(SEL)action;`
+5. Link to both SDGlobalShortcuts and ShortcutController and add them both into a Copy Files build phase that points to the Frameworks subdirectory of your app's bundle.
+6. You're all done! Sit back, have a martini.
+
+Optionally, you can pass `nil` as the `withControl:` argument, or just omit it altogether. This is useful when your initial controller class does not handle preferences (ie. most of the time, if you are using good practices) and you would like to make the global shortcut valid _before_ you attach it to a ShortcutRecorder control. Then, sometime later, inside your Preference controller class, you can attach the already-working global shortcut to the ShortcutRecorder control using `- (void) attachControl:(SRRecorderControl*)recorderControl toDefaultsKey:(NSString*)defaultsKey;` which makes things a lot easier and cleaner.
+
+(You may want to install ShortcutRecorder's IBPlugin for your own convenience, but it's by no means necessary).
+
+This software component is open sourced, under a BSD kind of license. It makes use of ShortcutRecorder.framework and the 6 PTHotKey files that have been floating around, made by Quentin from Rogue Amoeba.

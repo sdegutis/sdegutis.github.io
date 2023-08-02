@@ -1,0 +1,18 @@
+---
+title: Hybrid Site Generator
+draft: true
+---
+
+I was tired of the problems with Jekyll. It was very slow. It forced me to write templates in a way that didn't feel as natural as JSX. And worst of all, it was all Magic &trade; with no control over how any of it worked, on the pattern of Rails.
+
+I was also tired of the over-engineering of traditional MEAN/etc apps. On a blog site, I already know every route ahead of time. Why do I need to create a route handler that accepts any input like `/posts/:slug.html` and check the database for every possible value of `slug`, even nonsense ones like `aaaaa` and `___asdf_fklhsd`?
+
+So I created a push-based route handler, just like a static site generator would use. If you have all your models ahead of time, then you can just push `GET /posts/hello-world.html` and `GET /posts/second-post.html` right onto the route map.
+
+To solve the template issue, I created a very *very* thin TypeScript runtime on top of Node's runtime, whose main purpose is to allow JSX to be written inline. It translates it into an object with the keys `tag`, `attrs` and `children`. I wrote a helper function that renders this into HTML.
+
+But some interesting consequences followed. For one thing, since JSX was just a JS structure, I could manipulate it right before rendering. This allowed me to create head-child-hoisting, where all `style` and `script` tags in this tree are hoisted into the `head` element.
+
+Another feature I was able to create was to turn `__dir` and `__file` into real objects that allowed me to get neighboring files and traverse directories significantly simpler. This makes it very easy to traverse a `posts` directory and grab all the files in it, parse them (front-matter and Markdown), and create blog post model objects out of them.
+
+This is just the beginning. Check out the source of this [strange new invention](https://github.com/sdegutis/Novo-Cantico).
