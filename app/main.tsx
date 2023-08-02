@@ -29,9 +29,9 @@ async function generateSite() {
     console.log(filepath);
 
     await mkdirp(path.dirname(filepath));
-    fs.writeFileSync(filepath, body);
+    fs.writeFile(filepath, body, () => { });
   }
-  fs.writeFileSync('docs/CNAME', 'www.immaculatalibrary.com');
+  fs.writeFile('docs/CNAME', 'www.thesoftwarephilosopher.com', () => { });
 
   console.log('Done generating site.');
 };
