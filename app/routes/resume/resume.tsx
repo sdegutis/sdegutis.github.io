@@ -4,6 +4,21 @@ import { renderElement } from "../../core/jsx";
 import { Routeable, addRouteable } from "../../core/router";
 import { staticRouteFor } from "../../util/static";
 
+const pdf = __dir.filesByName['resume.pdf']!.buffer;
+
+export const resumePdfPage: Routeable = {
+  route: '/resume.pdf',
+  handle: () => {
+    return {
+      status: 200,
+      headers: { 'Content-Type': 'application/pdf' },
+      body: pdf,
+    };
+  }
+};
+
+addRouteable(resumePdfPage);
+
 export const resumePage: Routeable = {
   route: '/resume.html',
   handle: () => {

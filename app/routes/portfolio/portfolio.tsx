@@ -8,7 +8,7 @@ import { WideContainer } from "../../components/wide-container/wide-container";
 import { renderElement } from "../../core/jsx";
 import { Routeable, addRouteable } from "../../core/router";
 import { staticRouteFor } from "../../util/static";
-import { resumePage } from "../resume/resume";
+import { resumePage, resumePdfPage } from "../resume/resume";
 
 export const portfolioPage: Routeable = {
   route: '/portfolio.html',
@@ -35,7 +35,8 @@ export const portfolioPage: Routeable = {
                   <p>Real artists ship. If a product isn't finished, it's just an idea. A completed work is the opus of a true craftsman, and evidence of a sound philosophy.</p>
                   <p>Below are some products Steven has created over the past 15 years, showcasing his ability to rapidly build apps for modern web, macOS, and iOS.</p>
                   <p>The skills needed to complete these projects ranged from React to vanilla JavaScript, from TypeScript to Java, from Node.js to Websockets.</p>
-                  <p><a href={resumePage.route}>Resume</a></p>
+
+                  <p><b>Resume:</b> <a href={resumePage.route}>HTML</a> | <a href={resumePdfPage.route}>PDF</a></p>
                 </NarrowContainer>
               </section>
 
