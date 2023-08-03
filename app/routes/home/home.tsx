@@ -2,7 +2,7 @@ import { ActionButton } from "../../components/action-button/action-button";
 import { HeroImage } from "../../components/hero-image";
 import { NarrowContainer } from "../../components/narrow-container/container";
 import { NavBar } from "../../components/navbar/navbar";
-import { colors, OfferServices } from "../../components/offer-services-section/offer-services";
+import { OfferServices } from "../../components/offer-services-section/offer-services";
 import { Head, Html, SiteFooter } from "../../components/page/page";
 import { Stylesheet } from "../../components/util/stylesheet";
 import { WideContainer } from "../../components/wide-container/wide-container";
@@ -10,7 +10,6 @@ import { renderElement } from "../../core/jsx";
 import { addRouteable, Routeable } from "../../core/router";
 import { staticRouteFor } from "../../util/static";
 import { AllArticles, blogIndexPage } from "../all-articles/all-articles";
-import { contactPage } from "../contact/contact";
 import { portfolioPage, PortfolioSection } from "../portfolio/portfolio";
 
 export const landingPage: Routeable = {
