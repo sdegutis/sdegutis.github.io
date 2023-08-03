@@ -77,17 +77,6 @@ export const landingPage: Routeable = {
 
               </section> */}
 
-              <PreviewBox page={blogIndexPage}>
-                <section>
-                  <WideContainer>
-                    <h1>Technical Articles</h1>
-                  </WideContainer>
-                </section>
-                <AllArticles />
-              </PreviewBox>
-
-              <OfferServices />
-
               <PreviewBox page={portfolioPage}>
                 <section>
                   <WideContainer>
@@ -95,6 +84,17 @@ export const landingPage: Routeable = {
                   </WideContainer>
                 </section>
                 <PortfolioSection />
+              </PreviewBox>
+
+              <OfferServices />
+
+              <PreviewBox page={blogIndexPage}>
+                <section>
+                  <WideContainer>
+                    <h1>Technical Articles</h1>
+                  </WideContainer>
+                </section>
+                <AllArticles />
               </PreviewBox>
 
               <OfferServices />
