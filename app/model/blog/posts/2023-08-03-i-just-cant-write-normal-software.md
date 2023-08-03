@@ -14,4 +14,4 @@ All of the projects I've been successful at, whether open source in my free time
 
 For some reason, I can make a ton of progress really fast on weird apps like these, but I can't make rapid progress on a traditional LAMP stack or Express.js app.
 
-The good news is that I've figured out my niche: as a software engineer, I'm able to solve really weird problems. If you have one, I'm available so [let's talk](/contact.html).
+The good news is that I've figured out my niche: as a software engineer, I'm able to solve really weird problems. If you have one, I'm available so [let's talk](mailto:stevenbradleyconsulting@gmail.com).
