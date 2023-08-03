@@ -36,8 +36,6 @@ export const portfolioPage: Routeable = {
                   <p>Below are some products Steven has created over the past 15 years, showcasing his ability to rapidly build apps for modern web, macOS, and iOS.</p>
                   <p>The skills needed to complete these projects ranged from React to vanilla JavaScript, from TypeScript to Java, from Node.js to Websockets.</p>
                   <p><a href={resumePage.route}>Resume</a></p>
-                  <p><a href='/samanimate/'>Samanimate</a></p>
-                  <p><a href='/pico8-games/'>Pico8 Games</a></p>
                 </NarrowContainer>
               </section>
 
@@ -54,31 +52,28 @@ export const portfolioPage: Routeable = {
                     <p>These may be tiny, but they're interesting technical feats.</p>
                     <div style='display:grid; grid-template-columns: auto 1fr; margin-top: 1em; gap: 0.25em 1em'>
 
-                      <b>Lua4Swift</b>
+                      <b><a href='https://github.com/sdegutis/samanimate'>Samanimate</a></b>
+                      <span>Pure TypeScript/DOM paint-like animator app best with stylus.</span>
+
+                      <b><a href='/pico8-games/'>Pico8 Games</a></b>
+                      <span>Many little games I've made for and with my kids.</span>
+
+                      <b><a href='https://github.com/sdegutis/lp8'>lp8</a></b>
+                      <span>Use Pico8 graphics and maps in Love2d.</span>
+
+                      <b><a href="https://github.com/weyhan/lua4swift">Lua4Swift</a></b>
                       <span>Swift framework for embedding Lua with a native Swift API.</span>
 
-                      <b>choose</b>
+                      <b><a href="https://github.com/chipsenkbeil/choose">choose</a></b>
                       <span>Command line fuzzy-matching tool for macOS that uses a GUI</span>
 
-                      <b>music</b>
-                      <span>Command line music daemon for macOS that only speaks JSON</span>
-
-                      <b>hecto</b>
-                      <span>Command line text editor with an embedded Lua plugin system</span>
-
-                      <b>ZephSharp</b>
+                      <b><a href="https://github.com/Hugoprogpro/ZephSharp">ZephSharp</a></b>
                       <span>Window manager for Windows using Clojure for scripting</span>
 
-                      <b>management</b>
-                      <span>Minimalist EC2 configuration &amp; deployment tool in Ruby.</span>
-
-                      <b>go.assert</b>
-                      <span>Assertion helper package for writing tests in Go.</span>
-
-                      <b>go.shattr</b>
+                      <b><a href="https://github.com/pkrnjevic/go.shattr">go.shattr</a></b>
                       <span>Go library for printing shell-attributed strings to stdout.</span>
 
-                      <b>OCDSpec2</b>
+                      <b><a href="https://github.com/OCDSpec/OCDSpec2">OCDSpec2</a></b>
                       <span>Objective-C based testing framework with Xcode integration.</span>
 
                     </div>
