@@ -102,6 +102,246 @@ export const portfolioPage: Routeable = {
 
 addRouteable(portfolioPage);
 
+const projects = [
+  {
+    title: "CleanCoders.com",
+    type: "Website - Online Video Store",
+    desc: `Written for Robert "Uncle Bob" Martin, using Clojure for the back-end, and
+           JavaScript for the front-end, this site transformed from a
+           simple three-page website to a full
+           enterprise-ready business solution, with nearly 100% test coverage.`,
+    image: "sshot-cleancoders.png",
+    features: [
+      "Clojure",
+      "Datomic",
+      "jQuery / D3.js",
+      "JavaScript",
+      "ClojureScript",
+    ],
+  },
+  {
+    title: "Docks",
+    type: "macOS app - Dock Utility",
+    desc: `Docks was made in 2009 for users who wanted to swap out icons in their Dock with a single
+           click. Its unique functionality and design aesthetic attracted the attention of Apple, Engadget, MacWorld,
+           and led to an acquisition by Big Nerd Ranch.`,
+    image: "sshot-docks.png",
+    features: [
+      "Apple.com Staff Pick",
+      "MacWorld 4/5 Rating",
+      "MacWorld Gem of the Year",
+      "Featured on Engadget.com",
+    ],
+  },
+  {
+    title: "Leviathan",
+    type: "macOS app - Clojure IDE",
+    desc: `Written while working on CleanCoders.com, a website written completely in Clojure, this app
+           was designed as a custom IDE for macOS designed specifically for Clojure projects to boost productivity.`,
+    image: "sshot-leviathan.png",
+    features: [
+      "Objective-C",
+      "Clojure",
+      "C / C++",
+      "Cocoa",
+      "Themeable",
+    ],
+  },
+  {
+    title: "Zephyros",
+    type: "macOS app - Hackable Automation",
+    desc: `This began as an experiment to see how many languages could be used to script a custom
+           macOS window manager using our custom TCP protocol. Eventually it had bindings for Clojure, Ruby,
+           Python, Go, JavaScript, CoffeeScript, Node.js, Chicken Sceme, and Racket, as well as other community
+           additions.`,
+    image: "sshot-zephyros.png",
+    features: [
+      "TCP / Unix sockets",
+      "Custom protocol",
+      "Highly Scriptable",
+      "10+ language bindings",
+      "Open source community",
+    ],
+  },
+  {
+    title: "Bubble Maker",
+    type: "iOS app - Bubble simulator",
+    desc: `This toy was made in a weekend to entertain my Steven's 1 year old daughter. It lets you create
+           bubbles with your fingers, which then simulate physics by bumping into each other and falling.`,
+    image: "sshot-bubblemaker.png",
+    features: [
+      "SpirteKit",
+      "Custom art",
+      "Physics simulation",
+      "iOS",
+      "tvOS",
+    ],
+  },
+  {
+    title: "Quick List",
+    type: "iOS app - Todo list app",
+    desc: `A very simple and minimalistic app with one sole focus: to organize and track activities and
+           tasks with a focus on a pleasing aesthetic design and simple UI/UX.`,
+    image: "sshot-quicklist.png",
+    features: [
+      "In-app purchases",
+      "Custom UI / UX",
+      "Social media",
+      "App Store artwork",
+      "Spring animations",
+    ],
+  },
+  {
+    title: "Old Portfolio",
+    type: "Website - Personal Portfolio",
+    desc: `An old portfolio site written from scratch in about a day. It used best practices for
+           modern responsive web design, and a custom build phase to compile the sources into a single HTML file.`,
+    image: "sshot-oldportfolio.png",
+    features: [
+      "Node.js",
+      "Pug / Jade",
+      "LessCSS",
+      "HTML5",
+      "WebSockets",
+    ],
+  },
+  {
+    title: "2048",
+    type: "Java app - Game",
+    desc: `A desktop remake of the game 2048 (created by Gabriele Cirulli).
+           This version is written in Java 8, using JavaFx for attractive graphics and silky smooth animations.`,
+    image: "sshot-2048.png",
+    features: [
+      "Java 8",
+      "JavaFx",
+      "Modular code",
+      "Customizable",
+      "Animations",
+    ],
+  },
+  {
+    title: "Mjolnir",
+    type: "macOS app - Window Manager",
+    desc: `Created to increase programmer productivity by allowing moving windows around in macOS
+           using keyboard shortcuts. It grew into a community-driven highly extensible app, using Lua for its
+           plugin system.`,
+    image: "sshot-mjolnir.png",
+    features: [
+      "Objective-C",
+      "Embedded Lua",
+      "Plugin system",
+      "Fully documented",
+      "5,000 GitHub stars",
+    ],
+  },
+  {
+    title: "AffluentConfidante.com",
+    type: "Website - Social Network",
+    desc: `An elite social network backed by an integration of both Apple Pay and
+           credit card payments (via Stripe.com) seamlessly into the web app, for a frictionless and pain-free
+           payment experience.`,
+    image: "sshot-affluentconfidante.png",
+
+    features: [
+      "Clojure",
+      "Elastic Beanstalk",
+      "PostgreSQL",
+      "Stripe.com",
+      "Apple Pay",
+    ],
+  },
+  {
+    title: "HyperChat",
+    type: "Website - Live Chatroom",
+    desc: `This isn't just any chatroom. In this web app, you can see what everyone is typing while
+           they type it. Created in order to scratch an itch for making real-time apps and games, this site required
+           learning how to use WebSockets.`,
+    image: "sshot-hyperchat.png",
+    features: [
+      "JavaScript",
+      "WebSockets",
+      "Node.js",
+      "Vue.js",
+      "CSS",
+    ],
+  },
+  {
+    title: "Bahamut",
+    type: "macOS app - Music Player",
+    desc: `As iTunes went through many user interface changes, some desktop users wanted an app that was
+           consistent, intuitive, and easy to use. So Bahamut was born, a minimal music player for macOS written in Cocoa
+           with a completely custom user interface.`,
+    image: "sshot-bahamut.png",
+    features: [
+      "Objective-C",
+      "Custom UI",
+      "Cocoa",
+      "Core Data",
+      "AVFoundation",
+    ],
+  },
+  {
+    title: "Chatter",
+    type: "macOS app - Chat (IRC) Client",
+    desc: `This was written in 2009, before the time of Slack, when IRC was the main way for
+           programmers to get short-term assistance from each other. Its purpose was to be a beautiful app with
+           an emphasis on simplicity and usability over technical power.`,
+    image: "sshot-chatter.png",
+    features: [
+      "Async networking",
+      "Core Animation",
+      "Core Text",
+      "IRC Protocol",
+      "UI Design",
+    ],
+  },
+  {
+    title: "AppGrid",
+    type: "macOS app - Window Manager",
+    desc: `A productivity tool for power-users that lets you move windows with global
+           keyboard shortcuts. Since it uses Vim-like key bindings, it should feel pretty natural to any
+           programmer. No configuration is needed.`,
+    image: "sshot-appgrid.png",
+    features: [
+      "Minimalist UI",
+      "Simple UI",
+      "Vim-like Hotkeys",
+      "Global Hotkeys",
+      "Zero-configuration",
+    ],
+  },
+  {
+    title: "Hydra",
+    type: "macOS app - Lua window manager",
+    desc: `As an evolution of Phoenix, Hydra was Steven's first attempt at embedding a full Lua virtual
+           machine into an Objective-C app, to make a lightweight and efficient window manager that focused on
+           speed, low memory usage, low CPU usage, and overall being gentle on laptop batteries.`,
+    image: "sshot-hydra.png",
+    features: [
+      "Embedded Lua",
+      "Generated docs",
+      "Lightweight",
+      "Memory efficient",
+      "CPU efficient",
+    ],
+  },
+  {
+    title: "Phoenix",
+    type: "macOS app - JavaScript window manager",
+    desc: `As an evolution of Zephyros, Phoenix was Steven's attempt to use Cocoa's native JavaScript
+           bindings to make a more lightweight and efficient window manager, that focused on speed, low memory
+           usage, low CPU usage, and overall being gentle on laptop batteries.`,
+    image: "sshot-phoenix.png",
+    features: [
+      "JavaScriptCore",
+      "JavaScript API",
+      "Lightweight",
+      "Memory efficient",
+      "CPU efficient",
+    ],
+  },
+];
+
 export function PortfolioSection() {
   return <>
 
@@ -113,451 +353,32 @@ export function PortfolioSection() {
 
         <div id="projects">
 
-          <div class="project" id="project-cleancoders">
-            <div class="project-inner">
-              <div class="details">
-                <h3>CleanCoders.com</h3>
-                <span class="project-kind">Website - Online Video Store</span>
+          {projects.map(p => <>
+            <div class="project">
+              <div class="project-inner">
+                <div class="details">
+                  <h3>{p.title}</h3>
+                  <span class="project-kind">{p.type}</span>
 
-                <p class="dec">Written for Robert "Uncle Bob" Martin, using Clojure for the back-end, and
-                  JavaScript for the front-end, this site transformed from a
-                  simple three-page website to a full
-                  enterprise-ready business solution, with nearly 100% test coverage.</p>
+                  <p class="dec">{p.desc}</p>
 
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-cleancoders.png"]!)} alt="Screenshot" />
                 </div>
-                <div class="half">
-                  <ul>
-                    <li>Clojure</li>
-                    <li>Datomic</li>
-                    <li>jQuery / D3.js</li>
-                    <li>JavaScript</li>
-                    <li>ClojureScript</li>
-                  </ul>
+                <div class="split">
+                  <div class="half">
+                    <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName[p.image]!)} alt="Screenshot" />
+                  </div>
+                  <div class="half">
+                    <ul>
+                      {p.features.map(f => <>
+                        <li>{f}</li>
+                      </>)}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="project" id="project-docks">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Docks</h3>
-                <span class="project-kind">macOS app - Dock Utility</span>
-
-                <p class="dec">Docks was made in 2009 for users who wanted to swap out icons in their Dock with a single
-                  click. Its unique functionality and design aesthetic attracted the attention of Apple, Engadget, MacWorld,
-                  and led to an acquisition by Big Nerd Ranch.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-docks.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Apple.com Staff Pick</li>
-                    <li>MacWorld 4/5 Rating</li>
-                    <li>MacWorld Gem of the Year</li>
-                    <li>Featured on Engadget.com</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-leviathan">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Leviathan</h3>
-                <span class="project-kind">macOS app - Clojure IDE</span>
-
-                <p class="dec">Written while working on CleanCoders.com, a website written completely in Clojure, this app
-                  was designed as a custom IDE for macOS designed specifically for Clojure projects to boost productivity.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-leviathan.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Objective-C</li>
-                    <li>Clojure</li>
-                    <li>C / C++</li>
-                    <li>Cocoa</li>
-                    <li>Themeable</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-zephyros">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Zephyros</h3>
-                <span class="project-kind">macOS app - Hackable Automation</span>
-
-                <p class="dec">This began as an experiment to see how many languages could be used to script a custom
-                  macOS window manager using our custom TCP protocol. Eventually it had bindings for Clojure, Ruby,
-                  Python, Go, JavaScript, CoffeeScript, Node.js, Chicken Sceme, and Racket, as well as other community
-                  additions.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-zephyros.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>TCP / Unix sockets</li>
-                    <li>Custom protocol</li>
-                    <li>Highly Scriptable</li>
-                    <li>10+ language bindings</li>
-                    <li>Open source community</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-bubblemaker">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Bubble Maker</h3>
-                <span class="project-kind">iOS app - Bubble simulator</span>
-
-                <p class="dec">This toy was made in a weekend to entertain my Steven's 1 year old daughter. It lets you create
-                  bubbles with your fingers, which then simulate physics by bumping into each other and falling.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-bubblemaker.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>SpirteKit</li>
-                    <li>Custom art</li>
-                    <li>Physics simulation</li>
-                    <li>iOS</li>
-                    <li>tvOS</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-quicklist">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Quick List</h3>
-                <span class="project-kind">iOS app - Todo list app</span>
-
-                <p class="dec">A very simple and minimalistic app with one sole focus: to organize and track activities and tasks
-                  with a focus on a pleasing aesthetic design and simple UI/UX.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-quicklist.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>In-app purchases</li>
-                    <li>Custom UI / UX</li>
-                    <li>Social media</li>
-                    <li>App Store artwork</li>
-                    <li>Spring animations</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-oldportfolio">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Old Portfolio</h3>
-                <span class="project-kind">Website - Personal Portfolio</span>
-
-                <p class="dec">An old portfolio site written from scratch in about a day. It used best practices for
-                  modern responsive web design, and a custom build phase to compile the sources into a single HTML file.
-                </p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-oldportfolio.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Node.js</li>
-                    <li>Pug / Jade</li>
-                    <li>LessCSS</li>
-                    <li>HTML5</li>
-                    <li>WebSockets</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-2048">
-            <div class="project-inner">
-              <div class="details">
-                <h3>2048</h3>
-                <span class="project-kind">Java app - Game</span>
-
-                <p class="dec">A desktop remake of the game 2048 (created by Gabriele Cirulli).
-                  This version is written in Java 8, using JavaFx for attractive graphics and silky smooth animations.
-                </p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-2048.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Java 8</li>
-                    <li>JavaFx</li>
-                    <li>Modular code</li>
-                    <li>Customizable</li>
-                    <li>Animations</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-mjolnir">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Mjolnir</h3>
-                <span class="project-kind">macOS app - Window Manager</span>
-
-                <p class="dec">Created to increase programmer productivity by allowing moving windows around in macOS
-                  using keyboard shortcuts. It grew into a community-driven highly extensible app, using Lua for its
-                  plugin system.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-mjolnir.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Objective-C</li>
-                    <li>Embedded Lua</li>
-                    <li>Plugin system</li>
-                    <li>Fully documented</li>
-                    <li>5,000 GitHub stars</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-affluentconfidante">
-            <div class="project-inner">
-              <div class="details">
-                <h3>AffluentConfidante.com</h3>
-                <span class="project-kind">Website - Social Network</span>
-
-                <p class="dec">An elite social network backed by an integration of both Apple Pay and
-                  credit card payments (via Stripe.com) seamlessly into the web app, for a frictionless and pain-free
-                  payment experience.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-affluentconfidante.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Clojure</li>
-                    <li>Elastic Beanstalk</li>
-                    <li>PostgreSQL</li>
-                    <li>Stripe.com</li>
-                    <li>Apple Pay</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-hyperchat">
-            <div class="project-inner">
-              <div class="details">
-                <h3>HyperChat</h3>
-                <span class="project-kind">Website - Live Chatroom</span>
-
-                <p class="dec">This isn't just any chatroom. In this web app, you can see what everyone is typing while
-                  they type it. Created in order to scratch an itch for making real-time apps and games, this site required
-                  learning how to use WebSockets.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-hyperchat.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>JavaScript</li>
-                    <li>WebSockets</li>
-                    <li>Node.js</li>
-                    <li>Vue.js</li>
-                    <li>CSS</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-bahamut">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Bahamut</h3>
-                <span class="project-kind">macOS app - Music Player</span>
-
-                <p class="dec">As iTunes went through many user interface changes, some desktop users wanted an app that was consistent,
-                  intuitive, and easy to use. So Bahamut was born, a minimal music player for macOS written in Cocoa
-                  with a completely custom user interface.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-bahamut.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Objective-C</li>
-                    <li>Custom UI</li>
-                    <li>Cocoa</li>
-                    <li>Core Data</li>
-                    <li>AVFoundation</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-chatter">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Chatter</h3>
-                <span class="project-kind">macOS app - Chat (IRC) Client</span>
-
-                <p class="dec">This was written in 2009, before the time of Slack, when IRC was the main way for
-                  programmers to get short-term assistance from each other. Its purpose was to be a beautiful app with
-                  an emphasis on simplicity and usability over technical power.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-chatter.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Async networking</li>
-                    <li>Core Animation</li>
-                    <li>Core Text</li>
-                    <li>IRC Protocol</li>
-                    <li>UI Design</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-appgrid">
-            <div class="project-inner">
-              <div class="details">
-                <h3>AppGrid</h3>
-                <span class="project-kind">macOS app - Window Manager</span>
-
-                <p class="dec">A productivity tool for power-users that lets you move windows with global
-                  keyboard shortcuts. Since it uses Vim-like key bindings, it should feel pretty natural to any
-                  programmer. No configuration is needed.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-appgrid.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Minimalist UI</li>
-                    <li>Simple UI</li>
-                    <li>Vim-like Hotkeys</li>
-                    <li>Global Hotkeys</li>
-                    <li>Zero-configuration</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-hydra">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Hydra</h3>
-                <span class="project-kind">macOS app - Lua window manager</span>
-
-                <p class="dec">As an evolution of Phoenix, Hydra was Steven's first attempt at embedding a full Lua virtual
-                  machine into an Objective-C app, to make a lightweight and efficient window manager that focused on
-                  speed, low memory usage, low CPU usage, and overall being gentle on laptop batteries.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-hydra.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>Embedded Lua</li>
-                    <li>Generated docs</li>
-                    <li>Lightweight</li>
-                    <li>Memory efficient</li>
-                    <li>CPU efficient</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project" id="project-phoenix">
-            <div class="project-inner">
-              <div class="details">
-                <h3>Phoenix</h3>
-                <span class="project-kind">macOS app - JavaScript window manager</span>
-
-                <p class="dec">As an evolution of Zephyros, Phoenix was Steven's attempt to use Cocoa's native JavaScript
-                  bindings to make a more lightweight and efficient window manager, that focused on speed, low memory
-                  usage, low CPU usage, and overall being gentle on laptop batteries.</p>
-
-              </div>
-              <div class="split">
-                <div class="half">
-                  <img src={staticRouteFor(__dir.dirsByName['imgs']!.filesByName["sshot-phoenix.png"]!)} alt="Screenshot" />
-                </div>
-                <div class="half">
-                  <ul>
-                    <li>JavaScriptCore</li>
-                    <li>JavaScript API</li>
-                    <li>Lightweight</li>
-                    <li>Memory efficient</li>
-                    <li>CPU efficient</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          </>)}
 
         </div>
 
