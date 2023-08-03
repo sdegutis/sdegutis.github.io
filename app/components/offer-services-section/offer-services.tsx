@@ -1,4 +1,4 @@
-import { contactPage } from "../../routes/contact/contact";
+import { email } from "../../routes/contact/contact";
 import { staticRouteFor } from "../../util/static";
 import { ActionButton } from "../action-button/action-button";
 import { NarrowContainer } from "../narrow-container/container";

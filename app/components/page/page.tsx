@@ -1,7 +1,7 @@
 import { baseUrl } from "../../core/http-server";
 import { Inter } from "../../fonts/inter";
 import { blogIndexPage } from "../../routes/all-articles/all-articles";
-import { contactPage } from "../../routes/contact/contact";
+import { email } from "../../routes/contact/contact";
 import { landingPage } from "../../routes/home/home";
 import { portfolioPage } from "../../routes/portfolio/portfolio";
 import { staticRouteFor } from "../../util/static";
@@ -45,7 +45,7 @@ export const SiteFooter: JSX.Component<{}> = (attrs, children) => <>
         <a href={blogIndexPage.route}>Articles</a>
         <a href={portfolioPage.route}>Portfolio</a>
         <a href="https://github.com/sdegutis/">GitHub</a>
-        <a href={contactPage.route}>Contact</a>
+        <a href={email.address}>Email</a>
       </nav>
       <p>Copyright 2022 ©️ All rights reserved</p>
     </section>

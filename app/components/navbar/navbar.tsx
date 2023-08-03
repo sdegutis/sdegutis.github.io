@@ -1,5 +1,5 @@
 import { Karla } from "../../fonts/karla";
-import { contactPage } from "../../routes/contact/contact";
+import { email } from "../../routes/contact/contact";
 import { blogIndexPage } from "../../routes/all-articles/all-articles";
 import { landingPage } from "../../routes/home/home";
 import { portfolioPage } from "../../routes/portfolio/portfolio";
@@ -16,7 +16,7 @@ export const NavBar: JSX.Component<{}> = (attrs, children) => <>
     <a href={blogIndexPage.route}>Articles</a>
     <a href={portfolioPage.route}>Portfolio</a>
     <a href="https://github.com/sdegutis/">GitHub</a>
-    <a href={contactPage.route}>Contact</a>
+    <a href={email.address}>Email</a>
   </nav>
   {/* <svg viewBox="0 0 10 10">
     <path d="M2,2 L8,2 M2,5 L8,5 M2,8 L8,8" />
