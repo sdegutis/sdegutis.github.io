@@ -1,4 +1,3 @@
-import { baseUrl } from "../../core/http-server";
 import { Inter } from "../../fonts/inter";
 import { blogIndexPage } from "../../routes/all-articles/all-articles";
 import { email } from "../../routes/contact/contact";
@@ -6,7 +5,6 @@ import { landingPage } from "../../routes/home/home";
 import { portfolioPage } from "../../routes/portfolio/portfolio";
 import { staticRouteFor } from "../../util/static";
 import { Stylesheet } from "../util/stylesheet";
-import fixExternalLinks from './fix-external-links.js';
 
 export const Html: JSX.Component<{}> = (attrs, children) => <>
   {'<!DOCTYPE html>'}
@@ -30,8 +28,6 @@ export const Head: JSX.Component<{ imagePath?: string, title?: string | undefine
 
     <Stylesheet src={staticRouteFor(__dir.filesByName['all.css']!)} />
 
-    <OpenExternalsInNewTab />
-
     {children}
   </head>
 </>;
@@ -51,20 +47,3 @@ export const SiteFooter: JSX.Component<{}> = (attrs, children) => <>
     </section>
   </footer>
 </>;
-
-const OpenExternalsInNewTab: JSX.Component<{}> = (attrs, children) => <>
-  <script src={staticRouteFor(replaceInFile(fixExternalLinks, { 'BASE_URL': baseUrl }))} defer />
-</>;
-
-function replaceInFile(file: { buffer: Buffer, name: string }, replacements: Record<string, string>) {
-  return {
-    name: file.name,
-    buffer: Buffer.from(replaceInString(file.buffer.toString('utf8'), replacements), 'utf8'),
-  };
-}
-
-function replaceInString(string: string, replacements: Record<string, string>) {
-  return Object.entries(replacements).reduce((s, [k, v]) => {
-    return s.replace(k, v);
-  }, string);
-}
