@@ -48,7 +48,7 @@ export const landingPage: Routeable = {
                 </NarrowContainer>
               </section>
 
-              <section class='alt-section'>
+              {/* <section class='alt-section'>
 
                 <div id="services-section">
 
@@ -75,7 +75,7 @@ export const landingPage: Routeable = {
 
                 </div>
 
-              </section>
+              </section> */}
 
               <PreviewBox page={blogIndexPage}>
                 <section>

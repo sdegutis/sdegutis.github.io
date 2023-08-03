@@ -11,7 +11,7 @@ export const colors = {
 };
 
 export const OfferServices: JSX.Component<{}> = (attrs, children) => <>
-  <Stylesheet src={staticRouteFor(__dir.filesByName['offer-services.css']!)} />
+  {/* <Stylesheet src={staticRouteFor(__dir.filesByName['offer-services.css']!)} />
 
   <section class='alt-section'>
     <NarrowContainer>
@@ -37,5 +37,5 @@ export const OfferServices: JSX.Component<{}> = (attrs, children) => <>
       </p>
 
     </NarrowContainer>
-  </section>
+  </section> */}
 </>;
