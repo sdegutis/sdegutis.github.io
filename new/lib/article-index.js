@@ -51,21 +51,17 @@ customElements.define("all-articles", class ArticleIndex extends HTMLElement {
   showArticles() {
     this.innerHTML = `
       <link rel='stylesheet' href='/style/all-articles.css'>
-      <section>
-        <wide-container>
-          <div id='all-blog-list'>
-            ${[...articlesByYear.entries()].map(([year, articles]) => `
-              <h3>${year}</h3>
-              <div class='all-blog-year-group'>
-                ${articles.map(article => `
-                  <span>${article.month}</span>
-                  <span><a href=${article.url}>${article.title}</a></span>
-                `).join('')}
-              </div>
+      <div id='all-blog-list'>
+        ${[...articlesByYear.entries()].map(([year, articles]) => `
+          <h3>${year}</h3>
+          <div class='all-blog-year-group'>
+            ${articles.map(article => `
+              <span>${article.month}</span>
+              <span><a href=${article.url}>${article.title}</a></span>
             `).join('')}
           </div>
-        </wide-container>
-      </section>
+        `).join('')}
+      </div>
     `;
   }
 
