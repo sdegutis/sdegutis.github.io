@@ -1,6 +1,5 @@
 import MarkdownIt from 'https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/+esm';
 
-const url = 'https://api.github.com/repos/sdegutis/sdegutis.github.io/contents/app/model/blog/posts';
 const md = new MarkdownIt();
 
 class Markdown extends HTMLElement {

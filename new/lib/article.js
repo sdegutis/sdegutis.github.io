@@ -1,7 +1,7 @@
 import '/lib/common.js';
 import '/lib/heroimage.js';
 import '/lib/markdown.js';
-import '/lib/narrow-container.js';
+import '/lib/container.js';
 
 
 customElements.define("article-header", class ArticleHeader extends HTMLElement {
