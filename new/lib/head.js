@@ -1,5 +1,7 @@
 const head = document.createElement('template');
 head.innerHTML = `
+  <title>The Software Philosopher</title>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
