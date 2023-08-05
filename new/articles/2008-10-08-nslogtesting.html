@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>The Software Philosopher</title>
-  <script type="module" src="/lib/common.js"></script>
-  <script type="module" src="/lib/markdown.js"></script>
-  <script type="module" src="/lib/heroimage.js"></script>
-</head>
+<script type="module" src="/lib/article.js"></script>
 
 <body>
 
   <site-navbar></site-navbar>
 
-  <hero-image src="/imgs/article.jpg">
-    <h1>Technical Article #{blogPosts.indexOf(this.post) + 1}</h1>
-    <p>{this.post.date.toLocaleString()}</p>
-  </hero-image>
+  <article-header>
+    NSLog(@"testing");
+  </article-header>
 
   <div>
-
-    <h1>NSLog(@"testing");</h1>
 
     <render-markdown>
 
