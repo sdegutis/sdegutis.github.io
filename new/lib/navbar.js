@@ -1,4 +1,6 @@
-class SiteNavbar extends HTMLElement {
+import { navLinks } from './nav-links.js';
+
+customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
   constructor() {
     super();
 
@@ -9,11 +11,7 @@ class SiteNavbar extends HTMLElement {
       <div id='site-navbar-shadow'></div>
       <nav id='site-navbar'>
         <a href='#' class='site-navbar-togglers'>✕</a>
-        <a href='/'>TSP</a>
-        <a href='/articles.html'>Articles</a>
-        <a href='/portfolio.html'>Portfolio</a>
-        <a href='https://github.com/sdegutis/'>GitHub</a>
-        <a href='sbdegutis@gmail.com'>Email</a>
+        ${navLinks}
       </nav>
       <link rel='stylesheet' href='/lib/navbar.css'>
       <div id='site-navbar-mobile'>
@@ -45,6 +43,4 @@ class SiteNavbar extends HTMLElement {
     this.shadowRoot.append(frag.content);
 
   }
-}
-
-customElements.define("site-navbar", SiteNavbar);
+});
