@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Free ivars, 6 cents a gross!
+</article-header>
+
+<article-body>
+
+  Ever wish you could store any variable inside of any Cocoa object, be it a string, a dictionary, a view, window, or even NSEvent, without subclassing it? Well with the advent of Core Animation, [you kind of can, with CALayers](http://theocacao.com/document.page/595). Except, that's a single class, which doesn't quite meet the aforementioned criteria. However, I was recently inspired by [another developer's questionable hack](http://kickingbear.com/blog/archives/9) to write my own, which allows you to do exactly this: store any variable with any name, in any object!
+  
+  How does it work? NSObject has two methods, `-valueForUndefinedKey` and `-setValue:forUndefinedKey:`, both of which raise exceptions in the default implementation. When are they called? As the name suggests, when the same method names -- but without "undefined" in them -- are called, and the key is not currently an ivar and has no accessor. So what do we do about it? We override them!
+  
+  Thanks to much inspiration from Kicking Bear, (his real name is even cooler, IMHO) we replace NSObject's implementations of these two methods, with our own! [Download this project](/static/old-blog-files/SDAnyKVCExample.zip) to see the code in action, and to peruse the source. I'm releasing it under public domain, for laziness's sake. If you look in the main.m file, you will see a whole bunch of testing code, but the only important line is `SDAnyKVCInitialize();` which is used (very similarly to KBCollectionExtensionsInitialize()) to prepare NSObject for the fun, crazy things you are about to do to it.
+  
+  If you're curious how exactly it works, [take a quick peek at the relevant source code](/static/old-blog-files/SDAnyKVCSourceCode.html).
+  
+  One key thing you will notice is a surprising lack of support for NSCopying. This means that -copy and -mutableCopy will return objects that don't contain your originally inserted arbitrary values. That is left as an exercise to the reader (feel free to post it as a comment if you want to earn some brownie points).
+  
+  I hope someone can find a creative, hacky way to use this. (And if you do, please let me know!) Enjoy!
+
+</article-body>
+
+<site-footer></site-footer>

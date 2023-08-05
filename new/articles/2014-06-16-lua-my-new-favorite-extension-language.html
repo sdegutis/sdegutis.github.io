@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Lua: my new favorite extension language
+</article-header>
+
+<article-body>
+
+  And I'll tell you why!
+  
+  ### Super easy to embed
+  
+  I literally just dropped all of Lua 5.2's source code into an Xcode project, and it compiled. Instantly. Without warnings. It didn't need a fancy perl script or anything to pre-process the code._It just worked._
+  
+  And hooking up my own C functions to Lua's is amazingly simple. When I need to give Lua a number, I use `lua_pushnumber(L, n)` and when I want to get it back, I run `int n = lua_tonumber(index)`. That's it. There are no fancy implicit conversion rules. You put C data types in, you get C data types out. You can even give it C functions, no problem! Lua doesn't care, Lua's easy.
+  
+  Lua's C API is really simple. You only need to learn about 10 or 20 C functions, and suddenly you can hook your C project up to Lua, and let your users script away!
+  
+  ### Extremely simple language
+  
+  Lua's got all the simplicity I used to like about Ruby, before I continued learning Ruby. It's got all the sanity I used to love about Python before I continued to learn Python. And it has far fewer quirks than either language. That's just a by-product of how simple it is.
+  
+  The other day I tried using Ruby without using classes. Big mistake. I ended up using classes, not because I wanted to, but because it was the path of least resistence to getting my Ruby project working. Lua doesn't have this problem. Sure, Lua makes it possible to build your own insane and horrible object system. Or you can just use the types it gives you and live an easy life. Maybe even retire early.
+  
+  ### Very acceptable syntax
+  
+  I used to worry about syntax. At one point I refused to like any language that didn't have s-expressions. These days I care way more about what the language lets me do, not how it looks. Fortunately Lua isn't actually half bad to look at. It's got its little quirks, but what language doesn't? Yeah, you have to use `local` everywhere, but I just pretend it's "let" or "var" and move on.
+  
+  ### Metaprogramming for when you need it
+  
+  Years ago I learned (the hard way!) that metaprogramming should be used sparingly. Lua offers a bare-minimum set of metaprogramming functionality, and makes it easy to tap into. You can use `__index` to efficiently set "methods" on an object. (You could just add the methods onto each object, but this way is probably faster.) And when you're wrapping a C datatype in a `userdata` object, it's nice to be able to override `__eq` to make `a == b` work as expected.
+  
+  ### Easy to use functional programming
+  
+  Thanks to Lua having first-class functions, I wrote my own `map` and`filter` functions! And they were only about 5 lines long, too. It's really nice to be able to do `local visiblewindows = filter(windows, window.isvisible)`.
+  
+  ### Fast and efficient
+  
+  This is one of my favorite parts! If you're not familiar with[Wirth's law](http://en.wikipedia.org/wiki/Wirth's%5Flaw), it bears repeating: "software is getting slower more rapidly than hardware becomes faster". Lua is a great weapon for your arsenal in this epic never-ending battle for performance.
+  
+  ### Stack-based API
+  
+  Lua's C API uses a stack-based approach. This is great for the authors of Lua, since it lets them avoid writing an exponential number of functions. And honestly, sometimes it's just nice to not have to name variables. But the API can be admittedly difficult to use in large quantities. The solution is to write a very (very!) minimalist private C layer, and write your public-facing API in Lua itself, which calls into the private API written in C.
+
+</article-body>
+
+<site-footer></site-footer>

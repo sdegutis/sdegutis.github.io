@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  TDD Like You Mean It, and LSP
+</article-header>
+
+<article-body>
+
+  Today I essentially finished the SCNA5k Results website, using ATs and TDD the whole time! The last mile was to implement a JSON-based web service for downloading and uploading the list of runners, which took a little longer than I thought it would due to my inexperience with the tools, but overall was done fairly quickly. I can't claim to be an expert at Cucumber or Capybara or Nokogiri or anything yet but I can say that it was definitely a good learning experience.
+  
+  After that was finished, Eric and I shared a `vim` screen to do some pair-programming on [TDD As If You Meant It](http://gojko.net/2009/02/27/thought-provoking-tdd-exercise-at-the-software-craftsmanship-conference/). That was a lot of fun, especially when Eric's network was up and he could connect. We eventually ended up on some very reasonable code for determining if a cell should be killed or resurrected, albeit seemingly simplistic code, but that's the whole point: you get rid of your assumptions about what you _think_ is needed to solve the problem, and you start with the _actual problem domain_, and work your way into a solution as bare-minimum as possible until the problem is technically solved, and with the bare minimum effort. This promotes properly encapsulated, functional code (and generally tends to promotes the Single-Responsibility Principle, from what I gather). Thus we started out with providing the solution directly in our tests, and once we noticed redundancy and shared business logic, we rafactored it (in between tests) into cleaner solution code. Overall, it made good sense and felt natural. I can't wait to try it out on a larger-scale project and see what kind of code I write to solve a problem after getting rid of my assumptions and approaching the problems with a fresh perspective.
+  
+  By the way, I was mistaken about what the Liskov Substitution Principle was on my previous blog post. It's not just about an is-a relationship. It's about _behavior_. In fact, throughout the entire article by Uncle Bob that I read on it, the best explanation is within only two paragraphs somewhere in the middle. It basically states that an object must _behave_ like the classes it inherits from.
+  
+  The behavior is the important thing here, and it's based on Design By Contract. From the little reading I did on it throughout this article, DBC states that every function has a precondition which must be met in order for the function to run, and it guarantees a given state of the world, or postcondition.
+  
+  This relates to the LSP in a very simple way: a subclass must require _at most_ its superclass's preconditions, and it must guarantee _at least_ its superclass's postconditions. (The article uses "weaker" and "stronger" but I find those to be less clear than this wording, which I prefer.) So for example, a Square is _not_ a Rectangle in behavior, because its postcondition for its `set_height` function would not guarantee Rectangle's postcondition that the `width` property remains the same as it was before the function's execution. This exemplifies that it's not really the properties of an object that matter here, but the behavior.
+  
+  Interestingly enough, I've seen this before in Cocoa. It's been satisfied by class clusters such as NSArray with its concrete, private subclass NSCFArray, which _behaves_ exactly like an NSArray according to its external clients. (Granted, the LSP states that its internal behavior may be different, and that's exactly the point of class clusters in the first place, so that doesn't break the rule at all.) I've _also_ seen Cocoa _break_ the rule with Distributed Objects.
+  
+  Mike Ash wrote a blog post [going into detail](http://mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html) about this behavior, specifically the point he makes where you _may not_ add a distributed object proxy into an NSSet. It's a little different than the plain-jane C++ example because ObjC also uses `@protocol`s for its is-a behavior as well as inheritance, but it still holds just as well. Anything that conforms to the `NSObject` protocol should work just fine being added into an NSSet, but distributed objects (instances of class NSProxy, conforming to NSObject) might throw an exception upon receiving the message `-hash`, for instance, thus possibly putting the NSSet into an inconsistent state! Granted, this is arguable because there is no proof that NSSet cannot handle an exception thrown on a member's `-hash`, and in fact there is no contract anywhere stating this. But given we have the rule that an object must never throw an exception from within `-hash`, this principle applies and thus is broken by DO.
+
+</article-body>
+
+<site-footer></site-footer>

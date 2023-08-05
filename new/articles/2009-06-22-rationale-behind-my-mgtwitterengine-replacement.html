@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Rationale behind my MGTwitterEngine replacement
+</article-header>
+
+<article-body>
+
+  Recently I created a set of Cocoa classes that let developers interact with internet services such as Twitter, Facebook, Friendfeed, etc. The initial intent was simply to support Twitter, but as the classes became more generalized, the possibilities grew exponentially.
+  
+  Some have asked why I didn't mimic the "smooth" workflow of MGTwitterEngine in my library's API. The short answer: my library was written to be transparent, letting the developer only need to interact with the end-service's API itself.
+  
+  The promise of MGTwitterEngine is that you don't need to know how to use Twitter, you just load up MGTE and use it like the header files describe. It's a noble goal, but impractical considering how quickly and often these kinds of APIs change. Most of us Twitter-client devs have needed to look at Twitter's API itself anyway, in order to make adjustments here or there, or to add new capabilities to MGTwitterEngine that weren't there back when it was written.
+  
+  Basically, we only looked at MGTwitterEngine's headers half the time, and were surfing over to twitter's API pages the rest of the time.
+  
+  My library is written so you won't need to look at my headers more than once (if that). This is the developer's workflow I envisioned when I began writing the API:
+  
+  * Create a task of a certain service (ie, SDTwitterTask)
+  * Set the task's type appropriately
+  * Navigate to the service's API page for that task (let's use [mentions](http://apiwiki.twitter.com/Twitter-REST-API-Method%3A-statuses-mentions) as an example)
+  * Read that page and note all optional and required parameters
+  * Set any properties (ivars) on the task that you would like to have passed to the API
+  * Run the task and await results (or an error)
+  
+  As you can see, it's almost completely transparent. That's the goal, no intermediate complexity, just a simple gateway to a website's API.
+  
+  (I also wanted to write this as practice in using NSOperationQueue and in interfacing with RESTful APIs myself, which was terribly fun.)
+
+</article-body>
+
+<site-footer></site-footer>

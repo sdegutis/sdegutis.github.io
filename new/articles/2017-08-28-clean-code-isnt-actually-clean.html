@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  "Clean code" isn't actually clean
+</article-header>
+
+<article-body>
+
+  For the better part of the past decade, I've been able to work directly with some very strongly opinionated software veterans. This gave me the unique opportunity to learn several different perspectives, to gain valuable real-world experience, and to see first-hand just how these gurus put their beliefs of the best ways to code, which they hold pretty religiously, into practice.
+  
+  ### Clean code is unfinished code
+  
+  One thing is that no code will ever actually feel clean, because there are always flaws in code _from a certain perspective_, usually the perspective of future features or additions or worries. In the constant pursuit to future-proof every line of code, we actually can't. And the sooner we accept that, the sooner we can avoid the common mistakes of over-engineering. We just have to trust that most of the time, YAGNI.
+  
+  Sometimes we do know about requirements ahead of time that we need to factor into the code as we write it, even though we aren't quite at the point of writing it. But usually, it's best to avoid writing any code that you don't need _right now_, until you actually do need it, because you're almost always going to guess wrong about how you're going to implement it, since you're missing a lot of context about the structure and architecture of your app that you won't have until the second you actually start implementing the feature.
+  
+  ### Clean doesn't mean perfect
+  
+  I've come to believe "clean code" means "code that doesn't slow you down". There's no magical formula that will make your rapid development _even more rapid_. There's a maximum speed you can go, as a programmer, each day. (And it's actually not even the same every day!) Your only hope is to avoid making the code such a tangled mess that you can't make progress anymore without giant refactorings or even rewrites.
+  
+  Sometimes code is _going to_ have ugly spots and warts and things you just don't feel comfortable with, even though you can't quite put your finger on why. If you can't name an actual, tangible, immediate reason for changing some code, then it's best to just ignore that feeling and leave it well enough alone unless you have a _really good_ reason.
+  
+  ### Clean code might look really ugly
+  
+  Sometimes, especially early on in my career, I've gone into a code-base and said to myself, "wow, this code is really terrible. It should be rewritten from scratch." And then one day, technomancy told me the fence story. Something about a guy and a fence, I don't really remember. Ask technomancy, he knows it pretty well.
+  
+  Most of the time projects don't need rewrites. If someone thinks it's so ugly or unclean that it does need a rewrite, it's usually that they really need to just spend a little while (maybe even a long while) absorbing how the program works, understanding every aspect of the architecture. Eventually they'll come to appreciate the reasons behind the warts, and they might even say to themselves, "hmm, yeah, I would do it this way too now that I think about it."
+  
+  ### Automated tests are not _that_ important
+  
+  They are important, don't get me wrong. They have a time and a place. But they're not perfect for every single project. Sometimes you have a one-off script or web app that you just need to test manually as you go along.
+  
+  And the kinds of tests, the amounts of them, the obsession with 100% test coverage, some of these are legitimate, in some contexts and circumstances. If I worked for Stripe, I would definitely put 100% test coverage on the public-facing API libraries. If I wrote my own web app with a store on it, I would automate the tests around handing out licenses, and some user registration. But these days, I probably wouldn't write many tests for it unless it was for the kind of business that needed that extra confidence.
+  
+  And I _do_ appreciate the value of TDD. For smaller situations, it's a nifty way to keep you in check, making sure you're not trying to add too many features all at once. Plus there's something satisfying about seeing 20 or 50 or 300 tests all green at the end of the day. _But_ I'm not going to condemn someone for not writing tests or for not using TDD. I've come to see its value as an _assistive_ tool, not as a religious workflow.
+  
+  And personally I think this attitude toward testing and TDD is actually _more true_ to the spirit of Agile, which was meant an antithesis to the process-heavy methodologies that it sought to overthrow.
+  
+  ### Even the experts struggle
+  
+  I've watched gurus put their minds to the keyboard. They do their best to put their theories into practice, but at the end of the day, they accept the code as it is, clock out, and go home. That was really humbling to see. I mean, if the _experts_ aren't really even confident their code is all the way clean, how can _I_ ever possibly be sure?
+  
+  So I stopped _worrying_ about whether my code is perfect. And I just accepted that if I can't see any immediate flaws with the code, and if all the tests pass (whether automated or manual), then it's fine. And I trusted that if I ever come across a bug, I can fix it. Once I started putting this into practice, I stopped having coding paralysis. I started being productive. I started writing lots of code that in retrospect I'm pretty proud of.
+
+</article-body>
+
+<site-footer></site-footer>

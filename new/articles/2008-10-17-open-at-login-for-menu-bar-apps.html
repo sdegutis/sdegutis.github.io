@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Open at Login, for menu-bar apps
+</article-header>
+
+<article-body>
+
+  Open at Login is a nifty little option in the context menu that pops up for Dock icons. Basically it does just what it says: when you login next, that application (or any other item) will be opened as if you double-clicked it.
+  
+  This is all fine, as it's done automatically for us... as long as you have a application that sits in the Dock. But what about those applications which make use of LSUIElement?
+  
+  Are they to be left in the dark? For years we've been either using some [AppleScript](http://codebeach.org/code/show/39), [AppleEvents](http://www.cocoabuilder.com/archive/message/cocoa/2006/6/28/166501), or [reading/writing directly to the Dock's preferences file](http://developer.apple.com/documentation/MacOSX/Conceptual/BPSystemStartup/Articles/CustomLogin.html), and while not the best solution (and often error-prone if done while System Preferences -> Accounts -> Login Items was open), it was all we had, so we settled for the time being - and filed bug reports.
+  
+  Settle no longer! As of Leopard, Apple has created some functions in Launch Services specifically intended for this purpose. You could probably write them yourself, but I've done the hard work for you and I'm giving it away for free in the form of the SDOpenAtLogin class, so how about [just downloading it](/static/old-blog-files/SDOpenAtLogin.zip)? The only license that pertains to this source is the [SHAG license](http://lapcatsoftware.com/blog/2006/10/12/single-click-renaming-in-nstableview/).
+  
+  How do you use SDOpenAtLogin? Simply drag an `NSObject` into your MainMenu.xib file, change its class to SDOpenAtLogin, connect its `startAtLoginMenuItem` ivar to your menu item, and connect the same menu item to its only action, `-toggleLogin:` and you're done!
+  
+  While I may be too late to help [some people](http://lists.apple.com/archives/cocoa-dev/1985/Jun/msg00000.html), I hope you will find this useful and that you give credit in the About window of your application, linking to this website at the same time. Enjoy!
+
+</article-body>
+
+<site-footer></site-footer>

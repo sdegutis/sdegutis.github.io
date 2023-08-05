@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  ObjC equivalents to Swift solutions #1: Avoiding ObjC class name collisions
+</article-header>
+
+<article-body>
+
+  As we worked on our first iOS app[Accomplish](http://penandpapersoftware.com/accomplish/) ("the missing simple todo list app"), we had to decide on a language. In my last post I explained the reasons I chose Objective-C instead of Swift.
+  
+  Now I'll explain how I made sure to avoid the Objective-C pitfalls that Swift was created to solve, in order to make sure our app was bug-free and to speed up development time as much as possible.
+  
+  Objective-C doesn't have namespaces, so name collisions are a very real problem when naming classes or methods.
+  
+  Conventional wisdom in the iOS community is that you shouldn't worry about prefixing your class names anymore as long as you're writing code for an app and not a library.
+  
+  But that's not entirely true. There are some hidden prefix-less classes built into the iOS standard library.
+  
+  The most obvious one is `Object`, and I vaguely remember that `Array`might exist too, and someone mentioned on stackoverflow that `Account`could also cause problems.
+  
+  Fortunately we don't have to rely on vague memories and guesses. We can dig into the runtime to see for ourselves.
+  
+  To check a single class name at a time, look at the return value of`objc_getClass("SomeName")`. If it's `NULL`, you're safe to use that class name. Sure enough, `Object` is used, but `Array` and `Account`are both free. Phew!
+  
+  But checking every name could get tedious. How about we just look at every prefix-less class name that Apple has used?
+  
+  ```objc
+  // to make some of these functions available
+  #import <objc/runtime.h>
+  
+  // get list of all class
+  unsigned int count;
+  Class* classes = objc_copyClassList(&count);
+  
+  // sort classes by name
+  qsort_b(classes,
+          count,
+          sizeof(Class),
+          ^int(const void* a, const void* b) {
+              return strcmp(class_getName(*((Class *)a)),
+                            class_getName(*((Class *)b)));
+          });
+  
+  // print each class
+  for (int i = 0; i < count; i++) {
+      const char* n = class_getName(classes[i]);
+  
+      // skip classes that start with two uppercase letters
+      if (strlen(n) >= 2 && isupper(n[0]) && isupper(n[1]))
+          continue;
+  
+      // skip classes that start with an underscore
+      if (strlen(n) >= 1 && n[0] == '_')
+          continue;
+  
+      NSLog(@"%s", n);
+  }
+  
+  // have to free since the function had 'copy' in the name
+  free(classes);
+  ```
+  
+  Most of the results seem to start with `Web`, and we've already removed all classes starting with `__` in the code above. And a few of them seem to have been created for the sake of making development easier, like `UnitTestBackgroundSessionTester`.
+  
+  Some of them are names we probably would never choose ourselves, such as `HapticClient`, `BrightnessSystem`, `SupplyLevelView`, and`DelayedInvocationTrampoline`, since they seem directly related to the making of a mobile OS, which isn't relevant to us app developers.
+  
+  But there are several class names we might imagine ourselves using:
+  
+  | StructuredDataReport     | in an office suite app      |
+  | ------------------------ | --------------------------- |
+  | BoxedPhysicsShape        | in a video game             |
+  | AppleSpell               | in a video game             |
+  | NightModeControl         | in apps with a "night mode" |
+  | FontAssetDownloadManager | in any app that uses fonts  |
+  
+  If we were to use any of those classes, the compiler and linker would not complain. But if you used `AppleSpell` in a video game to represent the spell an apple casts on your player, and you override some important methods like `init` to do something relevant to your own game, you might start seeing very strange behavior!
+  
+  Fortunately, the runtime warns us when this kind of thing happens. Try creating your own class called `HapticClient` and run the app. You'll see a log message saying:
+  
+  ```
+  objc[8853]: Class HapticClient is implemented in both AudioToolbox
+  and MyApp. One of the two will be used. Which one is undefined.
+  ```
+  
+  Phew! All we have to do now is change the name of the class we were using. So this means we can name our classes with confidence, and if there is a class name collision, all we have to do is change the name of the class. One step closer to coding without fear or uncertainty! Plus we got to take a nice tour through the Objective-C runtime.
+  
+  **_UPDATE_**: [Hacker News discussion](https://news.ycombinator.com/item?id=14116613)
+  
+  **_EDIT_**: As Andy Matuschak pointed out in the HN comments, this solution doesn't address one of the key dangers of using unprefixed names: future system updates might add new classes. Fortunately the solution to this is still pretty simple: test the app on each new system update. Unfortunately, it isn't a full solution: Apple may roll out updates to frameworks _between_ OS updates, which I believe has happened before. Ultimately the best solution is to test your app regularly and pay attention to your logs.
+
+</article-body>
+
+<site-footer></site-footer>

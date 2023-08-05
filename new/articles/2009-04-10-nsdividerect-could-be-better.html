@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  NSDivideRect could be better
+</article-header>
+
+<article-body>
+
+  Apple provided us developers a nifty little function which makes dividing NSRects up into a breeze, and even maintains readability. This function, NSDivideRect, is extremely handy!
+  
+  But, when passing in NSRect values to put the slice and remainder into, you cannot pass `NULL`! This means that if ever don't want one of those values (for example, you're trimming some off of a rect) you need to create a temporary variable and pass it through. While not horrible, it decreases readability, and takes a little off that "man that was easy!" feeling.
+  
+  So, I've created an alternative function, SDDivideRect. Enjoy!
+  
+  ```objc
+  void SDDivideRect(NSRect inRect,
+                    NSRect* slice,
+                    NSRect* rem,
+                    CGFloat amount,
+                    NSRectEdge edge) {
+      NSRect temp;
+      NSRect* slice2 = (slice ? slice : &temp);
+      NSRect* rem2 = (rem ? rem : &temp);
+      NSDivideRect(inRect, slice2, rem2, amount, edge);
+  }
+  
+  ```
+
+</article-body>
+
+<site-footer></site-footer>

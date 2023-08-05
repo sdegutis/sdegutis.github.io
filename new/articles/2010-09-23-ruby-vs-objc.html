@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Ruby vs ObjC
+</article-header>
+
+<article-body>
+
+  One reason I enjoy writing code in Ruby is because it often lets me get straight to the problem domain with as little friction or hassle as can be. For example, assume you had an array of `Section` objects, each of which had an array of `Question` objects, and you wanted to count the total number of questions in the var "section". In Ruby you could easily do this:
+  
+  ```ruby
+  sections.map{|section|section.questions.count}.sum
+  ```
+  
+  But In Objective-C, the equivalent code is this:
+  
+  ```objc
+  [[sections map:^(id obj) {
+      return [NSNumber numberWithInteger:[[obj questions] count]];
+  }] reduce:^(id obj1, id obj2) {
+      return [NSNumber numberWithInteger:[obj1 integerValue] + [obj2 integerValue]]
+  }];
+  ```
+  
+  Which by the way, assumes that NSArray contains two methods which it currently does not, `-map:` and `-reduce:`
+  
+  Obviously since this is a somewhat common problem, Apple has had a way to work around this for a long time, called KVC Collection Operators, but it's really limited, and the syntax is confusing and can be difficult to use:
+  
+  ```objc
+  [sections valueForKeyPath:@"@unionOfArrays.questions.count"]
+  ```
+  
+  All in all, I have to admit that ObjC can get the job done, with some clever workarounds, but only for _this specific job_... if you get more complicated, you simply need to revert back to using loops and temp-arrays and whatnot. Granted, in Ruby, this solution is not necessarily the most efficient solution, but at least you can solve the problem much sooner, and worry about optimizing later on.
+
+</article-body>
+
+<site-footer></site-footer>

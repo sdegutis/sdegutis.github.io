@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Inspector via WebKit
+</article-header>
+
+<article-body>
+
+  About a month ago, when I was prototyping a new user interface for my Twitter app, I decided that, at the time, an inspector was the right place to show information. So, I began to prototype an Inspector, but instead of using InspectorKit, [I created one in WebView](/static/old-blog-files/webinspector/UserInfoPage.html). It's actually quite easy to use a WebView object to quickly prototype-up a native-looking interface that actually works with your Cocoa app. Let me \`splain... no, there is too much. Let me sum up... ~~Buttercup is marry Humperdinck in a little less than half an hour. So all we have to do is get in, break up the wedding, steal the princess, make our escape... after I kill Count Rugen.~~
+  
+  After reading this blog, you may want to check out [this very detailed blog on exactly how to integrate Cocoa into your WebView](http://iloveco.de/integrating-webview-into-a-cocoa-app/) so you have a better understanding of exactly how this process works. It's not difficult, but it's also not trivial. Then you'll be able to make your WebView look and work native as hell.
+  
+  ### Look and feel
+  
+  Okay so, although I ended up replicating this Inspector in Cocoa, I do have some remnants of this neat hack that you can check out in the form of [HTML/CSS/JS code](/static/old-blog-files/webinspector/) lying around, which is what prompted me to write this blag post. Obviously I've changed the CSS a little so it looks nice in a browser, but originally it looked very plain (no borders, consistent background color not a fixed size), and you could stick this HTML page directly into a WebView in a Cocoa window. This would give it the effect of looking like native Cocoa.
+  
+  As mentioned in the aforementioned tutorial, most of the native looks come from [WebKit-specific CSS](http://developer.apple.com/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html) which is essential to check out if you're ditching Firefox and IE or, as in this case, using WebView inside your Cocoa app.
+  
+  ### Work and... work?
+  
+  Besides the HTML and CSS, you should also take a glance at [the javascript code](/static/old-blog-files/webinspector/UserInfoPage.js) used in this pseudo-widget. Notably, jQuery is one tool used to make DOM-manipulation very easy and powerful. For those of you not familiar with the DOM, in basic terms, you can think of the DOM as a fancy name for the HTML and CSS that makes things look and work in a specified way.
+  
+  Along these lines, some Cocoa code is also used inside this JavaScript file. "Wait... wha-- Cocoa, wait... huh? How!? Hold on a second... you mean-- it's using Cocoa somehow!?" you ask? Yes. Shortly down the file, you will notice this code: `UserInfoController.selectedUserInfo();`
+  
+  ### Specifics
+  
+  `UserInfoController` is a Cocoa object, and `selectedUserInfo()` is actually calling the method `-selectedUserInfo` on it.
+  
+  Similarly, Cocoa calls JavaScript functions inside the WebView, such as the functions `ShowInfoForSelectedUser()` and `ShowNoSelectedUser()`
+  
+  This kind of Cocoa <-> JavaScript integration is made possible by the use of the `WebScriptObject` class. Usually, users will only need to use a webView object's `-windowScriptObject` method to get a hold of an object of this class. So in order to make `UserInfoController` a valid object inside the JavaScript file, we would need to have called this inside our Cocoa app:
+  
+  ```objc
+  [[webView windowScriptObject] setObject:self forKey:@"UserInfoController"];
+  ```
+  
+  ### With great power comes an awesome UI
+  
+  So basically, this gives you the ability to call any method on any Cocoa object from inside your JavaScript script. Thus, you can combine the power, style, an design of web browsers, with the functionality of Cocoa and C.
+  
+  If this stuff fascinates you or you might have a good use for it, you probably want to check that tut out which I aforementionized earlier.
+
+</article-body>
+
+<site-footer></site-footer>

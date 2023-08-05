@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  A synchronous web framework.
+</article-header>
+
+<article-body>
+
+  I made a new alternative to Express.js called [Novo Cantico](https://novocantico.org/) that has sychronous route handlers. This makes it one of the fastest, if not *the* fastest, web frameworks available.
+  
+  Obviously this means you can't load models/data from a DB like you traditionally would. I propose an alternative that works for small to mid sized websites, i.e. probably 95% of all websites: have a single instance and store all data in memory. Treat the Node process's in-memory as the official source of data. Then just backup to a DB whenever it changes, and load it when the Node instance starts up.
+  
+  Anyway this is the least cool thing about Novo Cantico. Check out the source code if you're a senior dev, I'm pretty sure you're gonna like it.
+  
+
+</article-body>
+
+<site-footer></site-footer>

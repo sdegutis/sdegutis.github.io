@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Dear devs: help our Macs quit faster!
+</article-header>
+
+<article-body>
+
+  In Snow Leopard, there's a new way we can all do our part to help applications quit faster, aiding in making logging out and shutting down much faster than before.
+  
+  Mac Apps now include the concept of Sudden Termination, which can be toggled by us developers in a few ways. According to the release notes, it works very simply: when your application is asked to quit, if it is in the "clean" state, OS X sends SIGKILL to the process, which kills it immediately without further interaction.
+  
+  To understand better how to toggle the app between "dirty" and "clean", it must first be understood that this is not a boolean flag, as such. Rather, it's a count, very much like reference counting is with NSObject. When the count is 0, the app is ready for Sudden Termination. Any higher count than this and your app will quit the old fashioned (slow) way.
+  
+  Before even adding any code to your app, you can mark it as "clean" by adding a key to your Info.plist file: set `NSSupportsSuddenTermination` to `YES` and, when your app is launched, it will be all ready for sudden termination and in the "clean" state. Another way to think of it is, setting this key to YES will set the "dirtiness count" to 0 right off the bat.
+  
+  The other way to toggle this is using `-[NSProcessInfo enableSuddenTermination]` and `-[NSProcessInfo disableSuddenTermination]` which are incrementing and decrementing the "dirtiness count" (remember, it's a counter, not a boolean).
+  
+  These two methods should definitely be used generally around blocks of critical processing, such as writing to the disk, but also should be used any time the application needs to do some kind of clean-up before quitting, for instance when it has unsaved changes. (Updated: thanks to Kevin Ballard for pointing out the errors of my ways via the comments below.)
+  
+  So please, do your part, and help make our Macs shut down and log out faster, by keeping your apps clean!
+
+</article-body>
+
+<site-footer></site-footer>

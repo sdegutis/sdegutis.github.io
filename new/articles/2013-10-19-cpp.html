@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  C++
+</article-header>
+
+<article-body>
+
+  I started using C++ for the first time this evening. It's the first time I've touched C++ since college. I'm using it for my new-and-improved lexer and parser.
+  
+  Technically it's ObjC++, since I'm using it within my Cocoa app. But the majority of what I've written tonight is isolated C++.
+  
+  Honestly, I'm really liking it. When I'm trying to manipulate the basic ObjC data types in Foundation (`NSArray`, `NSDictionary`), it usually feels like I'm fighting against the framework. But in C++ it feels so much nicer, like it's working _for_ me, not _against_ me!
+  
+  I'm enjoying having namespaces once again. And it's nice to have compile-time type-safety in my vectors and lists, not to mention acting as documentation for my poor brain. And operator overloading is mighty convenient (when it makes sense in the context).
+  
+  Probably one of the most noticable benefits is that I got to delete several of my own convenience methods that I only had to write to shorten ObjC method calls with redundant or obvious default options. Compare the ObjC version:
+  
+  ```objc
+  NSRange lookRange = NSMakeRange(i, [raw length] - i);
+  NSUInteger loc = [raw rangeOfCharacterFromSet:endAtomCharSet
+                                        options:0
+                                          range:lookRange].location;
+  if (loc == NSNotFound) loc = [raw length];
+  NSRange range = NSMakeRange(i, loc - i);
+  [tokens addObject: [LVToken symbol:[raw substringWithRange:range]
+                                  at:range.location]];
+  i = NSMaxRange(range)-1;
+  ```
+  
+  with the C++ version:
+  
+  ```c++
+  size_t n = raw.find_first_of(endAtomCharSet, i);
+  tokens.push_back(token{token::Symbol, raw.substr(i, n - i)});
+  i = n-1;
+  ```
+  
+  In the ObjC version, I extracted a lot of that logic into a method called `rangeUntil:(NSCharacterSet*)charSet in:(NSString*)str startingAt:(NSUInteger)start`, which was basically unnecessary thanks to `find_first_of` on `std::string`. Also I no longer needed a custom constructor like `+[LVToken symbol:at:]` since I can use the struct-literal initialization syntax in C++. I could have done this in ObjC too, but then it would be a struct, not a class, so I couldn't add methods to it, and therefore I'd lose any kind of polymorphism.
+  
+  Plus it was nice to overload `operator<<` on my enum type, so I can print a human-readable representation of my token types when debugging. Note, it's an enum type, basically an `int`, which you can't add `-description` to!
+
+</article-body>
+
+<site-footer></site-footer>

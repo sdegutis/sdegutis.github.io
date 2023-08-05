@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Allocating an AST on the stack
+</article-header>
+
+<article-body>
+
+  This week, I've been wondering if it's possible to create an Abstract Syntax Tree entirely on the C stack, without using a single call to `malloc`\-and-friends.
+  
+  Yesterday I figured out a solution. Check out the source in compiler.c [\[1\]](#fn1). It's only a lexer and parser (funny enough there's no compiler there yet), and it's about 200 lines of code.
+  
+  First, I designed the tree using the traditional Lisp metaphor of "Atoms" and "Lists". For example, `(+ 1 (+ 2 3))` is a list containing 2 atoms and another list, which contains 3 more atoms. [\[2\]](#fn2)
+  
+  Both Atoms and Lists live inside an Element struct type, specifically inside a C-union. This shrinks the space it takes up, while ensuring that an Atom and a List-node take up an identical amount of space.
+  
+  Atoms contain self-sufficient data. List-nodes have a pointer to the Element they represent at that spot in the list, and a pointer to the next List-node in the list. An empty list is represented by a single List-node with both pointers set to NULL. This also serves as the tail of any list.
+  
+  Since all Elements take up the same amount of space, I was able to declare a C-array of Elements on the stack. I used the size of the input-string as the number of Elements to hold, figuring that all Atoms and List-nodes combined can't be more than the number of characters in the source code.
+  
+  Then it was just a matter of passing this array into the recursive-descent parser. Every time I needed to "allocate" a new Element in the parser, I would just grab the next Element off the C-array and use its address as a pointer. This required keeping track of what offset (or index) the next element would be found.
+  
+  That's it.
+  
+  I haven't done any benchmarks, but I'm guessing this thing is probably fast-as-crazy. It's not as light on memory as it could be, since it uses a union, but I'm aiming to save cycles over memory.
+  
+  Unfortunately, linked-lists are less efficient than C-arrays to navigate, and the code to do so is uglier too. So that's one trade-off that I'm not sure how I feel about yet.
+  
+  The main benefit for me is that there's no need to free any memory. I can consider it officially garbage-collected and not worry at all about leaks. This is a big deal for me, since it frees up my brain to focus more on the algorithms.
+  
+  ---
+  
+  1. That's the version of the file as of the time of this writing; the latest version is here. [↩︎](#fnref1)
+  2. Or if you prefer it in Ruby: `List.new(Atom.new("+"), Atom.new("1"), List.new(Atom.new("+"), Atom.new("2"), Atom.new("3")))` [↩︎](#fnref2)
+
+</article-body>
+
+<site-footer></site-footer>

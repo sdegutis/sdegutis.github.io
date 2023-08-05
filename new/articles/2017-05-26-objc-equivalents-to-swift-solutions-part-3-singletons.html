@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  ObjC equivalents to Swift solutions #3: Singletons
+</article-header>
+
+<article-body>
+
+  When we created the Xcode project for our second iPhone app,[Quick List](http://penandpapersoftware.com/quicklist/) (literally the only to-do list app with an easter egg), we had to choose a language to use: Swift or Objective-C. Our first blog post details why we chose Objective-C, despite the huge popularity of Swift in the past few years.
+  
+  But by choosing Objective-C, we have to figure out the Objective-C way of defining singletons conveniently like this in Swift:
+  
+  ```swift
+  lazy var accountManager = AccountManager()
+  
+  // AccountManager() hasn't been called yet
+  
+  accountManager.foo()
+  
+  // AccountManager() has been called!
+  
+  accountManager.foo()
+  
+  // AccountManager() wasn't called a second time
+  ```
+  
+  The benefits of this Swift code are:
+  
+  1. Instantiating the class happens the first time it's called
+  2. The value is accessed from a "global" "property"
+  3. It's all in one line
+  
+  We can do this in Objective-C and still get the first two benefits:
+  
+  ```objc
+  @implementation AccountManager
+  
+  + (instancetype) sharedAccountManager {
+      static dispatch_once_t onceToken;
+      static AccountManager* singleton;
+      dispatch_once(&onceToken, ^{
+          singleton = [[AccountManager alloc] init];
+      });
+      return singleton;
+  }
+  
+  - (void) foo {
+     ...
+  }
+  
+  @end
+  ```
+  
+  Now you can use this like so:
+  
+  ```objc
+  // AccountManager.alloc.init hasn't been called yet
+  
+  AccountManager.sharedAccountManager.foo();
+  
+  // AccountManager.alloc.init has been called!
+  
+  AccountManager.sharedAccountManager.foo();
+  
+  // AccountManager.alloc.init wasn't called a second time
+  ```
+  
+  Note: this doesn't touch on other aspects of "singletons", such as preventing the creation of more than one instance, or any of that magic. Personally I stay away from those rules-of-thumb and only add them as-needed.
+
+</article-body>
+
+<site-footer></site-footer>

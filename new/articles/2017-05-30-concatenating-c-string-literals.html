@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Concatenating Objective-C String Literals
+</article-header>
+
+<article-body>
+
+  When we made our app[Quick List](https://itunes.apple.com/us/app/quick-list-for-todos-chores-groceries-tasks/id1232494353?ls=1&mt=8), we had to decide on a language. When we chose Objective-C, we lost some of the convenience that Swift brought to the table. But using obscure features of C and Objective-C, we were able to get some of that convenience back.
+  
+  Say you're making an iOS app, and you want to create some convenience strings for linking to your app on the app store, one for linking directly to it within the App Store, and one using HTTPS for reliable sharing on social media. Plus we want to store the app ID separately, so that we can reuse the app store link definitions in different apps.
+  
+  In Swift, it's as easy as this:
+  
+  ```swift
+  let appId             = "1232494353"
+  let appStoreUrlBase   = "://itunes.apple.com/us/app/apple-store/id" + appId + "?mt=8"
+  let appStoreUrlHttps  = "https"     + appStoreUrlBase
+  let appStoreUrl       = "itms-apps" + appStoreUrlBase
+  let appStoreReviewUrl = appStoreUrl + "&action=write-review"
+  ```
+  
+  But in Objective-C, the only way to concatenate strings is via the runtime method `-stringByAppendingString:` (and`-stringByAppendingFormat:`). Since it happens at runtime, we can't just define it in a header or at the top level. Dang, game over, time to give up and head on home, right?
+  
+  WRONG! Fortunately C has a mostly useless and often error-prone feature where you can concatenate C string literals by just putting them next to each other! Behold:
+  
+  ```c
+  char* foo = "foo" "bar"; // note: this is at the top level
+  
+  void foobar(void) {
+      printf("%s", foo); // prints "foobar"
+  }
+  ```
+  
+  Cool, right? _Wrong again!_ See, this only works on string_literals_. So this won't work:
+  
+  ```c
+  char* appId = "123";
+  char* foo = appId "bar";
+  ```
+  
+  "But what if we make them static?" you may find yourself asking.
+  
+  ```c
+  static char* appId = "123";
+  static char* foo = appId "bar";
+  ```
+  
+  Nope, still doesn't work.
+  
+  So what do we do? We abuse the C preprocessor of course! Using`#define` we can create "variables" that are just string literals, and reuse them multiple times, giving us the illusion of named constants that we were trying to get to all along:
+  
+  ```c
+  #define foo   "foo"
+  #define bar   foo "bar"
+  #define qux   foo "qux"
+  ```
+  
+  When used, these literally translate to this:
+  
+  ```c
+  char* x = bar /* "foo" "bar" */ ;  // x is now "foobar"
+  char* y = qux /* "foo" "qux" */ ;  // y is now "fooqux"
+  ```
+  
+  Great, right? _Nope!_ That's still C, not Objective-C! Well true, but Objective-C borrowed this feature for who knows why. Just use an `@`sign in each string as usual:
+  
+  ```objc
+  #define foo   @"foo"
+  #define bar   foo @"bar"
+  #define qux   foo @"qux"
+  ```
+  
+  And voila, you have a bunch of predefined NSString constants.
+  
+  Going back to our original example, and you can do this:
+  
+  ```objc
+  #define APP_ID                 @"1232494353"
+  #define APP_STORE_URL_BASE     @"://itunes.apple.com/us/app/apple-store/id" APP_ID @"?mt=8"
+  #define APP_STORE_URL_HTTPS    @"https"     APP_STORE_URL_BASE
+  #define APP_STORE_URL          @"itms-apps" APP_STORE_URL_BASE
+  #define APP_STORE_REVIEW_URL   APP_STORE_URL @"&action=write-review"
+  ```
+  
+  In general this feature is a bad idea and C shouldn't have it, because it most often leads to bugs like when you forget a comma in an array literal like `const char* array[] = {"foo" "bar"}`, it becomes a concatenative expression and results in `{"foobar"}` which isn't even close to what we meant. But in situations like the above, it comes in handy.
+
+</article-body>
+
+<site-footer></site-footer>

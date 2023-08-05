@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Learning in the background
+</article-header>
+
+<article-body>
+
+  Something cool just happened. My wife just now asked me if I was growing my hair out, when she noticed I hadn't shaved it in a week or two. Since I hadn't thought about that yet and hadn't decided, I just said "I don't know". That's not the cool part.
+  
+  Right after she asked me and I thought this about my thinking, I actually thought about how I thought about this, in Ruby. I considered her asking me this to be the same as `steven.growing_hair_out?` which is a Ruby method call, requiring a direct response. Then I realized that I had recently changed the implementation from this:
+  
+  ```ruby
+  def growing_hair_out?
+      decide_if_growing_hair_out # returns true or false
+  end
+  ```
+  
+  to this:
+  
+  ```ruby
+  def growing_hair_out?
+      method(:decide_if_growing_hair_out)
+  end
+  ```
+  
+  which evaluates the question lazily, instead of right away. (Granted, she still has to ask again later via `stevens_response.call` to actually get an answer!)
+  
+  Thinking about thinking in terms of a programming language is bizarre if you ask me! Aren't human brains just awesome? :D
+
+</article-body>
+
+<site-footer></site-footer>

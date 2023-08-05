@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  How do you add routes in Novo Cantico?
+</article-header>
+
+<article-body>
+
+  In [Novo Cantico](https://novocantico.org/) you add routes like this:
+  
+  ```typescript
+  import { LatestPosts } from "../../components/latest-posts/latest-posts";
+  import { NarrowContainer } from "../../components/narrow-container/container";
+  import { NavBar } from "../../components/navbar/navbar";
+  import { Page } from "../../components/page/page";
+  import { renderElement } from "../../core/jsx";
+  import { addRouteable, Routeable } from "../../core/router";
+  import { markdown } from "../../util/markdown";
+  
+  const content = markdown.render(__dir.filesByName['content.md']!.buffer.toString('utf8'));
+  
+  export const landingPage: Routeable = {
+    method: 'GET',
+    route: '/',
+    handle: (input) => {
+      return {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/html',
+        },
+        body: renderElement(<>
+          <Page title="Novo Cantico">
+            <NavBar />
+            <NarrowContainer style='margin-bottom:7em'>
+              {content}
+              <LatestPosts />
+            </NarrowContainer>
+          </Page>
+        </>),
+      };
+    }
+  };
+  
+  addRouteable(landingPage);
+  ```
+  
+  Which uses these types:
+  
+  ```typescript
+  export interface Routeable {
+    route: string;
+    method: Uppercase<string>;
+    handle: RouteHandler;
+    meta?: RouteMeta;
+  }
+  
+  declare type RouteHandler = (input: RouteInput) => RouteOutput;
+  
+  declare interface RouteInput {
+    method: Uppercase<string>;
+    url: URL;
+    headers: import('http').IncomingHttpHeaders;
+    body: Buffer;
+  }
+  
+  declare interface RouteOutput {
+    status?: number; // default 200
+    headers?: import('http').OutgoingHttpHeaders;
+    body?: Buffer; // default empty
+  }
+  ```
+  
+
+</article-body>
+
+<site-footer></site-footer>

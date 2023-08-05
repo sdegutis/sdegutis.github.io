@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Tictactoe on Rails
+</article-header>
+
+<article-body>
+
+  Yesterday I was tasked with implementing a Rails front-end onto my Tic-Tac-Toe library. At first I thought it would be trivial, considering how much effort I put into making sure my classes adhered to all the good coding principles and best practices I knew. But obviously things weren't that simple.
+  
+  For starters, I wasn't sure exactly how to reuse my `Game` class. As it turned out, it wasn't really a general `Game` class at all, but rather a `ConsoleGame` class with only one appropriate environment. Trying to tack a Rails front-end onto it proved impossible, so I either had to generalize it out into a subclass, or pull it apart piece by piece until it was no longer a class at all.
+  
+  It's kind of funny how, even though I tried very diligently to make sure my original code could have different front-ends or different back-ends, there were some obvious rough-spots that I only found after actually _trying_ to add a different, non-console-based front-end to it.
+  
+  This was the first time that I successfully "spiked" a solution too. I wasn't sure how the Rails controller would look. So I wrote just enough code to show me how the controller would basically function, moved the code to pseudo-code in a temporary file, and deleted the actual code. Then, I was able to tweak the pseudo-code until it appeared to make logical sense, at which point I began to actually implement the controller.
+  
+  At first I was worried that writing a spike would feel like a waste of time/energy, but it actually felt right. I used it just enough to work out the details of the solution and resolve any unknowns, and once I knew what details would be used, I felt confident in my ability to test-drive the pseudo-implemented API into existence.
+  
+  Finally by the end of yesterday, I had spec'd and written out my whole `GameController` in Rails, and all tests passed!
+  
+  So this morning, I began to work on spec'ing the views and test-driving them into fruition as well. At one point early on, I thought that was done too! And then there were a few surprises.
+  
+  For one thing, I was surprised that, after all my seemingly-thorough testing, my Rails app completely lacked an AI. I simply forgot to specify it in any of my tests or pseudo-code.
+  
+  As Eric had suggested, had I written acceptance tests via a cucumber feature set, this probably would have been caught much earlier on, as writing such tests would have forced me to think of the app "from the outside-in." But alas, it was still my responsibility to have caught such a glaring omission, and thus it was kind of embarrassing.
+  
+  Secondly, I realized that, because my classes were so coupled together, the controller's move action was awkward to write, and thus some of its corresponding tests were near-impossible to implement in a way that would drive my functionality in the right direction but also not be fragile.
+  
+  Thirdly, when I tried to instantiate a `Player` object with the `AI` class inside the `game#move` Rails action, it became apparent that I would be forced to drop down to using the `Minimax` class. This is because the `Player` and `Game` classes are coupled in such a way that, when you instantiate a `Game` with two players, it will set each one's `opponent` variable to the other player instance. In reality, this "hack" was only needed so the "next-move algorithm" of the `Minimax` strategy-module would function properly. (It needed to know who itself was and who the opponent was.)
+  
+  Even though I could (and did) work around the problem, this coupling honestly just needs to be worked out entirely. Otherwise I'll run into even further problems down the road if I ever want to put a different front-end or back-end onto the game. One problem that this is going to pose, though, is that, if I change the various APIs to work in a different (albeit better) way, not only do I need to write the new API code, but I also need to rewrite every client code that uses them, as well as every test that uses them directly. And considering this might involve a non-trivial change, it could mean up to a day just spent rewriting tests and controllers. Not pretty. I only just began the process this afternoon and already my head is starting to spin. This is good motivation to **do it right the first time**!
+  
+  Also, my "clever" solution to keeping "player string representations" completely separate from the player and all encapsulated within the `Board` object may not be holding up too well. I've noticed that if you choose the 2nd position, you will be `x`, but if the other player (`AI`) chooses the 1st position next, you will be `o` and the `AI` will be `x`. This is a big I thought I had squashed earlier, but I think I may have inadvertently resurrected it due to my assumption when writing the `Board` class that a single given `Board` instance will continue to exist throughout the life of the game. However, in my Rails front-end, a new `Board` instance is created with each request. Yet another way that I had not full planned for alternative front-ends and back-ends.
+  
+  As for testing views, that's still taking me a bit of getting used to. Eric's guidelines are, test only what has programming in it, ie. code inside a view that is likely to produce variable output. To me, that seems to be missing half the picture. Technically, the `form` tag which allows making a move in my game, is never going to change. It has no variable code. But we need to make sure it exists, so that the player _can actually make a move_. Otherwise the game is basically just not playable.
+  
+  On the other hand, testing the view at all seems pretty fragile. Views are tricky in the sense that they have a tendency to change the most often and with the biggest changes, from my experience. That's the beauty and purpose of the view: it is user-facing, it only presents an interface to the user. Thus, it is subject to constant scrutiny from a much larger array of team members; a manager may want the page to contain an ad on the bottom, the designer may want the sidebar placed on the _left_ of the body instead of the right, the coder may realize that the `div` with inner `div`s should actually be a `ul` with inner `li`s. These constant changes by themselves can be a large burden, but adding the fact that _for every change, the tests must also be changed_, well, to me that indicates a potential nightmare may be on the horizon. Honestly, I'm just not sure I feel entirely comfortable with this aspect of TDD + MVC just yet.
+  
+  On an unrelated note, this project has so far also been good practice in experimenting with Haml within a Rails app; it's surprisingly straightforward: ERb is just translated to Haml, the files renamed to .haml, and then you'reall done. Granted it has a slight less flexibility than ERb does, but it's awesomely more succinct, and the few times you need that flexibility, you can just drop down to ERb and problem solved. Overall, I think using Haml has been and will from now on be a huge win.
+  
+  By the way, the most up-to-date version of the live app is usually hosted on Heroku specifically for your personal entertainment.
+
+</article-body>
+
+<site-footer></site-footer>

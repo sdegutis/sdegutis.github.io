@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Strange alternative to Express.js
+</article-header>
+
+<article-body>
+
+  The route `/blog/:slug` is stupid. All blog posts are known ahead of time.
+  
+  There's no need to check the DB for slugs like `obviously-not-a-real-slug` or `qasfdhas;ldfasl;` or `1111111111` at all. Absolutely no need.
+  
+  So I made a new alternative to Express.js called [Novo Cantico](https://novocantico.org/) that creates all routes and just adds them to a map.
+  
+  It's *way* cool. Please sponsor it on GitHub.
+  
+
+</article-body>
+
+<site-footer></site-footer>

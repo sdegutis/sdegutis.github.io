@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Ruby Accessors Considered Pernicious
+</article-header>
+
+<article-body>
+
+  One Ruby feature I fell in love with is the ability to define methods like `foo` and `foo=` which are used like simple variable accessors. This can be a very powerful abstraction. Yet now I'm convinced that putting logic in these accessors is often the wrong tool for the job.
+  
+  The entire beauty of such methods is that they appear to be simple accessors, emulating a struct, but they can execute arbitrary logic behind the scenes. This means you can define `Tweet#text` and it can pretend to have its content on hand, while in reality it's actually making an HTTP request!
+  
+  The problem is, life isn't that simple. Anything more complex than an actual getter or setter, whether reading the contents of a file, making an HTTP or TCP request, or executing some SQL, has the capacity to fail.
+  
+  And when these actions fail, we typically have some Plan B that's not just "oh no everyone panic!" (which is exactly what letting the exception get to the top level does). Plus, it's unsightly to wrap simple accessor expressions in `begin/rescue/end` blocks.
+  
+  There are also times when an API doesn't make it clear that some expression which looks like a simple accessor actually has the potential to throw custom exceptions of some kind. This is especially true when we learn about an API via `pry` or some other dynamic introspection tool. So even if we wanted to, we might not even realize that we need to wrap such a statement with a rescue block.
+  
+  A simple and effective alternative is to execute such actions using explicit, non-accessor methods. Instead of every accessor on `Tweet` making real HTTP requests, they could really be simple accessors. We could then add two new methods, `#save` and `#load`, which could do the HTTP interaction and store fetched data on the object. If we designed our API like this, all of `Tweet`'s methods would benefit from having an obvious and predictable behavior.
+  
+  Custom accessors are great when dealing with calculated or derivative fields, such as deriving `full_name` when you already have `first_name` and `last_name`, or for various mathematical calculations. We should be kind to our fellow developers and design our APIs to be predictable by restricting our usage of custom accessor-like methods to these trivial cases and leaving the heavy lifting to explicit methods.
+
+</article-body>
+
+<site-footer></site-footer>

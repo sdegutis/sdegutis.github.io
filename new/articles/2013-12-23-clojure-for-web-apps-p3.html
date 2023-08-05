@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Clojure for web apps, Part 3
+</article-header>
+
+<article-body>
+
+  This is Part 3 in the series that explains why I believe Clojure is the best language for writing web apps. Also see[Part 2](/blog/2013-11-14-clojure-for-web-apps-p2).
+  
+  ### It's simple
+  
+  A good web app consists mostly of self-sufficient, isolated business logic. It'll have a wrapper for HTML or JSON or whatever, but that will be nothing more than a wrapper over the real app.
+  
+  This means that the architecture and design of the app is completely up to the programmer. It also means it will lean towards design patterns that the underlying language encourages.
+  
+  It's only natural to play to the language's strengths. And usually the language makes it really hard not to.
+  
+  But sometimes it's hard to tell strengths and weaknesses apart.
+  
+  For example, Ruby encourages metaprogramming, which at first looks like a solid way of creating DSLs and eliminating duplication. But this feature creates extremely brittle and unmaintainable code.
+  
+  Both Ruby and Python encourage mutation-heavy class structures, with hidden (and fragile) state and implicit execution rules. These problems are generally unavoidable when using these languages.
+  
+  Clojure on the other hand is very simple. It has simple data structures, no classes, very simple and transparent polymorphism, and first-class closures. Together, these features enable and encourage referential transparency, a key feature in keeping code simple at every level.
+  
+  When an entire application's architecture and design are up to the programmer, simplicity is the key to creating a flexible and maintainable codebase that smoothly evolves with business requirements. Clojure has simplicity built-in, languages like Ruby and Python don't.
+
+</article-body>
+
+<site-footer></site-footer>

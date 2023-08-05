@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Class Clusters vs Mixins
+</article-header>
+
+<article-body>
+
+  Just now I realized that Cocoa's class clusters are very similar to how Ruby's mixins can be used.
+  
+  Take `NSArray` as an example. `NSArray` itself is an abstract class intended to be subclassed. The abstract class itself provides tons of useful methods (such as `-lastObject`, `-containsObject:`, `-subarrayWithRange:`, `-enumerateObjectsUsingBlock:`, etc), all revolving around the existence of `-count` and `-objectAtIndex:`, and it omits the implementation of those two methods. So, in order for `NSArray` to be useful, there must be a concrete subclass which provides the implementation of (at least) `-count` and `-objectAtIndex:`, and once this is provided, the subclass can be used as if it is an `NSArray` (it is, after all, just a subclass).
+  
+  Now take `Enumerable` in Ruby. This is a module intended to be used as a "mixin". That means, if you include it into your own class, instances of your class respond to all the methods of `Enumerable` as well. (Technically this works by adding a proxy-to-`Enumerable` singleton class directly above your class in the superclass chain, which is technically subclassing, just a little fancier.) `Enumerable` relies on the method `each` to be implemented in your own class, as `Enumerable` does not provide its own implementation of `each`. Once you do provide it, though, and `include Enumerable`, your class's instances all suddenly have the convenience collection methods `count`, `any?`, `all?`, `detect`, `select`, `each_with_index`, `member?`, `map`, `reject`, `zip`, `reverse_each`, etc.
+  
+  Now it's true that there are some differences. Class clusters are not "mixed in" like in Ruby, but rather usually have a factory method to create instances, which in turn choose from a fixed set of private subclasses to instantiate. Plus, Ruby's mixins can be used in more flexible ways than I've just described, making this a sort of rectangle-is-not-a-square situation. But overall, it's interesting to notice how strikingly similarly these two wholly different worlds solved the same problem.
+
+</article-body>
+
+<site-footer></site-footer>

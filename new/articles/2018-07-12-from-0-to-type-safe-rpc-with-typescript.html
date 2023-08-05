@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  From 0 to Type-Safe RPC with TypeScript
+</article-header>
+
+<article-body>
+
+  So I wanted to make a chat app using Socket.io, but I also wanted:
+  
+  1. Complete type safety like `interface Message { text: string; }`
+  2. Runtime input shape checks _without_ `typeof msg.text === 'string'`
+  3. Full VS Code auto-complete support
+  
+  Yes, this is actual possible!
+  
+  First we need a shared environment. We need a TypeScript file that both the client and server see at the same time. There’s two main ways to do this: either create a build phase that copies a master file into both client and server source directories, or create the master file in one of the directories, and symlink it to the other.
+  
+  I have found that `Create React App` doesn’t understand symlinks very well but `tsc` does, so if you go this route, store the master file in the client and symlink it into the server. Assuming you have this structure:
+  
+  ```
+  app/
+    server/
+      src/
+        index.ts
+    client/
+      src/
+        index.ts
+  ```
+  
+  Create and symlink them like this:
+  
+  ```sh
+  app $ touch client/src/SharedTypes.ts
+  app $ cd server/src
+  app/server/src $ ln -s ../../client/src/SharedTypes.ts .
+  ```
+  
+  Good, how we have a file called `SharedTypes.ts` that we can edit once and both environments see it! When editing this file in VS Code, make sure to edit the “server” version so that both the client and the server see changes immediately.
+  
+  It would be a shame if we had to write our types twice: once for TypeScript and once for runtime shape verification checks. But TypeScript only supports compile-time checks.
+  
+  We’re in luck, there’s a great library called [io-ts](https://github.com/gcanti/io-ts) that lets us declare our type with a runtime structure which actually preserves all the compile-time type information for us! This way, we get automatic type completion as if we described this type purely in TypeScript!
+  
+  ![](https://miro.medium.com/max/700/1*F5-ELS5XiQgjMG8dvYT-xQ.png)
+  
+  Notice that Person is a runtime object!
+  
+  ```typescript
+  Person.decode(personFromJson).isRight() // if true, it matches!
+  ```
+  
+  In this example, Person is a _runtime object_ that we can use for both purposes:
+  
+  1. To verify an object’s shape at runtime
+  2. To give us auto-completion in the IDE!
+  
+  Now that we can check types, we can check inputs to function calls! RPC means “remote function calls” and works mostly the same way as local ones, you pass data in and (sometimes) get data out. So we’ll need to describe the “input” and “output” of our function calls. Let’s use a simple convention of `i` for input and `o` for output:
+  
+  ```typescript
+  import * as t from 'io-ts';
+  const ConvertToNumber = {
+    i: t.string,
+    o: t.number,
+  };
+  ```
+  
+  Later we’re going to need to do two things with this type: implement a function handler for it (on the server), and call a function described by it (on the client).
+  
+  It could look something like this:
+  
+  ```typescript
+  handle(ConvertToNumber, "ConvertToNumber", (str) => parseInt(str));
+  call(ConvertToNumber, "ConvertToNumber", '123');
+  ```
+  
+  But that’s not very safe, we type the name twice! We’re going to need a name for each message, so how about we generate it automatically somehow? The only way I know how to do that is by turning it into a function. Then it will automatically have `.name` set for us.
+  
+  ```typescript
+  const ConvertToNumber = () => ({
+    i: t.string,
+    o: t.number,
+  });
+  ConvertToNumber.name // 'ConvertToNumber'
+  ```
+  
+  Great, even less work for us!
+  
+  In order to write “handler” and “caller” functions that have our `i` and `o` types, we need to “extract” them into `I` and `O` types from this type definition, so that TypeScript can infer it. So let’s create an interface that matches the shape we just made.
+  
+  ```typescript
+  export interface FN<I, O> {
+    i: t.Type<I>,
+    o: t.Type<O>,
+  };
+  ```
+  
+  Thanks to `t.Type`, TypeScript is able to reach into our original definition and pull out `I=string` and `O=number` from our “ConvertToNumber” example.
+  
+  Now your handler-producing and caller-wrapping functions just need to have these signatures:
+  
+  ```typescript
+  function handle<I,O>(decl: FN<I,O>, fn: (input: I) => O)
+  function call<I,O>(decl: FN<I,O>, args: I) => O
+  ```
+  
+  We would use these like so:
+  
+  ```typescript
+  handle(ConvertToNumber, (str) => parseInt(str));
+  call(ConvertToNumber, '123') // 123
+  ```
+  
+  Looking good so far! But there’s a catch. TypeScript can’t easily infer the second parameter in either `handle` or `call` from the first parameter, so it can’t warn us if we pass the wrong type. I think this is because TypeScript can’t tell which is the “master” type and which is dependent on it, since the parameters are siblings. The only way I know how to get around this is to force the flow of type inference downward into a returned function:
+  
+  ```typescript
+  function handle<I,O>(decl: FN<I,O>) =>
+    (fn: (input: I) => O) =>
+      void;
+  function call<I,O>(decl: FN<I,O>) =>
+    (args: I) => O;
+  handle(ConvertToNumber)((str) => parseInt(str));
+  call(ConvertToNumber)('123'); // 123
+  ```
+  
+  This is a bit ugly, but at least now we get proper warnings if we return anything other than a number, or if we try to use the input as anything other than a string. And the IDE shows us correctly that it is a string, and gives us all the right auto-completions!
+  
+  We finally have the ability to implement function handlers and call functions based on _shared type definitions_! Now we just need to implement them.
+  
+  There’s no one-size-fits-all implementation, because this concept is generic enough to be used with Socket.io, `fetch`, Express.js, or anything you can use to communicate between two remote computers running JavaScript.
+  
+  But three concepts are common to all implementations:
+  
+  1. Specifying the name of the function call
+  2. Verifying input shape before passing it to the handler
+  3. Sending output data as a reply to the caller
+  
+  We already know how to do #1, just pass `handler.name`.
+  
+  And we already saw #2 above, we just need to adjust it a bit, since we wrapped the `io-ts` types behind a function to give it the automatic name used in #1 and put it in the `o` property of the returned object:
+  
+  ```typescript
+  const outputShape = handler().o;
+  if (!outputShape.decode(input).isRight()) throw new Error(...);
+  ```
+  
+  And finally #3, replying with the output, which implies that we registered the handler somewhere ahead of time in the `handle` function we kept seeing.
+  
+  ```typescript
+  getMessage(name, (data, reply) => {
+    const fn = getFunctionHandler(name);
+    reply(fn(data));
+  }
+  ```
+  
+  That’s really it!
+  
+  Even though we kept calling `handler(...)` and `call(...)` in the same spot throughout this article, don’t forget that they’re on opposite sides of the pipe, in different projects altogether, yet we’re still able to call the as if they’re in the same project! That’s the magic of RPC, and with TypeScript and VS Code, we get all the benefits of pretending it’s all happening in the same project!
+  
+  For anyone using Socket.io, you get a `reply` function automatically like I used in the last example above. So all you need are the name of the RPC call and the input data, and you can send the output data.
+  
+  But if you’re using something like Express.js along with fetch, then you need some kind of “reply ID” concept. I wrote an example of how to do this and [put it up on Github](https://github.com/sb-js/typescript-remote-functions).
+  
+
+</article-body>
+
+<site-footer></site-footer>

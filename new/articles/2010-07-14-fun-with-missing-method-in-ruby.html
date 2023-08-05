@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Fun with missing\_method in Ruby
+</article-header>
+
+<article-body>
+
+  ```ruby
+  class Fun
+    def initialize(sym)
+      @str = sym.to_s
+    end
+    def method_missing(symbol, *args)
+      Fun.new("#{self} #{Fun.new(symbol)}")
+    end
+    def to_s
+      @str
+    end
+  end
+  
+  def method_missing(symbol, *args)
+    Fun.new(symbol.to_s.capitalize)
+  end
+  
+  # should output "This is awesome!"
+  puts this.is.awesome!
+  
+  ```
+
+</article-body>
+
+<site-footer></site-footer>

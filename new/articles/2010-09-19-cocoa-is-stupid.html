@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Cocoa is Stupid
+</article-header>
+
+<article-body>
+
+  After several months of writing iOS code, I came back to writing some Cocoa on the Mac this afternoon. And I realized something that really bothers me about Cocoa:
+  
+  Being good at Cocoa has nothing to do with being a good programmer. To be good at Cocoa you just need to memorize all the terrible flaws of Cocoa and their work-arounds.
+  
+  For example, I just spent over an hour trying to write a table view controller which displays the text from some arbitrary lines of text (for example, my tweets), and wraps the text as you resize the window (and thus scroll view and thus table view) so that all the text from each tweet is visible. This should have been at least somewhat straightforward. But it's not. [This is the code I ended up with](http://gist.github.com/587047) (complete with remnants of previous attempts) and it still doesn't work.
+  
+  Cocoa is just terrible. I completely understand why so many people (including myself) have moved to using WebViews to do this type of thing. Varying-height lists of arbitrary contents, being such a fundamental aspect of modern desktop computing, should seriously be easier than it is in Cocoa.
+
+</article-body>
+
+<site-footer></site-footer>

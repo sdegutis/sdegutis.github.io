@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  RFB: Request For Browser
+</article-header>
+
+<article-body>
+
+  I'm not like a lot of people who want their browsers to do a lot of fancy things. I don't need plugins or a ridiculously fancy bookmarking scheme. I don't need theming or skinning, or ultra awesome Reader/Dashboard features. But I'm sure a lot of people are like me and want a simple browser that lets them browse.
+  
+  Using WebKit.framework, a basic browser can be whipped up relatively quickly, even with 0 lines of code. But WebKit itself doesn't contain some conveniences I _do_ want.
+  
+  For instance, I'd like to be able to occasionally know that the website I'm visiting is secure by viewing its certificate, which is part of the UI layer, outside of WebKit. (Granted I do not feel confident to be able to reproduce this feature reliably myself, because I'm somewhat of a cryptonewb.)
+  
+  I'd also like a very simple bookmarking mechanism; it doesn't have to be a menu, that's just The Way it's Always Been Done™.
+  
+  Browsing history is also nice, and using some kind of database engine, I'll bet it can be done relatively simply. Relatedly, I'd like to see live search results from google as I type into my address bar, which I know for a fact can be implemented very easily.
+  
+  One feature that they both have (albeit somewhat buggy) is automatic remembering of passwords. This would be a difficult feature to tackle, I'll bet, but it's also one of my most-used features of a modern browser.
+  
+  A tabbed interface is optional to me, as long as I can have multiple windows open. Complex tabs are still a very new creature and adding them into an app like this is likely to ruin it from the beginning, since we as users don't even know _how we want them to behave in the first place_.
+  
+  Chrome just adds some whiz-bang and other infinitesimal performance improvements, which is not my priority in a browser right now. Safari adds a set of extra features I can personally say I won't use often. (Though both have great developer-facing features.) Neither really get the basics right, and that makes my web experience sub-optimal at best and annoying at worst.
+  
+  So why don't we do something about it and write a simple browser that gets these basic features right?
+
+</article-body>
+
+<site-footer></site-footer>

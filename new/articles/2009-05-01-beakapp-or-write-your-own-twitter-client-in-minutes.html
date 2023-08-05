@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Beak.app, or "Write your own Twitter client in minutes!"
+</article-header>
+
+<article-body>
+
+  Beak is a brand new Twitter app that competes with the likes of Bluebird and Tweetie. It's different than the other apps in a fundamental way that end-users will likely not realize is linked with the cool "special-effects" that it uses in what I call the Listing View.
+  
+  Specifically, the major way Beak is different, is that it places JavaScript code inside the WebView control, which does all of its heavy lifting for displaying tweets and fetching new information. But Beak doesn't just use JavaScript, it uses jQuery. In fact, this file is bundled right inside Beak's application bundle (.app file).
+  
+  Take a look at [beak.js](/static/old-blog-files/beak.js) for yourself. It's neat.
+  
+  What's in this file, you ask? Actually, most of Beak's implementation, oddly enough. In fact, you'll find many methods that actually dynamically fetch tweets from inside this file, despite the fact that it should only be displaying information, if it were to conform to proper MVC patterns.
+  
+  So how does this benefit you, the eager developer wanting to develop your own Twitter app for the Mac? Search for "window.beak" in this file and you will find all the Objective-C methods that are called from this script. Mostly, you just have to implement these methods in your Objective-C controller. Obviously it's a little trickier than that, but there's a lot less effort than writing your own Twitter app from scratch.
+  
+  Curiously, this method of using JavaScript inside the WebView object to display tweets is the same method I use for my own Listing View in my Twitter app. However, the way I do it is much different, faster, more efficient, makes more sense, and more secure from competitors.
+  
+  There's a lesson to be learned here: write proper MVC-following code! There's no good reason to write a JavaScript file like beak.js, especially in a competitive field like Mac Twitter apps.
+
+</article-body>
+
+<site-footer></site-footer>

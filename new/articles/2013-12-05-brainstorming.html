@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Brainstorming
+</article-header>
+
+<article-body>
+
+  These are just some notes I'm taking for myself.
+  
+  ### Simpler OS
+  
+  The way [Singularity](http://en.wikipedia.org/wiki/Singularity%5F%28operating%5Fsystem%29) works is inspiringly cool. Their message-passing technique sounds like it could be much simpler than current IPC techniques.
+  
+  ### Simpler Language
+  
+  I love the idea of Singularity jumping right into C# as soon as possible and staying there all the time. The idea of a high-level language with first-class functions (closures) and mature data-types (hash-maps, vectors, etc) running on a VM that can be JIT-compiled sounds really smart.
+  
+  Now, I don't know much about C#. But simpler is usually better. So I'm assuming a simpler imperative language with some basic types (hash-maps, lists, strings, numbers, first-class functions-as-closures, structs) would be an excellent start. I'm really on the fence about immutability at this point.
+  
+  The idea of having a single canonical language ("The Language") be central to the OS and every app in the OS seems like it could really help simplify things and make things consistent. For example, this language could be used to "patch" function calls in existing apps together (similarly to what we use bash for). It could have its own IDE that knows about this language in-depth and manipulates it very efficiently. And if it has a fast VM and doesn't have super complicated language features, it could theoretically approach the speed of C.
+  
+  ### Simpler UI
+  
+  The majority of the time, I use my keyboard for navigation. The mouse is too far, and my trackpad requires too much precision, and my keyboard is way more forgiving about mistakes. This should be leveraged in a simpler UI.
+  
+  One idea is to use a combination of keyboard shortcuts and trackpad-gestures (which could be considered just another keyboard combination). But not the kind of difficult-to-use gestures that Apple forces me to do if I want to show my Desktop or whatever.
+  
+  Another idea, not necessarily exclusive to the first one, is to use keyboard shortcuts for more things. Kind of like Spotlight on steroids. I notice that I do `git` stuff way faster in Magit than in the Terminal or even GitX. That's because Terminal forces me to type (or tab-complete) everything, and GitX forces me to click everything. But Magit gives me really sane and easy keyboard-shortcuts, letting me type-complete where necessary.
+  
+  I guess another way of putting it is that emacs gives me a kind of modality that I really like. When I'm in a given mode, I want things to be easier. But by default I'm using "generic" functions, like "typing words" in the Terminal or "clicking widgets" in a GUI app. But when I'm in a program intended for a specific task, that task should be made easier. When I open up "git" and I want to push to remote, it's way easier to just hit the "p" key.
+  
+  That kind of modality should be the center of all GUI apps, from beginning to end. Holding "modifier-keys" to do commands only makes sense in contexts where you're already typing, and in that case you might as well just hit the modifier key first to "trigger" a "mode" that waits for the next key and does something based on that.
+  
+  I admit this is sounding a lot like vim or something, but I think it's way bigger than that. If this approach is taken for _every_ application, every task, it would not only be a more efficient way to operate (I'm 10x faster in Magit than in any other git app), but it would be vastly more consistent.
+  
+  ### Simpler Shell
+  
+  There are two "shells", Terminal and Finder. Both are pretty rooted in legacy ideas.
+  
+  Terminal really means not just the terminal emulator (literally a VT100 emulator!) but all the command line utilities (`ls`, `man`, `mv`) and the shell itself (`bash` or `zsh`). These are really just a wrapper around some function calls. The only thing I actually need a shell for is `ssh`. Each other task could be done with its own GUI app.
+  
+  Finder does too many things, and I don't even like most of them. The Desktop is useless except for maybe drawing a pretty picture for me. The menu bar is redundant since I can do most of those things with keyboard shortcuts. Or, the menu items that can't be done with keyboard shortcuts could be done by a Help-menu-like textbox that shows me a list of matching commands (maybe by fuzzy-matching instead). The Dock I have mixed feelings about, but I'm pretty sure it could be simpler. I don't usually care what processes are running or not, just as long as not-currently-selected apps aren't draining my MBP's battery. And the little widgets by the time and battery icon, those don't need to be present 24/7, I'd be okay with them being on a Dashboard-like screen. (See GUI section.) All that's left is a file manager. Finder is a so-so file manager, so I'm sure I would change some things but not sure what yet.
+  
+  ### Simpler Apps
+  
+  Not every task deserves its own "full-fledged app status". I'm not talking about how it's implemented, but how it's presented to the user. If I want to copy a file, it shouldn't require "Finder", it should just be a little "task" or something.
+  
+  With this idea of "task-oriented" in mind, every "process" could be considered a task. Opening a browser, pulling down the dashboard (containing clock, etc), running a math calculation, sending an email, these could all be tasks. Keeping track of tasks would be easy, they'd just each have their own window on your screen. Thus there's no need for a "Dock" or "taskbar". It encourages not having too many tasks open at once. If you need to find one window out of the clutter, there could be some command similar to Mission Control (Exposé) in OS X. And they'd be floating windows, but with hotkeys you could arrange them as if they were tiled. But you could probably also drag them by clicking anywhere on their background.
+  
+  ### Prettier GUI
+  
+  Flat, all the way. Who needs all this fancy 2.5D stuff? Flatter, simpler, boxier UIs can still be pretty if done right. Maybe even prettier!
+  
+  Shadows definitely help to see which window is active, but they aren't the only way. Maybe a "brighter" titlebar could do the same thing.
+  
+  I think Apple has it right with their usually-hidden scroll bars. But Windows scrollbars (boxier) are prettier. (Maybe.)
+  
+  Window borders don't need to be there. Maybe a single pixel is good enough. Apple is generally pretty good about that.
+  
+  Title bars could be totally flatter. They could look boxes. Since you could operate on them with the keyboard, you wouldn't need controls on them, just the title. And for many apps you could probably omit the title. Although it's a good place to put the name of the file you're editing if there is one.
+  
+  Widgets need to be rethought completely. We're trying to use canned widgets for tasks where they don't really fit. Obviously it's bad for consistency to constantly come up with new widgets that have their own behavior. (Websites have demonstrated how terrible that idea is for a while now.) But perhaps we should come up with a new set of "universal" widgets that make sense in the 20th century.
+  
+  There could be a "dashboard" that you can pop up by either a hotkey or by mousing to a certain edge (or corner) of the screen. It could have your clock on it, your battery info, maybe show your email inbox status and the weather. Something like what Apple had in mind with Dashboard, except much prettier, and written in a legit language ("The Language" \[see above\]).
+  
+  ### Task-oriented secondary copy/paste stack
+  
+  One thing that could vastly make the UI easier and quicker to use and more convenient (see Simpler UI) is a mutable infinite stack for copy/paste. Not the kind of copy/paste we have now which is mostly just text-based, but something more knowledgable about what action you just took or were about to take. I'm not sure what that looks like or means, but I had it in my head half an hour ago. Something about crossing zsh's auto-complete with emacs's yank. Either way, this is the kind of feature that should only be thought up while actually _using_ the finished product and seeing where things are inconvenient.
+
+</article-body>
+
+<site-footer></site-footer>

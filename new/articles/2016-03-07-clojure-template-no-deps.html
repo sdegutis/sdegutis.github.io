@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Template function in Clojure, with no external dependencies
+</article-header>
+
+<article-body>
+
+  Let's say you just need to replace some variables in a string based on a map, and don't need any escaping behavior or special logic:
+  
+  ```clojure
+  (template "foo {{bar}} {{bar}} {{quux}}"
+            {:bar "x"
+             :quux "y"})
+  
+  ;=> "foo x x y"
+  ```
+  
+  It's pretty easy to implement using `reduce`:
+  
+  ```clojure
+  (defn template [s m]
+    (reduce (fn [s [k v]]
+              (str/replace s
+                           (format "{{%s}}"
+                                   (name k))
+                           v))
+            s
+            m))
+  
+  ```
+
+</article-body>
+
+<site-footer></site-footer>

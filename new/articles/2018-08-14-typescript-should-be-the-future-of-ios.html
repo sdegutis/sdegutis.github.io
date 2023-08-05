@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  TypeScript should be the future of iOS
+</article-header>
+
+<article-body>
+
+  Swift tries to be two things: a language tailored towards high speed and memory efficiency, and a language that provides high level abstractions.
+  
+  But most apps do not need to hit high levels of performance. You swipe and the code will transition between pages, and then the CPU sits there idly by until the user initiates another action. Most user interface code would be tolerable at 100ms, but Swift aims for 1ms. The slowest thing about our apps is usually data I/O, and that’s not something a language can even fix!
+  
+  In some cases, there are genuine needs for certain code to be really fast. This falls into two general categories: games, and data algorithms. I’m not talking about games here, that’s a completely different beast. But for algorithms, they can be separated and isolated from the rest of the code base.
+  
+  The rest of the code doesn’t need to be very fast. It’s more important that it is simple, easy, and has high-level abstractions. This is why I think Apple would be wise to make JavaScript a first class language for the iOS platforms moving forward. If it wants to keep the type safety, then it could integrate TypeScript. There’s already very good IDE support for it in VS Code, all of which is open source, so Apple could integrate that into Xcode. (I’m fully aware of the irony of suggesting that Apple use something Microsoft made, but that doesn’t automatically make it a bad idea! They should use the right tool for the job.)
+  
+  This way, for the tight spots where performance is a concern, they can still be written in C, and Apple can even create a little bridge where C code can be automatically called from JavaScript, and types are converted automatically. They already did this with Swift, surely they can do it again with JavaScript!
+  
+  There are many popular React Native apps with many users. While it is true that they are slower than native apps, this also means that if Apple were to create their own version of this layer themselves and make it a blessed native way to develop, then they have much more opportunity to optimize it.
+  
+  And how much easier would this make it for Apple to transition to a more modern approach to view handling. It’s true that ViewController, storyboards, and auto-layout were heading in the right direction, but it shouldn’t be the final destination. React, React Native, and Flutter all show us that developers crave a simpler and more intuitive way to build mobile apps. Now Apple needs to step up to the plate and take the initiative, or risk falling too far behind.
+  
+
+</article-body>
+
+<site-footer></site-footer>

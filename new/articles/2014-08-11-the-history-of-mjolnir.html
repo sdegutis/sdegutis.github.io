@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  The history of Mjolnir
+</article-header>
+
+<article-body>
+
+  _Previously titled: The history and current state of AppGrid, Zephyros, Phoenix, Hydra, Penknife, and Mjolnir_
+  
+  ### AppGrid
+  
+  AppGrid was my first window manager. At first I didn't like window managers, like SizeUp and Divvy. But then I found [Slate](https://github.com/jigish/slate) and finally wrote a config that I was actually happy with. So I ported my Slate config to hard-coded Objective-C, wrote a nice little GUI for it, and tried to sell it. Didn't work out, so I abandoned it.
+  
+  AppGrid is officially "done", in the sense that it does exactly what I had originally envisioned it to do. But if anyone wants to fork it and add more features, you're more than welcome.
+  
+  ### Zephyros
+  
+  Zephyros was my first attempt at a configurable window manager, like Slate. I pretty much went crazy with it, throwing in every suggestion from every user. I also extended it to be scriptable over TCP, so that you could control it with any language. Eventually it became a giant beast, both in performance and in implementation, so I stopped using it personally.
+  
+  Zephyros is officially abandoned, but if anyone wants to take over maintaining it, just email me and I can transfer the repo to you.
+  
+  ### Phoenix
+  
+  Phoenix was the next iteration of my window manager, using what I learned from writing Zephyros. I did away with the TCP idea and embedded JavaScript via Apple's new JavaScriptCore.framework. Never having been content with JavaScript or JavaScriptCore.framework, I quickly stopped working on Phoenix. But it somehow gained a cult following all on its own. Now it's maintained by[jasonm23](https://github.com/jasonm23).
+  
+  ### Hydra
+  
+  Hydra was the next iteration of my window manager, which I started after I had discovered Lua and really began to apprecaite its minimalism and simplicity. I released Hydra 1.0 after a few months of work, but there were tons of usability issues. For one thing, it was "minimalist" in the wrong way, not having a built-in GUI at all. Also, unrelated features were tightly coupled to Hydra's release cycle (i.e. users were waiting for me to release Hydra 1.1 which contained new changes in the `window` module, but I was waiting to release Hydra 1.1 until the `events` module was done, even though these are unrelated).
+  
+  I've taken all Hydra downloads down while I work out these problems.
+  
+  ### Penknife
+  
+  Once I'd finally found an extension language for my window manager that I was actually happy with, I decided to get serious about picking a name I would be happy with long-term. I couldn't use Hydra because of trademark infringement issues.
+  
+  So for a few days, the new name for Hydra was tentatively Penknife, but I really hated that name so I decided to change it again. And that brings us to...
+  
+  ### Mjolnir
+  
+  [Mjolnir](https://github.com/mjolnir-io/mjolnir) is the current incarnation of my extensible automation utility.
+  
+  I realize it's controversial name, but I'm very happy with it, and life's too short, so the name Mjolnir is here to stay.
+  
+  For one thing, nearly all the Lua modules Hydra came with are being extracted out into opt-in third party extensions. For example,`window` will become `core.window`. None of these will be installed by default or even included in Mjolnir. This also allows me to release updates to one extension without users needing to wait for me to finish working on unrelated extensions.
+  
+  Also, it now has a convenient built-in GUI that should clear up 99% of the questions and confusion users initially had with Hydra. Part of this new GUI is an extension manager to handle downloading and installing extensions.
+  
+  Another difference is that Hydra 1.0 was open-source (released under the MIT license) while still "requiring" the user to purchase a license-key. This was a social experiment, where I was perfectly okay with anyone cloning it locally and removing the license-checking code. But it proved to be way too confusing for users. So Mjolnir will be donation-ware and will not be nag-ware.
+
+</article-body>
+
+<site-footer></site-footer>

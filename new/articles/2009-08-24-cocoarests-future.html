@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  CocoaREST's future
+</article-header>
+
+<article-body>
+
+  As users of the open source CocoaREST library may have noticed, it hasn't updated in a while. (To clarify: not having updates does not equate to is not being worked on.) There's a lot of reasons for this.
+  
+  One of them is specifically because Blocks became available to us before Snow Leopard's arrival, in the form of [PLBlocks](http://code.google.com/p/plblocks/), which makes writing asynchronous code fantastically simpler. I've done a lot of work rewriting core components of CocoaREST to use PLBlocks, and I'm waiting to see how PLBlocks works out in the long term before publishing these updates to CocoaREST itself.
+  
+  Another reason is because, well, work related to [my company](http://www.thoughtfultree.com/) has been overwhelming lately. You might have noticed that I have 7 applications for download on my website now (more in the works), with [6 of them for sale](http://www.thoughtfultree.com/store). While I'm fortunate to not get very many support requests, the few I do get (usually license keys not sent in email, etc) need me to actually respond to them instead of closing my eyes and plugging my ears, and that adds up over time.
+  
+  On a related note, I've recently recoded my entire website using my very own rewritten version of [Tyler Hall](http://clickontyler.com/)'s [simple-php-framework](http://clickontyler.com/simple-php-framework/). With this great move forward comes great responsibility; instead of gathering data from a bunch of .plist files on the server, my site now uses a MySQL database. While this is great for performance, it's been hell creating an administrative tool to interface with it (unfortunately Property List Editor no longer suffices). After a few hours of researching and flipping coins, I've decided the administrative interface should be a Mac app with a RESTful interface on the server's side (in PHP).
+  
+  As I was writing the administrative Mac app, and the RESTful service on the other side, I noticed that it's more difficult than it should be to create subclasses of SDNetTask for specific services. So, I ended up making a lot of changes to CocoaREST's core, which has become an entity of its own, tentatively named SimpleHTTP. This will eventually be integrated back into CocoaREST, but will also be its own project on github, once I see how stable PLBlocks is; right now, PLBlocks is at beta 2, and the word 'beta' being in there makes me a little cautious.
+  
+  As for Facebook support, well, Facebook decided to make this incredibly messy. See, they have horrible 2 requirements (instead of the more attrative 0, like Twitter does). First of all, Facebook's API requires that the user be redirected to login.php on their server. This means that it's not possible to authenticate the user by giving the user's credentials to the server behind the scenes; no, Facebook demands (in their Terms Of Service, as well) that the user must visit login.php, log in, check whether or not they wish to remain logged in indefinitely, and then go back to your app. "Fine, whatever," were my final words on this, as I decided to use a WebView instead of sending the poor user over to Safari or Firefox to do the dirty work.
+  
+  But wait, it gets better. Doing this only allows you to get certain information from their facebook account, and limits many things you could do, including post status updates, notes, etc. In order to actually do this, the developer needs to force the user to permit this application to give them "write permissions" or something along those lines (as if giving their credentials to Facebook wasn't enough). So, this requires _yet another visit to a Facebook page in an actual browser_. This process makes the user's experience what I consider a very tedious and annoying one, and I personally don't approve the dang thing one bit.
+  
+  But that's not why I have yet to upload these changes to my github. Showing these two WebViewss consecutively is something the developer should have to do, not the library itself, because CocoaREST is a purely non-GUI library. But at the same time, I don't want to advocate crappy user experiences (such as sending a user to their actual browser) in my library, so I've been trying to think of a way to allow this "user experience" inside an app through a companion-class to CocoaREST, and still haven't found an elegant way to do it just yet.
+  
+  If anyone has any thoughts or suggestions on any of this, I welcome the conversation in the comments below!
+
+</article-body>
+
+<site-footer></site-footer>

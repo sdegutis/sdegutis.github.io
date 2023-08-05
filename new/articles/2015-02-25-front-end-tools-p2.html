@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="/lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  Second thoughts on front-end tools
+</article-header>
+
+<article-body>
+
+  (See yesterday's notes for my first thoughts on front-end tools.)
+  
+  ### Ditching Babel.js
+  
+  The appeal to [Babel.js](https://babeljs.io) was that "it's just ES6" meaning eventually when it's fully supported in all modern browsers, we'll be able to remove Babel.js and our code will Just Work™.
+  
+  But that's not really true. By the time it's globally supported in all browsers, we'll have ES7, ES8, ES9, etc. to look forward to. And the same mindset that makes me want to use "future JavaScript features" now will have me using "future JavaScript features" then too.
+  
+  In other words, Babel is really just another alt-JS language. It's "advantage" of being more standardized isn't really an advantage. So the question becomes, what alt-JS language do I want to use?
+  
+  ### What do I want in an alt-JS language?
+  
+  The main things I have against JS are the verbosity and the caveats.
+  
+  1. Less verbose syntax.
+  2. Fewer caveats, or at least standard ways to avoid JS's caveats.
+  3. Easy and readable FFI with JavaScript.
+  4. Popular, active, maintained, i.e. will be around in 15 years.
+  
+  Overall, I don't think a language that departs too far from JS is valuable to me, due to the high level of FFI generally needed. So sharing most of JS's semantics is fine.
+  
+  ### TypeScript
+  
+  I've heard surprisingly many good things about [TypeScript](https://babeljs.io). So I checked it out. Here's what I know so far:
+  
+  1. No support for ADTs ("sum types", or "tagged unions").
+  2. Doesn't provide a standard library at all. Will probably use [lodash](https://lodash.com) with it.
+  3. Doesn't minify or pack the outputted JS for me. Will probably use [UglifyJS2](https://github.com/mishoo/UglifyJS2) for minifier, not sure about packer. (By pack I mean combine multiple modules into a single `.js` file.)
+  
+  #### Stuff I still don't know yet:
+  
+  Note: These are probably in the manual.
+  
+  1. How well does it work with external libs like jQuery, Mithril, etc.?
+  2. How does it turn my own internal modules into JS files?
+  3. Is its module system compatible with existing module thingies (NPM, Browserify), or does it replace them, or what?
+  4. Does it have a package manager?
+  5. Is there an automatic way of getting type definitions (`.d.ts`) files, e.g. a package manager?
+  6. What's the proper way to use <https://github.com/borisyankov/DefinitelyTyped> ? **Probably [tsd](https://github.com/DefinitelyTyped/tsd).**
+  
+  More stuff:
+  
+  1. Does `typeof` work precisely the same as in JS?
+  2. What version of ECMAScript does it compile to? Pure ES5?
+  3. Does it try in any way to reconcile browser-specific ES5 (or whatever version it targets) bugs?
+  
+  #### Stuff I won't need because of it:
+  
+  1. ES($Y->$X)-transformer
+  2. Babel
+  3. ES Shims
+  
+  #### Stuff I'll still need:
+  
+  1. Linter
+  2. Build tool (Gulp)
+
+</article-body>
+
+<site-footer></site-footer>
