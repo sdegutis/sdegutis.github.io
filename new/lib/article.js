@@ -1,7 +1,8 @@
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/es/highlight.min.js';
 import '/lib/common.js';
+import '/lib/container.js';
 import '/lib/heroimage.js';
 import '/lib/markdown.js';
-import '/lib/container.js';
 
 
 customElements.define("article-header", class ArticleHeader extends HTMLElement {
@@ -33,6 +34,7 @@ customElements.define("article-body", class ArticleBody extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = `
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs.min.css">
       <main id='blog-post-page'>
         <section>
           <narrow-container>
@@ -43,6 +45,8 @@ customElements.define("article-body", class ArticleBody extends HTMLElement {
         </section>
       </main>
     `;
+
+    hljs.highlightAll();
   }
 
 });
