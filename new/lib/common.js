@@ -4,5 +4,5 @@ import './navbar.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('h1');
-  document.title += ' - ' + title.textContent;
+  // document.title += ' - ' + title.textContent;
 });
