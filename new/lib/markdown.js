@@ -16,7 +16,7 @@ class Markdown extends HTMLElement {
     const final = md.render(str2);
 
     const wrapper = document.createElement("div");
-    // wrapper.className = 'markdown';
+    wrapper.className = 'markdown';
     wrapper.innerHTML = final;
 
     this.shadowRoot.append(wrapper);
