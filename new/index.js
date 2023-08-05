@@ -1,19 +1,30 @@
 import MarkdownIt from 'https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/+esm';
 
 const url = 'https://api.github.com/repos/sdegutis/sdegutis.github.io/contents/app/model/blog/posts';
-
-
 const md = new MarkdownIt();
 
-console.log('hey', md.render('hello *world*'))
 
-// class WordCount extends HTMLParagraphElement {
-//   constructor() {
-//     // Always call super first in constructor
-//     super();
+class Markdown extends HTMLElement {
+  constructor() {
+    super();
 
-//     // Element functionality written in here
-//   }
-// }
+    const str = this.innerHTML;
+    const m = str.match(/^\n*( *)/);
+    const stripFromStart = m[1];
+    const re = new RegExp('^' + m[1], 'gm');
+    const str2 = str.replace(re, '').trim();
 
-// customElements.define("word-count", WordCount, { extends: "p" });
+    const final = md.render(str2);
+
+    this.attachShadow({ mode: "open" });
+
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = final;
+
+    this.shadowRoot.append(wrapper);
+
+    this.hidden = false;
+  }
+}
+
+customElements.define("render-markdown", Markdown);
