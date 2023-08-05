@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <script type="module" src="/lib/common.js"></script>
+<script type="module" src="/lib/narrow-container.js"></script>
+<script type="module" src="/lib/heroimage.js"></script>
+<link rel="stylesheet" href="/style/home.css">
 
 <site-navbar></site-navbar>
 
-<div>
+<hero-image src='home.png'>
+  <h1>The Software Philosopher</h1>
+  <p>From sound principles flow steady results.</p>
+</hero-image>
 
+<main>
 
-</div>
+  <section>
+    <narrow-container>
+      <p>
+        Steven Bradley is an <b>award winning</b> software developer with <b>15 years</b> of professional experience,
+        having learned from the <b>industry gurus</b> and shipped products for <b>multiple platforms</b>.
+      </p>
+    </narrow-container>
+  </section>
+
+</main>
 
 <site-footer></site-footer>
