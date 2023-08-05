@@ -10,7 +10,6 @@ class Markdown extends HTMLElement {
 
     const str = this.innerHTML;
     const m = str.match(/^\n*( *)/);
-    const stripFromStart = m[1];
     const re = new RegExp('^' + m[1], 'gm');
     const str2 = str.replace(re, '').trim();
 
