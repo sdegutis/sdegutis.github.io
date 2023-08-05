@@ -1,6 +1,7 @@
 import '/lib/common.js';
 import '/lib/heroimage.js';
 import '/lib/markdown.js';
+import '/lib/narrow-container.js';
 
 
 customElements.define("article-header", class ArticleHeader extends HTMLElement {
@@ -24,4 +25,24 @@ customElements.define("article-header", class ArticleHeader extends HTMLElement 
     this.shadowRoot.append(frag.content);
 
   }
+});
+
+
+customElements.define("article-body", class ArticleBody extends HTMLElement {
+
+  constructor() {
+    super();
+    this.innerHTML = `
+      <main id='blog-post-page'>
+        <section>
+          <narrow-container>
+            <div id='post-content'>
+              <render-markdown>${this.innerHTML}</render-markdown>
+            </div>
+          </narrow-container>
+        </section>
+      </main>
+    `;
+  }
+
 });
