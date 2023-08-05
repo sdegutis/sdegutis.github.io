@@ -6,10 +6,12 @@ customElements.define("hero-image", class HeroImage extends HTMLElement {
 
     this.attachShadow({ mode: "open" });
 
+    const home = this.hasAttribute('home') ? 'home' : '';
+
     const frag = document.createElement("template");
     frag.innerHTML = `
       <link rel='stylesheet' href='/style/heroimage.css'>
-      <header class='hero-image' style='background-image: url(${this.getAttribute('src')})'}>
+      <header class='hero-image ${home}' style='background-image: url(${this.getAttribute('src')})'}>
         <div>
           <div id='hero-image-contents'></div>
         </div>

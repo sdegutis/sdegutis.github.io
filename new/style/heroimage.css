@@ -1,3 +1,17 @@
+.hero-image.home {
+  text-align: center;
+}
+
+.hero-image.home>div {
+  padding: 12vh 0;
+}
+
+.hero-image.home h1 {
+  font-size: 300%;
+}
+
+
+
 .hero-image {
   background-size: cover;
   background-position-y: center;
