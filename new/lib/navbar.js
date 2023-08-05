@@ -13,7 +13,7 @@ customElements.define("site-navbar", class SiteNavbar extends HTMLElement {
         <a href='#' class='site-navbar-togglers'>✕</a>
         ${navLinks}
       </nav>
-      <link rel='stylesheet' href='/lib/navbar.css'>
+      <link rel='stylesheet' href='/style/navbar.css'>
       <div id='site-navbar-mobile'>
         <a href='/'>The Software Philosopher</a>
         <a href='#' class='site-navbar-togglers'>☰</a>

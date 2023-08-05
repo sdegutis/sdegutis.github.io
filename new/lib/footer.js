@@ -8,7 +8,7 @@ customElements.define("site-footer", class SiteFooter extends HTMLElement {
 
     const frag = document.createElement("template");
     frag.innerHTML = `
-      <link rel='stylesheet' href='/lib/footer.css'>
+      <link rel='stylesheet' href='/style/footer.css'>
       <footer id="site-footer">
         <section>
           <nav>

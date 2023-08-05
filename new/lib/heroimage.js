@@ -8,7 +8,7 @@ customElements.define("hero-image", class HeroImage extends HTMLElement {
 
     const frag = document.createElement("template");
     frag.innerHTML = `
-      <link rel='stylesheet' href='/lib/heroimage.css'>
+      <link rel='stylesheet' href='/style/heroimage.css'>
       <header class='hero-image' style='background-image: url(${this.getAttribute('src')})'}>
         <div>
           <div id='hero-image-contents'></div>
