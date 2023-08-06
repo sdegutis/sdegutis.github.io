@@ -1,8 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <script type="module" src="./lib/common.js"></script>
-<script type="module" src="./lib/portfolio.js"></script>
-<link rel="stylesheet" href="./style/portfolio.css">
+
+<script>
+  customElements.define("project-item", class ProjectItem extends HTMLElement {
+    constructor() {
+      super();
+
+      const template = document.getElementById('project-item-template').content.cloneNode(true);
+      template.querySelector('h3').textContent = this.getAttribute('title');
+      template.querySelector('.project-kind').textContent = this.getAttribute('type');
+      template.querySelector('img').src = '/portfolio/' + this.getAttribute('image');
+
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(template);
+    }
+  });
+</script>
+
+<style>
+  #projects {
+    margin: 0 auto;
+    width: 90%
+  }
+
+  @media (min-width:40em) {
+    #projects {
+      display: flex;
+      flex-wrap: wrap
+    }
+  }
+
+  project-item {
+    margin: .25em 0
+  }
+
+  @media (min-width:40em) {
+    project-item {
+      flex: 1 0 20em;
+      padding: .5em;
+      margin: 1em 0
+    }
+  }
+
+  ::slotted(ul) {
+    list-style-position: inside;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  ::slotted(ul) li {
+    margin-bottom: .5em;
+    list-style-type: none;
+  }
+</style>
 
 <site-navbar></site-navbar>
 

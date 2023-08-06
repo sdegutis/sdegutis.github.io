@@ -1,8 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <script type="module" src="./lib/common.js"></script>
-<script type="module" src="./lib/article-index.js"></script>
-<link rel="stylesheet" href="./style/all-articles.css">
+
+<script>
+  const url = 'https://api.github.com/repos/sdegutis/sdegutis.github.io/contents/articles';
+
+  let articlesReady;
+  const articlesByYear = new Map();
+
+  fetch(url).then(res => res.json()).then(async list => {
+    const articles = await Promise.all(list
+      .map(async ({ download_url, name }) => {
+        const res = await fetch(download_url);
+        const body = await res.text();
+        const match = body.match(/<article-header>([\s\S]+)<\/article-header>/);
+        if (!match) {
+          console.log(body)
+        }
+        const title = match[1].trim();
+        const url = `/articles/${name}`;
+
+        const date = new Date(name.slice(0, 10));
+        const year = date.getFullYear();
+        const month = date.toLocaleDateString('default', { month: 'long' });
+
+        return { url, title, year, month };
+      }));
+
+    for (const article of [...articles].reverse()) {
+      let list = articlesByYear.get(article.year);
+      if (!list) articlesByYear.set(article.year, list = []);
+      list.push(article);
+    }
+
+    articlesReady();
+  });
+
+  customElements.define("all-articles", class ArticleIndex extends HTMLElement {
+
+    constructor() {
+      super();
+      this.innerHTML = `Loading...`;
+
+      if (articlesByYear.size > 0) {
+        this.showArticles();
+      }
+      else {
+        articlesReady = () => {
+          this.showArticles();
+        };
+      }
+    }
+
+    showArticles() {
+      this.innerHTML = `
+      <link rel='stylesheet' href='/style/all-articles.css'>
+      <div id='all-blog-list'>
+        ${[...articlesByYear.entries()].map(([year, articles]) => `
+          <h3>${year}</h3>
+          <div class='all-blog-year-group'>
+            ${articles.map(article => `
+              <span>${article.month}</span>
+              <span><a href=${article.url}>${article.title}</a></span>
+            `).join('')}
+          </div>
+        `).join('')}
+      </div>
+    `;
+    }
+
+  });
+</script>
+
+<style>
+  @media (min-width: 768px) {
+    #all-blog-list {
+      column-count: 2;
+      column-gap: 2em;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    #all-blog-list {
+      column-count: 3;
+      column-gap: 3em;
+    }
+  }
+
+  #all-blog-list h3 {
+    margin-top: 0;
+  }
+
+  .all-blog-year-group {
+    margin-bottom: 2em;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 0.25em;
+    column-gap: 1em;
+  }
+</style>
 
 <site-navbar></site-navbar>
 
