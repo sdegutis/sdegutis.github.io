@@ -22,7 +22,7 @@ export class BlogPost {
     const template = `
 <!DOCTYPE html>
 <html lang="en">
-<script type="module" src="/lib/article.js"></script>
+<script type="module" src="../lib/article.js"></script>
 
 <site-navbar></site-navbar>
 
