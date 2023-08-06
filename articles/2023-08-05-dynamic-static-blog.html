@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module" src="../lib/article.js"></script>
+
+<site-navbar></site-navbar>
+
+<article-header>
+  My dynamic static blog
+</article-header>
+
+<article-body>
+
+  Like any good dev, I rewrite my portfolio slash blog site every few years.
+  Partly because it's fun and gives me a chance to learn new tech.
+  But mostly because I need to keep reducing the friction of maintaining it.
+
+  So I asked myself what the friction was in the most recent iteration,
+  and it seemed to be the constant need for a build time, even if it's wrapped
+  up conveniently inside VS Code or remotely on the GH Pages side.
+
+  For a little while I considered React as an alternative, completely forgetting
+  that it also requires a local build phase. But my main reason for rejecting
+  that avenue was the lack of SEO support when you dynamically generate a site.
+
+  Then it dawned on me: Web Components solves this extremely well.
+
+  * Using custom-elements perfectly encapsulates reusability as well as the
+  higher priority need of reducing noise inside the HTML I need to write.
+
+  * Using ESM allows me to import and reuse whatever content or logic I need,
+  and it's basically universally supported now in browsers.
+
+  * The shadow DOM is actually really useful for encapsulating CSS rules,
+  although to be honest this was something I learned after starting to use it.
+
+  The one major problem with this idea is that there's no concept of collections
+  in native HTML or JavaScript, nor on GH Pages, unlike nginx, which serves up
+  directories natively as HTML which you can then parse in JavaScript.
+
+  Turns out this wasn't a big issue, because GitHub provides an API to get
+  the contents of a directory in a public repo in handy JSON format.
+  The only downside with this is that it must happen client-side, which takes a second.
+
+  Check out the [source to this page](https://github.com/sdegutis/sdegutis.github.io/blob/main/articles/2023-08-05-dynamic-static-blog.html).
+  Browse through the rest of the code too.
+  There's very, very little of it, and it's organized very straightforwardly.
+
+  Notice how it's very terse because HTML5 allows us to omit a ton of stuff,
+  and because custom-elements allows us to hide/encapsulate HTML generation.
+
+  Overall I'm happy with how the source to this new site turned out.
+  There's definitely lots of room for improvement, especially in how I manage
+  all the custom elements. And I'm not sold on how I organized the files.
+
+  But it feels like a return to the best parts of HTML development in the 90s,
+  with all the latest modern conveniences added, and well positioned to adopt more.
+
+</article-body>
+
+<site-footer></site-footer>
