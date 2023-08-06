@@ -5,7 +5,6 @@ const articlesByYear = new Map();
 
 fetch(url).then(res => res.json()).then(async list => {
   const articles = await Promise.all(list
-    .filter(item => item.name !== 'index.html')
     .map(async ({ download_url, name }) => {
       const res = await fetch(download_url);
       const body = await res.text();
