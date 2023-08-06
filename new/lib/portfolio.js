@@ -1,23 +1,15 @@
-class Portfolio extends HTMLElement {
+class ProjectItem extends HTMLElement {
   constructor() {
     super();
 
-    // this.attachShadow({ mode: "open" });
+    const template = document.getElementById('project-item-template').content.cloneNode(true);
+    template.querySelector('h3').textContent = this.getAttribute('title');
+    template.querySelector('.project-kind').textContent = this.getAttribute('type');
+    template.querySelector('img').src = '/imgs/portfolio/' + this.getAttribute('image');
 
-    // const str = this.innerHTML;
-    // const m = str.match(/^\n*( *)/);
-    // const re = new RegExp('^' + m[1], 'gm');
-    // const str2 = str.replace(re, '').trim();
-    // const final = md.render(str2);
-
-    // const wrapper = document.createElement("div");
-    // wrapper.className = 'markdown';
-    // wrapper.innerHTML = final;
-
-    // this.shadowRoot.append(wrapper);
-
-    // this.hidden = false;
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(template);
   }
 }
 
-customElements.define("portfolio-list", Portfolio);
+customElements.define("project-item", ProjectItem);

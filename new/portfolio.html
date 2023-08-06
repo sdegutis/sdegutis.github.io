@@ -3,6 +3,8 @@
 <script type="module" src="/lib/common.js"></script>
 <script type="module" src="/lib/heroimage.js"></script>
 <script type="module" src="/lib/container.js"></script>
+<script type="module" src="/lib/portfolio.js"></script>
+<link rel="stylesheet" href="/style/portfolio.css">
 
 <site-navbar></site-navbar>
 
@@ -20,6 +22,317 @@
 
       <p><b>Resume:</b> <a href='/resume.html'>HTML</a> | <a href='/resume.pdf'>PDF</a></p>
     </narrow-container>
+  </section>
+
+  <section class='alt-section'>
+
+    <wide-container>
+
+      <template id="project-item-template">
+        <style>
+          :scope .project-inner {
+            padding: 1em 0;
+            border-radius: .33em;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+          }
+
+          @media (min-width:40em) {
+            :scope .project-inner {
+              background: #fff;
+              padding: 1em
+            }
+          }
+
+          :scope .project-inner h3 {
+            margin-bottom: 1em
+          }
+
+          :scope .project-inner .source {
+            margin-top: 0
+          }
+
+          :scope .project-inner .project-kind {
+            display: block;
+            font-style: italic
+          }
+
+          :scope .project-inner .split {
+            display: flex;
+            margin-top: 1em
+          }
+
+          :scope .project-inner img {
+            width: 7em;
+            margin-right: 1em;
+            border-radius: 50%
+          }
+        </style>
+        <div class="project-inner">
+          <div class="details">
+            <h3></h3>
+            <span class="project-kind"></span>
+
+            <p class="dec">
+              <slot name="desc"></slot>
+            </p>
+
+          </div>
+          <div class="split">
+            <div class="half">
+              <img alt="Screenshot" />
+            </div>
+            <div class="half">
+              <slot name="features"></slot>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <div id="projects">
+
+        <project-item title="CleanCoders.com" type="Website - Online Video Store" image="sshot-cleancoders.png">
+          <p slot="desc">
+            Written for Robert "Uncle Bob" Martin, using Clojure for the back-end, and
+            JavaScript for the front-end, this site transformed from a
+            simple three-page website to a full
+            enterprise-ready business solution, with nearly 100% test coverage.
+          </p>
+          <ul slot='features'>
+            <li>Clojure</li>
+            <li>Datomic</li>
+            <li>jQuery / D3.js</li>
+            <li>JavaScript</li>
+            <li>ClojureScript</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Docks" type="macOS app - Dock Utility" image="sshot-docks.png">
+          <p slot="desc">
+            Docks was made in 2009 for users who wanted to swap out icons in their Dock with a single
+            click. Its unique functionality and design aesthetic attracted the attention of Apple, Engadget, MacWorld,
+            and led to an acquisition by Big Nerd Ranch.
+          </p>
+          <ul slot='features'>
+            <li>Apple.com Staff Pick</li>
+            <li>MacWorld 4/5 Rating</li>
+            <li>MacWorld Gem of the Year</li>
+            <li>Featured on Engadget.com</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Leviathan" type="macOS app - Clojure IDE" image="sshot-leviathan.png">
+          <p slot="desc">
+            Written while working on CleanCoders.com, a website written completely in Clojure, this app
+            was designed as a custom IDE for macOS designed specifically for Clojure projects to boost productivity.
+          </p>
+          <ul slot='features'>
+            <li>Objective-C</li>
+            <li>Clojure</li>
+            <li>C / C++</li>
+            <li>Cocoa</li>
+            <li>Themeable</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Zephyros" type="macOS app - Hackable Automation" image="sshot-zephyros.png">
+          <p slot="desc">
+            This began as an experiment to see how many languages could be used to script a custom
+            macOS window manager using our custom TCP protocol. Eventually it had bindings for Clojure, Ruby,
+            Python, Go, JavaScript, CoffeeScript, Node.js, Chicken Sceme, and Racket, as well as other community
+            additions.
+          </p>
+          <ul slot='features'>
+            <li>TCP / Unix sockets</li>
+            <li>Custom protocol</li>
+            <li>Highly Scriptable</li>
+            <li>10+ language bindings</li>
+            <li>Open source community</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Bubble Maker" type="iOS app - Bubble simulator" image="sshot-bubblemaker.png">
+          <p slot="desc">
+            This toy was made in a weekend to entertain my Steven's 1 year old daughter. It lets you create
+            bubbles with your fingers, which then simulate physics by bumping into each other and falling.
+          </p>
+          <ul slot='features'>
+            <li>SpirteKit</li>
+            <li>Custom art</li>
+            <li>Physics simulation</li>
+            <li>iOS</li>
+            <li>tvOS</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Quick List" type="iOS app - Todo list app" image="sshot-quicklist.png">
+          <p slot="desc">
+            A very simple and minimalistic app with one sole focus: to organize and track activities and
+            tasks with a focus on a pleasing aesthetic design and simple UI/UX.
+          </p>
+          <ul slot='features'>
+            <li>In-app purchases</li>
+            <li>Custom UI / UX</li>
+            <li>Social media</li>
+            <li>App Store artwork</li>
+            <li>Spring animations</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Old Portfolio" type="Website - Personal Portfolio" image="sshot-oldportfolio.png">
+          <p slot="desc">
+            An old portfolio site written from scratch in about a day. It used best practices for
+            modern responsive web design, and a custom build phase to compile the sources into a single HTML file.
+          </p>
+          <ul slot='features'>
+            <li>Node.js</li>
+            <li>Pug / Jade</li>
+            <li>LessCSS</li>
+            <li>HTML5</li>
+            <li>WebSockets</li>
+          </ul>
+        </project-item>
+
+        <project-item title="2048" type="Java app - Game" image="sshot-2048.png">
+          <p slot="desc">
+            A desktop remake of the game 2048 (created by Gabriele Cirulli).
+            This version is written in Java 8, using JavaFx for attractive graphics and silky smooth animations.
+          </p>
+          <ul slot='features'>
+            <li>Java 8</li>
+            <li>JavaFx</li>
+            <li>Modular code</li>
+            <li>Customizable</li>
+            <li>Animations</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Mjolnir" type="macOS app - Window Manager" image="sshot-mjolnir.png">
+          <p slot="desc">
+            Created to increase programmer productivity by allowing moving windows around in macOS
+            using keyboard shortcuts. It grew into a community-driven highly extensible app, using Lua for its
+            plugin system.
+          </p>
+          <ul slot='features'>
+            <li>Objective-C</li>
+            <li>Embedded Lua</li>
+            <li>Plugin system</li>
+            <li>Fully documented</li>
+            <li>5,000 GitHub stars</li>
+          </ul>
+        </project-item>
+
+        <project-item title="AffluentConfidante.com" type="Website - Social Network" image="sshot-affluentconfidante.png">
+          <p slot="desc">
+            An elite social network backed by an integration of both Apple Pay and
+            credit card payments (via Stripe.com) seamlessly into the web app, for a frictionless and pain-free
+            payment experience.`
+          </p>
+          <ul slot='features'>
+            <li>Clojure</li>
+            <li>Elastic Beanstalk</li>
+            <li>PostgreSQL</li>
+            <li>Stripe.com</li>
+            <li>Apple Pay</li>
+          </ul>
+        </project-item>
+
+        <project-item title="HyperChat" type="Website - Live Chatroom" image="sshot-hyperchat.png">
+          <p slot="desc">
+            This isn't just any chatroom. In this web app, you can see what everyone is typing while
+            they type it. Created in order to scratch an itch for making real-time apps and games, this site required
+            learning how to use WebSockets.
+          </p>
+          <ul slot='features'>
+            <li>JavaScript</li>
+            <li>WebSockets</li>
+            <li>Node.js</li>
+            <li>Vue.js</li>
+            <li>CSS</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Bahamut" type="macOS app - Music Player" image="sshot-bahamut.png">
+          <p slot="desc">
+            As iTunes went through many user interface changes, some desktop users wanted an app that was
+            consistent, intuitive, and easy to use. So Bahamut was born, a minimal music player for macOS written in Cocoa
+            with a completely custom user interface.
+          </p>
+          <ul slot='features'>
+            <li>Objective-C</li>
+            <li>Custom UI</li>
+            <li>Cocoa</li>
+            <li>Core Data</li>
+            <li>AVFoundation</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Chatter" type="macOS app - Chat (IRC) Client" image="sshot-chatter.png">
+          <p slot="desc">
+            This was written in 2009, before the time of Slack, when IRC was the main way for
+            programmers to get short-term assistance from each other. Its purpose was to be a beautiful app with
+            an emphasis on simplicity and usability over technical power.
+          </p>
+          <ul slot='features'>
+            <li>Async networking</li>
+            <li>Core Animation</li>
+            <li>Core Text</li>
+            <li>IRC Protocol</li>
+            <li>UI Design</li>
+          </ul>
+        </project-item>
+
+        <project-item title="AppGrid" type="macOS app - Window Manager" image="sshot-appgrid.png">
+          <p slot="desc">
+            A productivity tool for power-users that lets you move windows with global
+            keyboard shortcuts. Since it uses Vim-like key bindings, it should feel pretty natural to any
+            programmer. No configuration is needed.
+          </p>
+          <ul slot='features'>
+            <li>Minimalist UI</li>
+            <li>Simple UI</li>
+            <li>Vim-like Hotkeys</li>
+            <li>Global Hotkeys</li>
+            <li>Zero-configuration</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Hydra" type="macOS app - Lua window manager" image="sshot-hydra.png">
+          <p slot="desc">
+            As an evolution of Phoenix, Hydra was Steven's first attempt at embedding a full Lua virtual
+            machine into an Objective-C app, to make a lightweight and efficient window manager that focused on
+            speed, low memory usage, low CPU usage, and overall being gentle on laptop batteries.
+          </p>
+          <ul slot='features'>
+            <li>Embedded Lua</li>
+            <li>Generated docs</li>
+            <li>Lightweight</li>
+            <li>Memory efficient</li>
+            <li>CPU efficient</li>
+          </ul>
+        </project-item>
+
+        <project-item title="Phoenix" type="macOS app - JavaScript window manager" image="sshot-phoenix.png">
+          <p slot="desc">
+            As an evolution of Zephyros, Phoenix was Steven's attempt to use Cocoa's native JavaScript
+            bindings to make a more lightweight and efficient window manager, that focused on speed, low memory
+            usage, low CPU usage, and overall being gentle on laptop batteries.
+          </p>
+          <ul slot='features'>
+            <li>JavaScriptCore</li>
+            <li>JavaScript API</li>
+            <li>Lightweight</li>
+            <li>Memory efficient</li>
+            <li>CPU efficient</li>
+          </ul>
+        </project-item>
+
+      </div>
+
+    </wide-container>
+
   </section>
 
   <section>
