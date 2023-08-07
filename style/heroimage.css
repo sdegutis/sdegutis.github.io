@@ -54,7 +54,6 @@
 
 .hero-image ::slotted(*) {
   font-family: 'Montserrat', sans-serif !important;
-  font-weight: 100 !important;
   color: #fff !important;
   margin: 0.25em 0 !important;
 }
