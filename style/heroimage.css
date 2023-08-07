@@ -16,6 +16,8 @@
   background-size: cover;
   background-position-y: center;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
 }
 
 .hero-image>div {
@@ -53,7 +55,6 @@
 }
 
 .hero-image ::slotted(*) {
-  font-family: 'Montserrat', sans-serif !important;
-  color: #fff !important;
   margin: 0.25em 0 !important;
+  font-weight: 100 !important;
 }
