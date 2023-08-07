@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-.hero-image ::slotted(:is(h1, h2, p)) {
+.hero-image ::slotted(*) {
   font-family: 'Montserrat', sans-serif;
   font-weight: 100;
   color: #fff;
