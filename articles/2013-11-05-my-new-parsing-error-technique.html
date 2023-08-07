@@ -9,7 +9,7 @@
   My new parsing error technique
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   A few blog posts ago, I explained a technique I planned to use for catching parse errors.
   
@@ -29,6 +29,6 @@
   
   I'm also considering jumping out of the stack manually instead of abusing exceptions when I find a parse-error. I'd have to use an out-param to communicate the damage and the intention to wind back up the stack manually. That plan feels a bit fragile, since I'll still need to remember to jump out at call-sites that may have jumped out.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

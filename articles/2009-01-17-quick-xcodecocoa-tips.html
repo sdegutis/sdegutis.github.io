@@ -9,7 +9,7 @@
   Quick Xcode/Cocoa Tips
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   Here are some quick tips I've figured out for myself over the course of learning Cocoa and finding my way around Xcode.
   
@@ -17,6 +17,6 @@
   * When providing a `@selector()` for use with methods like `-[NSApp beginSheet:modalForWindow:modalDelegate:didEndSelector:contextInfo:]`, instead of having to do all the tedious removing of types and parentheses, simply double-click somewhere on your method's signature while holding the Option key. This brings the method up in Xcode's documentation viewer's search field, conveniently stripping all extra characters except colons from the name. It even highlights it for you! Then just Cut this string with Cmd+X, close the window with Cmd+W, and you're ready to paste the whole method signature!
   * When needing to filter an array of duplicate items, use NSSet's method. The code will involve `+[NSSet setWithArray:]` and `-[NSSet allObjects]`. However, I'm not entirely sure what this will do to the order of the elements in the array. I think this trick is most useful when needing to save an unordered unique set of items in the user defaults (or any property list).
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

@@ -9,7 +9,7 @@
   Negotating with Bomberman Clients
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   When writing a Bomberman clone, I want all of us in this house to be able to open a client, type their name, and click Join. Then one person will click "Start Game" (me!) and the game will start. The goal is to make starting a new game easy and convenient on us all.
   
@@ -21,6 +21,6 @@
   
   The only race-condition with this is if there's any lag between sending the roster message and receiving all the replies. It has no way of knowing whether it has received all the replies, so it might have to wait a few seconds. But seeing as we're playing on an internal LAN, I assume they'll always respond nearly immediately, and just hope for the best.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

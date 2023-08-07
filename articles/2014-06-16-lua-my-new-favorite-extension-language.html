@@ -9,7 +9,7 @@
   Lua: my new favorite extension language
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   And I'll tell you why!
   
@@ -47,6 +47,6 @@
   
   Lua's C API uses a stack-based approach. This is great for the authors of Lua, since it lets them avoid writing an exponential number of functions. And honestly, sometimes it's just nice to not have to name variables. But the API can be admittedly difficult to use in large quantities. The solution is to write a very (very!) minimalist private C layer, and write your public-facing API in Lua itself, which calls into the private API written in C.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

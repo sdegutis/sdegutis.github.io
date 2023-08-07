@@ -9,7 +9,7 @@
   Concatenating Objective-C String Literals
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   When we made our app[Quick List](https://itunes.apple.com/us/app/quick-list-for-todos-chores-groceries-tasks/id1232494353?ls=1&mt=8), we had to decide on a language. When we chose Objective-C, we lost some of the convenience that Swift brought to the table. But using obscure features of C and Objective-C, we were able to get some of that convenience back.
   
@@ -90,6 +90,6 @@
   
   In general this feature is a bad idea and C shouldn't have it, because it most often leads to bugs like when you forget a comma in an array literal like `const char* array[] = {"foo" "bar"}`, it becomes a concatenative expression and results in `{"foobar"}` which isn't even close to what we meant. But in situations like the above, it comes in handy.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

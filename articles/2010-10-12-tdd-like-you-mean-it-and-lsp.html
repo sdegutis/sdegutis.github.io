@@ -9,7 +9,7 @@
   TDD Like You Mean It, and LSP
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   Today I essentially finished the SCNA5k Results website, using ATs and TDD the whole time! The last mile was to implement a JSON-based web service for downloading and uploading the list of runners, which took a little longer than I thought it would due to my inexperience with the tools, but overall was done fairly quickly. I can't claim to be an expert at Cucumber or Capybara or Nokogiri or anything yet but I can say that it was definitely a good learning experience.
   
@@ -25,6 +25,6 @@
   
   Mike Ash wrote a blog post [going into detail](http://mikeash.com/pyblog/friday-qa-2009-02-20-the-good-and-bad-of-distributed-objects.html) about this behavior, specifically the point he makes where you _may not_ add a distributed object proxy into an NSSet. It's a little different than the plain-jane C++ example because ObjC also uses `@protocol`s for its is-a behavior as well as inheritance, but it still holds just as well. Anything that conforms to the `NSObject` protocol should work just fine being added into an NSSet, but distributed objects (instances of class NSProxy, conforming to NSObject) might throw an exception upon receiving the message `-hash`, for instance, thus possibly putting the NSSet into an inconsistent state! Granted, this is arguable because there is no proof that NSSet cannot handle an exception thrown on a member's `-hash`, and in fact there is no contract anywhere stating this. But given we have the rule that an object must never throw an exception from within `-hash`, this principle applies and thus is broken by DO.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

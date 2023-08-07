@@ -9,7 +9,7 @@
   Ruby Accessors Considered Pernicious
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   One Ruby feature I fell in love with is the ability to define methods like `foo` and `foo=` which are used like simple variable accessors. This can be a very powerful abstraction. Yet now I'm convinced that putting logic in these accessors is often the wrong tool for the job.
   
@@ -25,6 +25,6 @@
   
   Custom accessors are great when dealing with calculated or derivative fields, such as deriving `full_name` when you already have `first_name` and `last_name`, or for various mathematical calculations. We should be kind to our fellow developers and design our APIs to be predictable by restricting our usage of custom accessor-like methods to these trivial cases and leaving the heavy lifting to explicit methods.
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>

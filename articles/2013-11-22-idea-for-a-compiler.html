@@ -9,7 +9,7 @@
   Idea for a compiler
 </article-header>
 
-<article-body>
+<article-body><render-markdown>
 
   This morning I started wondering what it would take to write a really basic Lisp-ish compiler that emitted a fast-loading, fast-running, low(ish)-memory executable. And I think I came up with a plan that might just work.
   
@@ -43,6 +43,6 @@
   I think the easiest way to design both the runtime and the compiler would be to manually write C code that looks like how I want it to be have, and make sure the whole time that I can imagine how it would translate into the lisp-ish language. The downside to this approach is that I could get pretty far before I realize there's a fatal foundational design flaw that requires starting from scratch.
   
 
-</article-body>
+</render-markdown></article-body>
 
 <site-footer></site-footer>
