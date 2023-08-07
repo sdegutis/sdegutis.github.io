@@ -14,28 +14,17 @@
 
 <style>
   #projects {
-    margin: 0 auto;
-    width: 90%
-  }
-
-  @media (min-width:40em) {
-    #projects {
-      display: flex;
-      flex-wrap: wrap
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
   }
 
   project-item {
-    margin: .25em 0
+    flex: 1 0 20em;
+    align-items: stretch;
   }
+</style>
 
-  @media (min-width:40em) {
-    project-item {
-      flex: 1 0 20em;
-      padding: .5em;
-      margin: 1em 0
-    }
-  }
 </style>
 
 <site-navbar></site-navbar>
@@ -61,57 +50,36 @@
     <wide-container>
 
       <template id="project-item-template">
+
         <style>
-          :scope .project-inner {
-            padding: 1em 0;
-            border-radius: .33em;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between
-          }
-
-          @media (min-width:40em) {
-            :scope .project-inner {
-              background: #fff;
-              padding: 1em
-            }
-          }
-
-          :scope .project-inner h3 {
-            margin-bottom: 1em
-          }
-
-          :scope .project-inner .source {
-            margin-top: 0
-          }
-
-          :scope .project-inner .project-kind {
+          :host {
+            align-self: stretch;
             display: block;
-            font-style: italic
+          }
+
+          .project-inner {
+            background: #fff;
+            padding: 1em;
           }
 
           :scope .project-inner .split {
             display: flex;
-            margin-top: 1em
+            justify-content: space-around;
+            align-items: center;
+            /* margin-top: 1em */
           }
 
-          :scope .project-inner ::slotted(img) {
+          ::slotted(img) {
             width: 7em;
-            margin-right: 1em;
-            border-radius: 50%
+            border-radius: 50%;
           }
 
           ::slotted(ul) {
-            margin: 0;
-            padding-left: 0;
-          }
-
-          ::slotted(ul li) {
-            margin-bottom: .5em;
             list-style-type: none;
+            padding-left: 0 !important;
           }
         </style>
+
         <div class="project-inner">
           <div class="details">
             <slot name="title"></slot>
@@ -143,10 +111,9 @@
             This site itself is an interesting technical accomplishment, because it's entirely static,
             but being written with web components, it's much faster than React-based sites,
             and is still fully compatible with SEO, since all relevant content is in each HTML file.
-            <br><br>
-            <a href='https://github.com/sdegutis/sdegutis.github.io'>Source code</a>
           </p>
           <ul slot='features'>
+            <li><a href='https://github.com/sdegutis/sdegutis.github.io'>Source code</a></li>
             <li>Web Components</li>
             <li>ES Modules</li>
             <li>GitHub API</li>
@@ -164,12 +131,10 @@
             is TypeScript on the dev side, which is compiled to pure JavaScript on the client side.
             There are no external libraries used, only DOM methods and the HTML Canvas.
             This app is powerful enough to produce animations, and convenient enough to draw them well.
-            <br><br>
-            <a href='https://samanimate.thesoftwarephilosopher.com/'>Live demo</a>
-            <br><br>
-            <a href='https://github.com/sdegutis/samanimate'>Source code</a>
           </p>
           <ul slot='features'>
+            <li><a href='https://samanimate.thesoftwarephilosopher.com/'>Live demo</a></li>
+            <li><a href='https://github.com/sdegutis/samanimate'>Source code</a></li>
             <li>TypeScript</li>
             <li>HTML Canvas</li>
             <li>esbuild</li>
@@ -187,12 +152,10 @@
             Made for and with my children as a way to keep my software skills fresh as
             well as teach them the basics of coding, this is essentially a clone of the
             SNES version of Bomberman that I loved as a kid. It took a few Saturdays to make.
-            <br><br>
-            <a href="https://www.thesoftwarephilosopher.com/pico8-games/bomberman.html">Play in browser</a>
-            <br><br>
-            <a href='https://github.com/sdegutis/pico8-games/blob/main/bomberman.p8'>Source code</a>
           </p>
           <ul slot='features'>
+            <li><a href="https://www.thesoftwarephilosopher.com/pico8-games/bomberman.html">Play in browser</a></li>
+            <li><a href='https://github.com/sdegutis/pico8-games/blob/main/bomberman.p8'>Source code</a></li>
             <li>Lua</li>
             <li>Love2d</li>
             <li>Game logic</li>
@@ -209,12 +172,10 @@
           <p slot="desc">
             Another pico8 game made for my children. This one emphasizes team-building
             by having levels that can only be beaten by teamwork between two players.
-            <br><br>
-            <a href="https://www.thesoftwarephilosopher.com/pico8-games/blocks.html">Play in browser</a>
-            <br><br>
-            <a href='https://github.com/sdegutis/pico8-games/blob/main/blocks.p8'>Source code</a>
           </p>
           <ul slot='features'>
+            <li><a href="https://www.thesoftwarephilosopher.com/pico8-games/blocks.html">Play in browser</a></li>
+            <li><a href='https://github.com/sdegutis/pico8-games/blob/main/blocks.p8'>Source code</a></li>
             <li>Lua</li>
             <li>Love2d</li>
             <li>Game logic</li>
@@ -234,12 +195,10 @@
             net and a stick between you, but there are bees and wolves!
             This game encourages exploration and experimentation by having different
             combinations of actions produce different and someimes funny results.
-            <br><br>
-            <a href="https://www.thesoftwarephilosopher.com/pico8-games/sheep.html">Play in browser</a>
-            <br><br>
-            <a href='https://github.com/sdegutis/pico8-games/blob/main/sheep.p8'>Source code</a>
           </p>
           <ul slot='features'>
+            <li><a href="https://www.thesoftwarephilosopher.com/pico8-games/sheep.html">Play in browser</a></li>
+            <li><a href='https://github.com/sdegutis/pico8-games/blob/main/sheep.p8'>Source code</a></li>
             <li>Lua</li>
             <li>Love2d</li>
             <li>Game logic</li>
