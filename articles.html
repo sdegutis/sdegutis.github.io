@@ -10,22 +10,25 @@
 
   fetch(url).then(res => res.json()).then(async list => {
     const articles = await Promise.all(list
-      .map(async ({ download_url, name }) => {
-        const res = await fetch(download_url);
+      .map(async (item) => {
+        const hash = `${item.sha}+${item.size}`;
+        const res = await fetch(item.download_url);
         const body = await res.text();
         const match = body.match(/<article-header>([\s\S]+)<\/article-header>/);
         if (!match) {
           console.log(body)
         }
         const title = match[1].trim();
-        const url = `/articles/${name}`;
+        const url = `/articles/${item.name}`;
 
-        const date = new Date(name.slice(0, 10));
+        const date = new Date(item.name.slice(0, 10));
         const year = date.getFullYear();
         const month = date.toLocaleDateString('default', { month: 'long' });
 
-        return { url, title, year, month };
+        return { url, title, year, month, hash };
       }));
+
+
 
     for (const article of [...articles].reverse()) {
       let list = articlesByYear.get(article.year);
