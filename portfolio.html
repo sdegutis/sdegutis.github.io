@@ -36,17 +36,6 @@
       margin: 1em 0
     }
   }
-
-  ::slotted(ul) {
-    list-style-position: inside;
-    margin: 0;
-    padding-left: 0;
-  }
-
-  ::slotted(ul) li {
-    margin-bottom: .5em;
-    list-style-type: none;
-  }
 </style>
 
 <site-navbar></site-navbar>
@@ -111,6 +100,16 @@
             width: 7em;
             margin-right: 1em;
             border-radius: 50%
+          }
+
+          ::slotted(ul) {
+            margin: 0;
+            padding-left: 0;
+          }
+
+          ::slotted(ul li) {
+            margin-bottom: .5em;
+            list-style-type: none;
           }
         </style>
         <div class="project-inner">
