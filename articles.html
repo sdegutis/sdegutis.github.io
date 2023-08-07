@@ -8,6 +8,15 @@
   let articlesReady;
   const articlesByYear = new Map();
 
+  function whenArticlesReady(fn) {
+    if (articlesByYear.size > 0) {
+      fn();
+    }
+    else {
+      articlesReady = fn;
+    }
+  }
+
   fetch(url).then(res => res.json()).then(async list => {
     const articles = await Promise.all(list
       .map(async (item) => {
@@ -45,14 +54,9 @@
       super();
       this.innerHTML = `Loading...`;
 
-      if (articlesByYear.size > 0) {
+      whenArticlesReady(() => {
         this.showArticles();
-      }
-      else {
-        articlesReady = () => {
-          this.showArticles();
-        };
-      }
+      });
     }
 
     showArticles() {
