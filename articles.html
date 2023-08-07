@@ -25,16 +25,29 @@
       const date = new Date(item.name.slice(0, 10));
       const year = date.getFullYear();
       const month = date.toLocaleDateString('default', { month: 'long' });
-      return { url, year, month, hash, download: item.download_url };
+      return { url, year, month, hash };
     });
 
-    const articles = await Promise.all(articleMetas.map(async (item) => {
-      const res = await fetch(item.download);
-      const body = await res.text();
-      const match = body.match(/<article-header>([\s\S]+)<\/article-header>/);
-      const title = match[1].trim();
-      return { title, ...item };
-    }));
+    const key = articleMetas.map(m => m.hash).join('-');
+    const oldKey = localStorage.getItem('key');
+
+    let titles;
+    if (oldKey === key) {
+      titles = JSON.parse(localStorage.getItem('titles'));
+    }
+    else {
+      titles = await Promise.all(articleMetas.map(async (item, i) => {
+        const res = await fetch(list[i].download_url);
+        const body = await res.text();
+        const match = body.match(/<article-header>([\s\S]+)<\/article-header>/);
+        const title = match[1].trim();
+        return title;
+      }));
+      localStorage.setItem('titles', JSON.stringify(titles));
+      localStorage.setItem('key', key);
+    }
+
+    const articles = articleMetas.map((m, i) => ({ ...m, title: titles[i] }));
 
     for (const article of [...articles].reverse()) {
       let list = articlesByYear.get(article.year);
