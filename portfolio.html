@@ -7,10 +7,7 @@
   customElements.define("project-item", class ProjectItem extends HTMLElement {
     connectedCallback() {
       const template = document.getElementById('project-item-template').content.cloneNode(true);
-      template.querySelector('img').src = '/portfolio/' + this.getAttribute('image');
-
-      const shadowRoot = this.attachShadow({ mode: "open" });
-      shadowRoot.appendChild(template);
+      this.attachShadow({ mode: "open" }).appendChild(template);
     }
   });
 </script>
@@ -110,7 +107,7 @@
             margin-top: 1em
           }
 
-          :scope .project-inner img {
+          :scope .project-inner ::slotted(img) {
             width: 7em;
             margin-right: 1em;
             border-radius: 50%
@@ -128,7 +125,7 @@
           </div>
           <div class="split">
             <div class="half">
-              <img alt="Screenshot" />
+              <slot name="image"></slot>
             </div>
             <div class="half">
               <slot name="features"></slot>
@@ -139,9 +136,10 @@
 
       <div id="projects">
 
-        <project-item image="sshot-thissite.png">
+        <project-item>
           <h3 slot="title">This site</h3>
           <span slot="kind">Web - Dynamic static site</span>
+          <img src="./portfolio/sshot-thissite.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This site itself is an interesting technical accomplishment, because it's entirely static,
             but being written with web components, it's much faster than React-based sites,
@@ -158,9 +156,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-samanimate.png">
+        <project-item>
           <h3 slot="title">Samanimate</h3>
           <span slot="kind">Web - Paint-like animating app</span>
+          <img src="./portfolio/sshot-samanimate.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Web based paint app that animates what you draw, and works very well with a stylus. The technology
             is TypeScript on the dev side, which is compiled to pure JavaScript on the client side.
@@ -181,9 +180,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-bomberman.png">
+        <project-item>
           <h3 slot="title">Bomberman</h3>
           <span slot="kind">Game - Pico8</span>
+          <img src="./portfolio/sshot-bomberman.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Made for and with my children as a way to keep my software skills fresh as
             well as teach them the basics of coding, this is essentially a clone of the
@@ -203,9 +203,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-blocks.png">
+        <project-item>
           <h3 slot="title">Blocks</h3>
           <span slot="kind">Game - Pico8</span>
+          <img src="./portfolio/sshot-blocks.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Another pico8 game made for my children. This one emphasizes team-building
             by having levels that can only be beaten by teamwork between two players.
@@ -224,9 +225,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-sheep.png">
+        <project-item>
           <h3 slot="title">Sheep</h3>
           <span slot="kind">Game - Pico8</span>
+          <img src="./portfolio/sshot-sheep.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Yet another pico8 game made for my children to encourage team-building.
             You're two shepherds who have to herd 100 sheep together. You have a
@@ -245,9 +247,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-cleancoders.png">
+        <project-item>
           <h3 slot="title">CleanCoders.com</h3>
           <span slot="kind">Website - Online Video Store</span>
+          <img src="./portfolio/sshot-cleancoders.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Written for Robert "Uncle Bob" Martin, using Clojure for the back-end, and
             JavaScript for the front-end, this site transformed from a
@@ -263,9 +266,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-docks.png">
+        <project-item>
           <h3 slot="title">Docks</h3>
           <span slot="kind">macOS app - Dock Utility</span>
+          <img src="./portfolio/sshot-docks.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Docks was made in 2009 for users who wanted to swap out icons in their Dock with a single
             click. Its unique functionality and design aesthetic attracted the attention of Apple, Engadget, MacWorld,
@@ -279,9 +283,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-leviathan.png">
+        <project-item>
           <h3 slot="title">Leviathan</h3>
           <span slot="kind">macOS app - Clojure IDE</span>
+          <img src="./portfolio/sshot-leviathan.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Written while working on CleanCoders.com, a website written completely in Clojure, this app
             was designed as a custom IDE for macOS designed specifically for Clojure projects to boost productivity.
@@ -295,9 +300,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-zephyros.png">
+        <project-item>
           <h3 slot="title">Zephyros</h3>
           <span slot="kind">macOS app - Hackable Automation</span>
+          <img src="./portfolio/sshot-zephyros.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This began as an experiment to see how many languages could be used to script a custom
             macOS window manager using our custom TCP protocol. Eventually it had bindings for Clojure, Ruby,
@@ -313,9 +319,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-zephsharp.png">
+        <project-item>
           <h3 slot="title">ZephSharp</h3>
           <span slot="kind">Windows app - Hackable Automation</span>
+          <img src="./portfolio/sshot-zephsharp.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This was essentially a clone of the bare features of Zephyros but to Windows using the native
             Windows APIs, which it turns out are much less antagonistic to doing weird stuff than macOS is.
@@ -331,9 +338,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-bubblemaker.png">
+        <project-item>
           <h3 slot="title">Bubble Maker</h3>
           <span slot="kind">iOS app - Bubble simulator</span>
+          <img src="./portfolio/sshot-bubblemaker.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This toy was made in a weekend to entertain my Steven's 1 year old daughter. It lets you create
             bubbles with your fingers, which then simulate physics by bumping into each other and falling.
@@ -347,9 +355,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-quicklist.png">
+        <project-item>
           <h3 slot="title">Quick List</h3>
           <span slot="kind">iOS app - Todo list app</span>
+          <img src="./portfolio/sshot-quicklist.png" slot="image" alt="Screenshot">
           <p slot="desc">
             A very simple and minimalistic app with one sole focus: to organize and track activities and
             tasks with a focus on a pleasing aesthetic design and simple UI/UX.
@@ -363,9 +372,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-oldportfolio.png">
+        <project-item>
           <h3 slot="title">Old Portfolio</h3>
           <span slot="kind">Website - Personal Portfolio</span>
+          <img src="./portfolio/sshot-oldportfolio.png" slot="image" alt="Screenshot">
           <p slot="desc">
             An old portfolio site written from scratch in about a day. It used best practices for
             modern responsive web design, and a custom build phase to compile the sources into a single HTML file.
@@ -379,9 +389,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-2048.png">
+        <project-item>
           <h3 slot="title">2048</h3>
           <span slot="kind">Java app - Game</span>
+          <img src="./portfolio/sshot-2048.png" slot="image" alt="Screenshot">
           <p slot="desc">
             A desktop remake of the game 2048 (created by Gabriele Cirulli).
             This version is written in Java 8, using JavaFx for attractive graphics and silky smooth animations.
@@ -395,9 +406,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-mjolnir.png">
+        <project-item>
           <h3 slot="title">Mjolnir</h3>
           <span slot="kind">macOS app - Window Manager</span>
+          <img src="./portfolio/sshot-mjolnir.png" slot="image" alt="Screenshot">
           <p slot="desc">
             Created to increase programmer productivity by allowing moving windows around in macOS
             using keyboard shortcuts. It grew into a community-driven highly extensible app, using Lua for its
@@ -412,9 +424,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-affluentconfidante.png">
+        <project-item>
           <h3 slot="title">AffluentConfidante.com</h3>
           <span slot="kind">Website - Social Network</span>
+          <img src="./portfolio/sshot-affluentconfidante.png" slot="image" alt="Screenshot">
           <p slot="desc">
             An elite social network backed by an integration of both Apple Pay and
             credit card payments (via Stripe.com) seamlessly into the web app, for a frictionless and pain-free
@@ -429,9 +442,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-hyperchat.png">
+        <project-item>
           <h3 slot="title">HyperChat</h3>
           <span slot="kind">Website - Live Chatroom</span>
+          <img src="./portfolio/sshot-hyperchat.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This isn't just any chatroom. In this web app, you can see what everyone is typing while
             they type it. Created in order to scratch an itch for making real-time apps and games, this site required
@@ -446,9 +460,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-bahamut.png">
+        <project-item>
           <h3 slot="title">Bahamut</h3>
           <span slot="kind">macOS app - Music Player</span>
+          <img src="./portfolio/sshot-bahamut.png" slot="image" alt="Screenshot">
           <p slot="desc">
             As iTunes went through many user interface changes, some desktop users wanted an app that was
             consistent, intuitive, and easy to use. So Bahamut was born, a minimal music player for macOS written in Cocoa
@@ -463,9 +478,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-chatter.png">
+        <project-item>
           <h3 slot="title">Chatter</h3>
           <span slot="kind">macOS app - Chat (IRC) Client</span>
+          <img src="./portfolio/sshot-chatter.png" slot="image" alt="Screenshot">
           <p slot="desc">
             This was written in 2009, before the time of Slack, when IRC was the main way for
             programmers to get short-term assistance from each other. Its purpose was to be a beautiful app with
@@ -480,9 +496,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-appgrid.png">
+        <project-item>
           <h3 slot="title">AppGrid</h3>
           <span slot="kind">macOS app - Window Manager</span>
+          <img src="./portfolio/sshot-appgrid.png" slot="image" alt="Screenshot">
           <p slot="desc">
             A productivity tool for power-users that lets you move windows with global
             keyboard shortcuts. Since it uses Vim-like key bindings, it should feel pretty natural to any
@@ -497,9 +514,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-hydra.png">
+        <project-item>
           <h3 slot="title">Hydra</h3>
           <span slot="kind">macOS app - Lua window manager</span>
+          <img src="./portfolio/sshot-hydra.png" slot="image" alt="Screenshot">
           <p slot="desc">
             As an evolution of Phoenix, Hydra was Steven's first attempt at embedding a full Lua virtual
             machine into an Objective-C app, to make a lightweight and efficient window manager that focused on
@@ -514,9 +532,10 @@
           </ul>
         </project-item>
 
-        <project-item image="sshot-phoenix.png">
+        <project-item>
           <h3 slot="title">Phoenix</h3>
           <span slot="kind">macOS app - JavaScript window manager</span>
+          <img src="./portfolio/sshot-phoenix.png" slot="image" alt="Screenshot">
           <p slot="desc">
             As an evolution of Zephyros, Phoenix was Steven's attempt to use Cocoa's native JavaScript
             bindings to make a more lightweight and efficient window manager, that focused on speed, low memory
