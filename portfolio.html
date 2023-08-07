@@ -5,9 +5,7 @@
 
 <script>
   customElements.define("project-item", class ProjectItem extends HTMLElement {
-    constructor() {
-      super();
-
+    connectedCallback() {
       const template = document.getElementById('project-item-template').content.cloneNode(true);
       template.querySelector('h3').textContent = this.getAttribute('title');
       template.querySelector('.project-kind').textContent = this.getAttribute('type');
