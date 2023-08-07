@@ -51,8 +51,7 @@
 
   customElements.define("all-articles", class ArticleIndex extends HTMLElement {
 
-    constructor() {
-      super();
+    connectedCallback() {
       this.innerHTML = `Loading...`;
 
       whenArticlesReady(() => {
