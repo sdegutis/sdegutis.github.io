@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   Optional method arguments in Ruby
 </article-header>
@@ -18,5 +16,3 @@
   Originally I was going to convert the Method object into a Proc using `Method#to_proc`, and then use `Proc#curry`, which would have been neat, but much too complex for this little problem. Instead I found a simpler solution. All you have to do is limit the full array of arguments to the number of arguments the method actually takes, using `Array#first` in conjunction with `Method#arity`, and splat the result when passing it to `Method#call`. Here's the code I ended up using to make it happen. Ruby is pretty amazing.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>

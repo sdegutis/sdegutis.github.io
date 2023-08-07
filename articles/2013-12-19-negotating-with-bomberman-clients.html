@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   Negotating with Bomberman Clients
 </article-header>
@@ -22,5 +20,3 @@
   The only race-condition with this is if there's any lag between sending the roster message and receiving all the replies. It has no way of knowing whether it has received all the replies, so it might have to wait a few seconds. But seeing as we're playing on an internal LAN, I assume they'll always respond nearly immediately, and just hope for the best.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>

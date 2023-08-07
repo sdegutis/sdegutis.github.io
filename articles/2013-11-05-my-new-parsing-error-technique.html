@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   My new parsing error technique
 </article-header>
@@ -30,5 +28,3 @@
   I'm also considering jumping out of the stack manually instead of abusing exceptions when I find a parse-error. I'd have to use an out-param to communicate the damage and the intention to wind back up the stack manually. That plan feels a bit fragile, since I'll still need to remember to jump out at call-sites that may have jumped out.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>

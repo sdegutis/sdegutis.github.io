@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   ObjC equivalents to Swift solutions #1: Avoiding ObjC class name collisions
 </article-header>
@@ -94,5 +92,3 @@
   **_EDIT_**: As Andy Matuschak pointed out in the HN comments, this solution doesn't address one of the key dangers of using unprefixed names: future system updates might add new classes. Fortunately the solution to this is still pretty simple: test the app on each new system update. Unfortunately, it isn't a full solution: Apple may roll out updates to frameworks _between_ OS updates, which I believe has happened before. Ultimately the best solution is to test your app regularly and pay attention to your logs.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>

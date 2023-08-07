@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   Concatenating Objective-C String Literals
 </article-header>
@@ -91,5 +89,3 @@
   In general this feature is a bad idea and C shouldn't have it, because it most often leads to bugs like when you forget a comma in an array literal like `const char* array[] = {"foo" "bar"}`, it becomes a concatenative expression and results in `{"foobar"}` which isn't even close to what we meant. But in situations like the above, it comes in handy.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>

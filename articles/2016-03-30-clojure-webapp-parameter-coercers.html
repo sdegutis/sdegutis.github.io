@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="../style/base.css">
 <script type="module" src="../lib/article.js"></script>
 
-<site-navbar></site-navbar>
-
 <article-header>
   Clojure web app parameter coercers
 </article-header>
@@ -43,5 +41,3 @@
   That one is really useful for `<select>` inputs and stuff like that. I like it a lot because it makes me feel like I'm writing in Haskell in the sense that it gives me that safety of knowing that the thing can definitely only be one of a given list of options, plus it declares right in my parameter list what those options can be, and coerces them into a format that's convenient to use (keywords). Plus I like the simplicity of the implementation since it just uses `get` on a `set`.
 
 </render-markdown></article-body>
-
-<site-footer></site-footer>
