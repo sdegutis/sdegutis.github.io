@@ -1,18 +1,8 @@
+/* Theme */
+
 html {
   font-family: 'Inter', sans-serif;
   color: #333;
-}
-
-:is(h1, h2, h3, h4, hr, p, ul, ol, table, details, summary, form):not(:first-child) {
-  margin-top: 1em;
-}
-
-section {
-  padding: 1em 0;
-}
-
-.alt-section {
-  background-color: #d9e6f5;
 }
 
 a {
@@ -21,4 +11,18 @@ a {
 
 a:visited {
   color: #9d00ff;
+}
+
+section.alt {
+  background-color: #d9e6f5;
+}
+
+/* Spacing */
+
+:is(h1, h2, h3, h4, hr, p, ul, ol, table, details, summary, form):not(:first-child) {
+  margin-top: 1em;
+}
+
+section {
+  padding: 1em 0;
 }
