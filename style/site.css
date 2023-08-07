@@ -18,12 +18,6 @@ section {
   padding: 1em 0;
 }
 
-@media (min-height: 800px) {
-  section {
-    padding: 3em 0;
-  }
-}
-
 .alt-section {
   background-color: #d9e6f5;
 }
