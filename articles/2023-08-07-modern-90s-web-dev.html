@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../style/base.css">
+<script type="module" src="../lib/article.js"></script>
+
+<article-header>
+  Modern 90s web dev
+</article-header>
+
+<article-body>
+<render-markdown>
+
+### Web Components are the modern 90s web dev
+
+I'm constantly looking for ways to reduce friction when writing or maintaining my own websites.
+Lately my favorite solution with the least friction has been using web components with plain HTML.
+It's essentially a return to the best aspects of web dev in the 90s, but with modern conveniences.
+In fact, I rewrote [this entire site (source code)](https://github.com/sdegutis/sdegutis.github.io)
+over the past few days using exactly this technique. And overall, I'm very happy with it.
+
+### Some wins
+
+* **No build phase.** This is my absolutely favorite feature. There's absolutely nothing to build.
+  The one external thing needed is `python -m http.server 8080` to run the site locally during dev.
+  But that's only because browsers don't like ES Modules on localhost. (They also wouldn't make sense.)
+
+* **Reusable components.** The main thing I missed from React was reusability. But web components,
+  specifically custom-elements, provides this with basically no downside. Just create a custom element
+  in a JavaScript file, and import it either via HTML or another JS file, and then start using it.
+  In fact, the article index on this page is the same code used to show it on the Articles page.
+
+* **Shorter HTML.** This is true for two reasons. First, because custom elements can internalize
+  a lot of markup that isn't semantically relevant. But also, because it can expand into a lot of
+  arbitrary HTML, without even having a shadow DOM. For example, the `article-body` element used
+  in this page expands into `main` containing a `section` and my `narrow-container` component
+  that contains this page's rendered content, as well as adding the `site-footer` under it.
+  This allows article HTML pages to be extraordinarily brief aside from the content itself.
+
+* **VS Code compatibility.** All the features you get out of the box for free with VS Code whenever
+  you write a plain HTML/CSS/JS website are still here for free. You can ctrl-click a file path
+  to navigate to its source. The one exception to this is when your links are inside a JavaScript
+  tagged literal representing HTML (e.g. when setting `innerHTML`).
+
+* **Scoped CSS.** Using the Shadow DOM allows for some form of isolating CSS outside and inside
+  a component, whether reusable or not. It's not quite the same as the abandoned scoped CSS feature,
+  and it's generally sane and intuitive: you write CSS for the scope you're at, and it just works.
+  The one difficulty is trying to cross HTML boundary lines.
+  You can use `:slotted` with [these :slotted caveats](https://stackoverflow.com/a/61631668)
+  and `:host` with [this serious :host caveat](https://stackoverflow.com/a/58380653), which
+  literally means that even a CSS Reset like `*{...}` is going to override `:host(h1)` or whatever.
+
+* **Markdown support.** Turns out, web components are perfectly compatible with Markdown. In fact,
+  I created a `render-markdown` custom element that literally just imports markdown-it and renders
+  its inner contents into HTML, which it then displays, complete with internal highlight.js support.
+  The [entire implementation](https://github.com/sdegutis/sdegutis.github.io/blob/main/lib/markdown.js)
+  is 22 lines long, and most of that is unindenting the contained markdown. If it weren't for that
+  and the highlight.js support, it would literally be 10 lines long including comfortable whitespace.
+
+* **React-like abilities.** Since the only site I've used this with so far is this portfolio,
+  which isn't very dynamic, there has been little I've needed to do that React would have
+  been a better fit for. So far, I've used templates with named slots, and that was only
+  somewhat difficult, mostly because of CSS scoping issues (see above). But the power is there
+  if I need to react to attribute changes (via `attributeChangedCallback`), which is nice to know.
+
+### Some things to improve
+
+* **TypeScript support**: With the type annotations proposal, we will (eventually) have
+  all the convenience of TypeScript but without a build phase. Until then, I just have to
+  rely on all the conveniences of VS Code within .js files, and there are even fewer such
+  conveniences inside script tags within .html files. Not the worst, but I'm eagerly
+  waiting that proposal.
+
+* **Dealing with data**: Since Web Components are entirely a client-side feature,
+  it's technically impossible to list contents of directories also hosted on the same site,
+  unless that site itself allows it. In the past, I used nginx's directory listing feature,
+  and parsed the HTML to get filenames. When a site is hosted on github, you can do something
+  similar using GitHub's API, but it's rate-limited. With a little caching, though, this
+  isn't a big deal, and can be used with small-ish scale data. But for a site that has
+  thousands and thousands of items spread out over several collections, loading from
+  external APIs at runtime may not cut it, and you might have to resort to a local
+  build phase like what SSGs like Jekyll do. Or it might work just fine, depending on how
+  many fetches it takes to get all the relevant data that you need to show.
+
+* **HTML support in JS files**: Creating HTML dynamically in JavaScript is extremely
+  convenient, and without that, this wouldn't work at all. But it also has some issues,
+  mostly on the VS Code side, since you don't get any conveniences of writing CSS
+  or HTML within JavaScript tags. There are extensions that support highlighting them,
+  and they generally work fine, but they add absolutely no help beyond that, whether
+  auto-suggesting tags, auto-closing tags, auto-suggesting attributes, or allowing
+  you to ctrl-click to get to paths of relative files.
+
+### Example of how it isn't perfect
+
+One difficulty I faced was that VS Code still treats my Markdown article as HTML,
+and if you have format-on-save enabled, things can get real ugly real quick.
+Specifically, saving your file will un-indent everything, including code snippets.
+
+Adding this to VS Code fixed the issue for me by considering those files Markdown,
+which isn't quite true because it contains HTML that isn't rendered as markdown by me,
+but isn't quite untrue either because HTML is valid Markdown.
+
+```json
+"files.associations": {
+    "**/articles/*.html": "markdown",
+},
+```
+
+The main downside that still remains in these article files is that you can't
+ctrl-click to get to the path of e.g. `../lib/article.js`. But ultimately
+that's not a big deal, since it's a single exception. It's just inconsistent
+which can be surprising (as it was for me just a minute ago) if you aren't
+paying attention to what file you're in and try to use VS Code like normal.
+
+### Conclusion
+
+Modern web dev can be much simpler again if we take the road of web components
+and improve our tools to consider this a first class dev experience.
+
+### An example in action
+
+Below is literally the source code to this article itself.
+
+</render-markdown>
+<script src="https://gist.github.com/sdegutis/1469bc797bfcf5e92c40503881a8a120.js"></script>
+<render-markdown>
