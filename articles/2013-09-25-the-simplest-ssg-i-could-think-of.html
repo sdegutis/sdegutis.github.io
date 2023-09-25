@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../style/base.css">
+<script type="module" src="../lib/article.js"></script>
+
+<article-header>
+  The simplest SSG I could think of
+</article-header>
+
+<article-body><render-markdown>
+
+I'm gonna fly through this post assuming you're all smarter than me. In short,
+I've evolved [a new SSG](https://github.com/sdegutis/immaculatalibrary.com)
+into existence over the past 2 years, with unique properties and benefits
+I've never seen in an SSG before:
+
+1. **New Runtime.** The app is actually two apps: `/src` which is an ordinary
+Node app (350 loc), and `/app` which it loads and reloads dynamically.
+
+That's actually it. There's really nothing else new to this SSG.
+But the implications are pretty neat:
+
+1. Simple JSX expressions at runtime (`{tag, attrs, children}`)
+   ([jsxPragma](https://github.com/sdegutis/immaculatalibrary.com/blob/6e85efab62d887110c5abefdf57b799b85ffe51b/src/runtime.ts#L55))
+
+2. Tree-walking JSX to hoist script/style tags to head & remove dups
+   ([hoistHeadThings](https://github.com/sdegutis/immaculatalibrary.com/blob/6e85efab62d887110c5abefdf57b799b85ffe51b/app/core/jsx.tsx#L54C18-L74))
+
+3. Extremely fast site-reloads doing literally the least possible work
+   ([reflectChangesFromReal](https://github.com/sdegutis/immaculatalibrary.com/blob/6e85efab62d887110c5abefdf57b799b85ffe51b/src/filesys.ts#L144))
+
+4. Much more useful `__file` and `__dir` tree-based globals in the app
+   ([filesys.ts](https://github.com/sdegutis/immaculatalibrary.com/blob/6e85efab62d887110c5abefdf57b799b85ffe51b/src/filesys.ts))
+
+5. Dynamic tree copying/walking to generate the site
+   ([renderDynamic](https://github.com/sdegutis/immaculatalibrary.com/blob/6e85efab62d887110c5abefdf57b799b85ffe51b/app/main.ts#L12) and [/app/site](https://github.com/sdegutis/immaculatalibrary.com/tree/6e85efab62d887110c5abefdf57b799b85ffe51b/app/site))
+
+The two principles are that JSX is the best template language for a SSG,
+and that, with the right design, the best SSG is just a TypeScript file tree,
+where each .tsx file's default export *is* it's HTML.
+
+There's still a lot of low-hanging fruit in terms of speed and efficiency.
+Right now, it takes me about 4s to regen the site on file change.
+In another local branch I've gotten that down to about ~0.7s so far.
+Granted, that's with processing 1200+ markdown files & ~50 ts/tsx files.
+
+As an example, here's the entirety of `404.html.tsx`:
+
+</render-markdown>
+
+<script src="https://gist.github.com/sdegutis/3369bcfa7b841cae1a1a6d7f9d1d67bc.js"></script>
