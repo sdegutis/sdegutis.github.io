@@ -19,6 +19,14 @@
 11. Realize that about 50% of the keybindings do absolutely unrelated things
 12. Learn that comment-lines doesn't work if the first line is whitespace
 
+## Visual Studio Code integration
+
+1. Give up on using Visual Studio entirely and install VS Code
+2. Find the tasks.json fix so you don't have to open VS Code from dev-prompt
+3. Install the C++ and CMake extensions for VS Code
+4. Note that these extensions point out that Visual Studio is basically better
+5. Add a questionable launch.json to debug the exe that CMake auto-updates or something
+
 ## Alternative: *not* using Visual Studio
 
 1. Uninstall Visual Studio from the Installer
@@ -30,14 +38,6 @@
 7. Install Visual Studio Preview from the Installer by accident
 8. Uninstall VS Preview and install VS non-Preview
 9. Repeat steps 1-8 about 15 times for 2 or 3 hours with slight variations
-
-## Visual Studio Code integration
-
-1. Give up on using Visual Studio entirely and install VS Code
-2. Find the tasks.json fix so you don't have to open VS Code from dev-prompt
-3. Install the C++ and CMake extensions for VS Code
-4. Note that these extensions point out that Visual Studio is basically better
-5. Add a questionable launch.json to debug the exe that CMake auto-updates or something
 
 ## Upgrading to Conan
 
